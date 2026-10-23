@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -252,6 +252,27 @@
   <!-- CALMING AMBIENT BREEZE CANVAS OVERLAY -->
   <canvas id="autumn-breeze-canvas" class="fixed inset-0 pointer-events-none z-20 opacity-80"></canvas>
 
+    <!-- TOP COURSE ARCHIVE & MULTI-LESSON SELECTOR -->
+  <div class="bg-[#1c221f] text-stone-200 text-xs py-2 px-4 shadow-inner border-b border-[#30443b]/60 relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2.5">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-autumn-500/20 text-amber-300 border border-amber-500/30 font-mono text-[10px] font-bold">
+          ðŸ“š COURSE ARCHIVE
+        </span>
+        <span class="font-serif text-sm font-semibold text-stone-100">Worachon's English Sanctuary & Learning Portal</span>
+      </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="text-[11px] text-stone-400 font-sans hidden sm:inline">Switch Lesson:</span>
+        <a href="lesson_10-23-2026.html" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold bg-stone-800/90 text-stone-300 hover:text-white hover:bg-stone-700 border border-stone-700/80 transition">
+          <span>ðŸ‚ Lesson 02 (23 Oct 2026)</span>
+          <span class="px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-amber-400 text-stone-900">Latest</span>
+        </a>
+        <a href="lesson_10-22-2026.html" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold bg-sage-700 text-white shadow-xs font-bold border border-sage-500/50">
+          <span>ðŸ›ï¸ Lesson 01 (22 Oct 2026)</span>
+        </a>
+      </div>
+    </div>
+  </div>
   <!-- TOP STUDENT BADGE STRIP -->
   <aside class="bg-gradient-to-r from-sage-800 via-sage-700 to-autumn-700 text-white text-xs py-2 px-4 text-center font-medium shadow-sm relative z-50 flex items-center justify-between gap-3 flex-wrap">
     <div class="flex items-center gap-2">
@@ -352,6 +373,21 @@
 
   <!-- MAIN CONTAINER -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-30">
+
+    <!-- HELPFUL MULTI-LESSON QUICK NOTICE BANNER -->
+    <div class="mb-5 p-3 sm:p-4 rounded-2xl sanctuary-subcard border-l-4 border-l-sage-600 flex items-center justify-between gap-3 flex-wrap">
+      <div class="flex items-center gap-2.5">
+        <span class="text-base">ðŸ“–</span>
+        <div class="text-xs sm:text-sm text-stone-700">
+          <strong class="text-slatewarm-900">Viewing Lesson 01 Notes (22 October 2026)</strong> â€¢ Bacteria vs Viruses, Plate Tectonics, Idioms & The Checkers Dialogue.
+        </div>
+      </div>
+      <a href="lesson_10-23-2026.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-autumn-700 hover:text-autumn-800 bg-autumn-50 hover:bg-autumn-100 px-3 py-1.5 rounded-xl border border-autumn-200 transition">
+        <span>View Latest Lesson 02 (23 Oct)</span>
+        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+      </a>
+    </div>
+
 
     <!-- =================================================================== -->
     <!-- TAB 1: FULL CLEANED TRANSCRIPT -->
