@@ -1,0 +1,3500 @@
+// Full Builder for Worachon P's Peaceful English Sanctuary
+const fs = require('fs');
+const path = require('path');
+
+console.log("Compiling Worachon P's complete index.html...");
+
+// -----------------------------------------------------------------------------
+// 1. VOCABULARY DATABASE (55 Rich Terms, Idioms & Concepts with Thai Translations)
+// -----------------------------------------------------------------------------
+const VOCAB_DB = {
+  "prosthetic": {
+    word: "prosthetic",
+    ipa: "/prɒsˈθet.ɪk/",
+    pos: "noun / adjective",
+    level: "B2",
+    time: "00:12",
+    turnId: "turn-3",
+    cat: "medical",
+    def: "An artificial body part designed to replace a missing or damaged biological part, such as an artificial hip joint.",
+    quote: "Louie (00:12): \"They actually get some kind of material for their prosthetics in Thailand from a Thai company.\"",
+    th: "ข้อต่อเทียม / อวัยวะเทียม"
+  },
+  "off-the-top-of-ones-head": {
+    word: "off the top of one's head",
+    ipa: "/ɒf ðə tɒp əv wʌnz hed/",
+    pos: "idiom",
+    level: "C1",
+    time: "01:09",
+    turnId: "turn-3",
+    cat: "idioms",
+    def: "From immediate spontaneous recall without consulting reference materials, notes, or calculating carefully.",
+    quote: "Louie (01:09): \"They couldn't remember off the top of their head, but they're going to get me the company's name.\"",
+    th: "คิดออกทันทีโดยไม่ต้องเปิดดู / พูดจากความทรงจำ"
+  },
+  "more-than-welcome": {
+    word: "more than welcome",
+    ipa: "/mɔː ðən ˈwel.kəm/",
+    pos: "phrase",
+    level: "B2",
+    time: "01:09",
+    turnId: "turn-3",
+    cat: "communication",
+    def: "Enthusiastically invited, very gladly received, or happily encouraged to participate or ask questions.",
+    quote: "Louie (01:09): \"If you have any questions or anything you want to pass on, they said you're more than welcome to ask.\"",
+    th: "ยินดีเป็นอย่างยิ่ง / ยินดีช่วยเหลือเต็มที่"
+  },
+  "influenza": {
+    word: "influenza (flu)",
+    ipa: "/ˌɪn.fluˈen.zə/",
+    pos: "noun",
+    level: "B2",
+    time: "02:00",
+    turnId: "turn-5",
+    cat: "medical",
+    def: "A contagious viral infection of the respiratory tract causing fever, headache, severe body aches, and vocal strain.",
+    quote: "Worachon (02:00): \"Actually, I got influenza... my voice isn't great yet.\"",
+    th: "ไข้หวัดใหญ่"
+  },
+  "reschedule": {
+    word: "reschedule",
+    ipa: "/ˌriːˈʃedʒ.uːl/",
+    pos: "verb",
+    level: "B2",
+    time: "02:23",
+    turnId: "turn-6",
+    cat: "everyday",
+    def: "To arrange a new time, date, or appointment for a scheduled event or lesson.",
+    quote: "Louie (02:23): \"If you feel sick, I can reschedule this lesson and let you rest until you're better.\"",
+    th: "เลื่อนนัด / กำหนดวันเวลาใหม่"
+  },
+  "machete": {
+    word: "machete",
+    ipa: "/məˈʃet.i/",
+    pos: "noun",
+    level: "C1",
+    time: "04:15",
+    turnId: "turn-10",
+    cat: "everyday",
+    def: "A large, heavy cleaver-like knife used as an implement for hacking vegetation or cleaving thick fruit rinds.",
+    quote: "Louie (04:15): \"You use a knife—like a machete—to cut it open, and the coconut water is really nice.\"",
+    th: "มีดพร้า / มีดขนาดใหญ่"
+  },
+  "waxy": {
+    word: "waxy",
+    ipa: "/ˈwæk.si/",
+    pos: "adjective",
+    level: "B2",
+    time: "04:49",
+    turnId: "turn-12",
+    cat: "everyday",
+    def: "Resembling wax in texture, smoothness, or pliable consistency.",
+    quote: "Louie (04:49): \"It's a green fruit, very waxy and goes on toast... avocado!\"",
+    th: "เนื้อสัมผัสเหมือนขี้ผึ้ง / เนียนมัน"
+  },
+  "vermin": {
+    word: "vermin",
+    ipa: "/ˈvɜː.mɪn/",
+    pos: "noun",
+    level: "C2",
+    time: "06:58",
+    turnId: "turn-18",
+    cat: "nature",
+    def: "Wild animals or creatures perceived as destructive, troublesome, or carriers of disease.",
+    quote: "Louie (06:58): \"It's like vermin... raccoons live in bins in Canada and America; they're very smart.\"",
+    th: "สัตว์รบกวน / สัตว์พาหะนำโรค"
+  },
+  "endurance": {
+    word: "endurance",
+    ipa: "/ɪnˈdjʊə.rəns/",
+    pos: "noun",
+    level: "B2",
+    time: "07:31",
+    turnId: "turn-20",
+    cat: "sports",
+    def: "The power or stamina to withstand prolonged physical pain, exertion, or cardiovascular stress.",
+    quote: "Louie (07:31): \"It's a sport about endurance and strength—gymnastics.\"",
+    th: "ความทรหดอดทน / ความอึด"
+  },
+  "extreme-sport": {
+    word: "extreme sport",
+    ipa: "/ɪkˌstriːm ˈspɔːt/",
+    pos: "noun",
+    level: "B2",
+    time: "08:12",
+    turnId: "turn-22",
+    cat: "sports",
+    def: "Action sports involving high speed, great physical hazard, and spectacular acrobatic maneuvers.",
+    quote: "Louie (08:12): \"It's an extreme sport, and it's on wheels... skateboarding!\"",
+    th: "กีฬาเอ็กซ์ตรีม / กีฬาผาดโผน"
+  },
+  "grinding": {
+    word: "grinding",
+    ipa: "/ˈɡraɪn.dɪŋ/",
+    pos: "noun (skateboarding)",
+    level: "C1",
+    time: "08:39",
+    turnId: "turn-22",
+    cat: "sports",
+    def: "In skateboarding, scraping or sliding along an edge, ledge, or coping rail on the skateboard axle trucks.",
+    quote: "Louie (08:39): \"They do grinding... they jump over obstacles on a skateboard.\"",
+    th: "การสไลด์แกนล้อบนราวเหล็กหรือขอบปูน (สเกตบอร์ด)"
+  },
+  "give-someone-a-bell": {
+    word: "give someone a bell",
+    ipa: "/ɡɪv ˈsʌm.wʌn ə bel/",
+    pos: "idiom (British)",
+    level: "C1",
+    time: "17:45",
+    turnId: "turn-38",
+    cat: "idioms",
+    def: "A ubiquitous British informal idiom meaning to telephone or call someone.",
+    quote: "Louie (17:45): \"Because of Alexander Graham Bell, in England we say, 'I'll give you a bell'—it means 'I will call you.'\"",
+    th: "โทรหา (สำนวนอังกฤษที่ใช้บ่อยมาก)"
+  },
+  "philosopher": {
+    word: "philosopher",
+    ipa: "/fɪˈlɒs.ə.fər/",
+    pos: "noun",
+    level: "B2",
+    time: "15:48",
+    turnId: "turn-36",
+    cat: "concepts",
+    def: "A scholar who seeks wisdom and rigorously ponders fundamental questions of reality, ethics, and epistemology.",
+    quote: "Louie (15:48): \"A very famous philosopher from ancient Greece: Socrates and Plato.\"",
+    th: "นักปรัชญา"
+  },
+  "warlord": {
+    word: "warlord",
+    ipa: "/ˈwɔː.lɔːd/",
+    pos: "noun",
+    level: "C1",
+    time: "16:39",
+    turnId: "turn-38",
+    cat: "concepts",
+    def: "A regional military leader exercising authoritarian control and armed force independently of a state.",
+    quote: "Louie (16:39): \"Attila the Hun is like a famous warlord ruler from history.\"",
+    th: "ขุนศึก / ผู้นำกองกำลังทหาร"
+  },
+  "anesthesiologist": {
+    word: "anesthesiologist",
+    ipa: "/ˌæn.əsˌθiː.ziˈɒl.ə.dʒɪst/",
+    pos: "noun",
+    level: "C2",
+    time: "18:15",
+    turnId: "turn-41",
+    cat: "medical",
+    def: "A physician specialized in perioperative medical care and the administration of anesthetics.",
+    quote: "Worachon (18:06): \"The one who needs to make sure you fall asleep during surgery.\" Louie (18:15): \"Anesthesiologist!\"",
+    th: "วิสัญญีแพทย์ (แพทย์ผู้วางยาสลบ)"
+  },
+  "inherited-trait": {
+    word: "inherited trait",
+    ipa: "/ɪnˈher.ɪ.tɪd treɪt/",
+    pos: "noun",
+    level: "B2",
+    time: "18:22",
+    turnId: "turn-42",
+    cat: "science",
+    def: "A genetic characteristic or biological feature transferred from biological parents to offspring via DNA.",
+    quote: "Worachon (18:22): \"The field of science which studies your inherited traits... genetics.\"",
+    th: "ลักษณะทางพันธุกรรมที่ถ่ายทอดมา"
+  },
+  "genetics": {
+    word: "genetics",
+    ipa: "/dʒəˈnet.ɪks/",
+    pos: "noun",
+    level: "B2",
+    time: "18:49",
+    turnId: "turn-44",
+    cat: "science",
+    def: "The branch of biological science dealing with genes, genetic variation, and heredity in organisms.",
+    quote: "Worachon (18:49): \"Yeah, it's genetics.\" Louie (19:56): \"In Vietnamese 'học' means study of, so they say 'gen học'!\"",
+    th: "พันธุศาสตร์"
+  },
+  "dynamite": {
+    word: "dynamite",
+    ipa: "/ˈdaɪ.nə.maɪt/",
+    pos: "noun",
+    level: "B2",
+    time: "19:21",
+    turnId: "turn-46",
+    cat: "science",
+    def: "A commercial explosive based on nitroglycerin stabilized in kieselguhr, invented by Alfred Nobel.",
+    quote: "Worachon (19:21): \"The dynamite.\" Louie (19:23): \"Oh, dynamite! Invented by Alfred Nobel.\"",
+    th: "ดินระเบิดไดนาไมต์"
+  },
+  "sonar": {
+    word: "sonar",
+    ipa: "/ˈsəʊ.nɑːr/",
+    pos: "noun",
+    level: "C1",
+    time: "19:39",
+    turnId: "turn-48",
+    cat: "science",
+    def: "Sound Navigation and Ranging: a technique using sound propagation underwater to detect submerged objects.",
+    quote: "Worachon (19:39): \"It's sonar... they use sound as a technique, but the details are different from ultrasound.\"",
+    th: "ระบบโซนาร์ (การตรวจจับวัตถุใต้น้ำด้วยคลื่นเสียง)"
+  },
+  "friction": {
+    word: "friction",
+    ipa: "/ˈfrɪk.ʃən/",
+    pos: "noun",
+    level: "B2",
+    time: "21:20",
+    turnId: "turn-52",
+    cat: "science",
+    def: "The mechanical resistance encountered when two contiguous bodies slide or rub against each other.",
+    quote: "Louie (21:20): \"When you rub two objects together, it creates heat... on your brakes, that's friction.\"",
+    th: "แรงเสียดทาน"
+  },
+  "plate-tectonics": {
+    word: "plate tectonics",
+    ipa: "/pleɪt tekˈtɒn.ɪks/",
+    pos: "noun",
+    level: "C1",
+    time: "22:21",
+    turnId: "turn-55",
+    cat: "science",
+    def: "The fundamental scientific theory explaining large-scale dynamic movements of Earth's lithospheric plates.",
+    quote: "Worachon (22:27): \"When plate tectonics collide under water, it causes a tsunami, but on land it gives high mountains like Everest.\"",
+    th: "ทฤษฎีแผ่นเปลือกโลกเคลื่อนที่"
+  },
+  "sedimentary": {
+    word: "sedimentary",
+    ipa: "/ˌsed.ɪˈmen.tər.i/",
+    pos: "adjective",
+    level: "C1",
+    time: "23:35",
+    turnId: "turn-58",
+    cat: "science",
+    def: "Formed through the slow deposition, accumulation, and lithification of mineral and organic particles.",
+    quote: "Louie (23:35): \"You know the sedimentary rocks in the layers, geologists can still account for the earth's history.\"",
+    th: "เกี่ยวกับหินตะกอน / ชั้นหินตะกอน"
+  },
+  "microbe": {
+    word: "microbe",
+    ipa: "/ˈmaɪ.krəʊb/",
+    pos: "noun",
+    level: "B2",
+    time: "25:01",
+    turnId: "turn-60",
+    cat: "science",
+    def: "A microscopic organism, particularly a bacterium, microscopic fungus, or pathogenic viral particle.",
+    quote: "Worachon (25:51): \"Microbes can be living organisms like bacteria, but also viruses which are not living organisms.\"",
+    th: "จุลินทรีย์ / เชื้อจุลชีพ"
+  },
+  "living-organism": {
+    word: "living organism",
+    ipa: "/ˈlɪv.ɪŋ ˈɔː.ɡən.ɪ.zəm/",
+    pos: "noun",
+    level: "B2",
+    time: "25:51",
+    turnId: "turn-61",
+    cat: "science",
+    def: "An individual biological life form capable of metabolism, growth, response to stimuli, and reproduction.",
+    quote: "Worachon (25:51): \"Microbes can be living organisms like bacteria, but also viruses which are not living organisms.\"",
+    th: "สิ่งมีชีวิต"
+  },
+  "quantum": {
+    word: "quantum (mechanics)",
+    ipa: "/ˈkwɒn.təm/",
+    pos: "adjective / noun",
+    level: "C1",
+    time: "25:23",
+    turnId: "turn-60",
+    cat: "science",
+    def: "The physics branch dealing with subatomic phenomena, probability wave functions, and superposition.",
+    quote: "Worachon (25:23): \"Oh, quantum?\" Louie (25:24): \"Yeah, like Schrödinger's cat—spooky and confusing!\"",
+    th: "ควอนตัม (ฟิสิกส์ระดับอนุภาค)"
+  },
+  "osmosis": {
+    word: "osmosis",
+    ipa: "/ɒzˈməʊ.sɪs/",
+    pos: "noun",
+    level: "C1",
+    time: "25:34",
+    turnId: "turn-60",
+    cat: "science",
+    def: "The diffusion of a solvent through a semipermeable membrane into a region of higher solute concentration.",
+    quote: "Louie (25:24): \"How liquid is absorbed through a barrier...\" Worachon (25:34): \"Osmosis?\"",
+    th: "การออสโมซิส (การแพร่ผ่านเยื่อเลือกผ่าน)"
+  },
+  "vacuum": {
+    word: "vacuum",
+    ipa: "/ˈvæk.juːm/",
+    pos: "noun",
+    level: "B2",
+    time: "25:40",
+    turnId: "turn-60",
+    cat: "science",
+    def: "A physical space entirely devoid of matter, air molecules, or gaseous pressure.",
+    quote: "Louie (25:35): \"When there's nothing inside... a vacuum.\"",
+    th: "สุญญากาศ"
+  },
+  "rebuild": {
+    word: "rebuild",
+    ipa: "/ˌriːˈbɪld/",
+    pos: "verb",
+    level: "B2",
+    time: "27:36",
+    turnId: "turn-64",
+    cat: "concepts",
+    def: "To construct, reform, or reconstitute something again after it has suffered destruction or collapse.",
+    quote: "Worachon (27:24): \"When the previous one wasn't good, we have to make this action to get a new one.\" Louie: \"Rebuild!\"",
+    th: "สร้างขึ้นใหม่ / กอบกู้ฟื้นฟู"
+  },
+  "evolve": {
+    word: "evolve",
+    ipa: "/ɪˈvɒlv/",
+    pos: "verb",
+    level: "B2",
+    time: "27:58",
+    turnId: "turn-66",
+    cat: "concepts",
+    def: "To develop, mature, or modify progressively into a more refined or capable condition.",
+    quote: "Louie (27:54): \"Evolve, evolution...\" Worachon (27:58): \"Evolve!\"",
+    th: "วิวัฒนาการ / พัฒนาต่อเนื่อง"
+  },
+  "harmony": {
+    word: "harmony",
+    ipa: "/ˈhɑː.mə.ni/",
+    pos: "noun",
+    level: "C1",
+    time: "28:44",
+    turnId: "turn-70",
+    cat: "concepts",
+    def: "A state of peaceful accord, concord, and synchronized cooperation among individuals or elements.",
+    quote: "Worachon (28:28): \"When we are as a whole, we do it together... a state of peace... harmony.\"",
+    th: "ความกลมเกลียว / ความสมานฉันท์"
+  },
+  "peer-pressure": {
+    word: "peer pressure",
+    ipa: "/ˈpɪə ˌpreʃ.ər/",
+    pos: "noun",
+    level: "B2",
+    time: "29:46",
+    turnId: "turn-73",
+    cat: "psychology",
+    def: "Social coercion or influence from friends or peers pushing an individual to alter their conduct.",
+    quote: "Louie (30:23): \"When your friends are like, 'Hey man, let's go and do this'—peer pressure!\"",
+    th: "แรงกดดันจากกลุ่มเพื่อน"
+  },
+  "stability": {
+    word: "stability",
+    ipa: "/stəˈbɪl.ə.ti/",
+    pos: "noun",
+    level: "B2",
+    time: "29:53",
+    turnId: "turn-74",
+    cat: "concepts",
+    def: "The state or condition of being steady, firmly poised, and resilient against tipping or erratic sway.",
+    quote: "Worachon (29:48): \"When you're riding a bike, you need this the most.\" Louie: \"Stability! Balance!\"",
+    th: "ความมั่นคง / ความทรงตัว"
+  },
+  "responsibility": {
+    word: "responsibility",
+    ipa: "/rɪˌspɒn.səˈbɪl.ə.ti/",
+    pos: "noun",
+    level: "B2",
+    time: "30:15",
+    turnId: "turn-76",
+    cat: "concepts",
+    def: "The moral duty, obligation, or burden of accountability for one's actions and charges.",
+    quote: "Worachon (30:01): \"As an adult, parents have this over children; at work when you get a task.\" Louie: \"Responsibility!\"",
+    th: "ความรับผิดชอบ / ภาระหน้าที่"
+  },
+  "raining-cats-and-dogs": {
+    word: "raining cats and dogs",
+    ipa: "/ˈreɪn.ɪŋ kæts ənd dɒɡz/",
+    pos: "idiom",
+    level: "B2",
+    time: "31:17",
+    turnId: "turn-79",
+    cat: "idioms",
+    def: "An expressive English idiom describing heavy, torrential rainfall pouring continuously from the skies.",
+    quote: "Louie (31:00): \"When lots of water is coming out of the sky... in England we say raining cats and dogs!\"",
+    th: "ฝนตกหนักไม่ลืมหูลืมตา / ฝนตกกระหน่ำ"
+  },
+  "barking-up-the-wrong-tree": {
+    word: "barking up the wrong tree",
+    ipa: "/ˈbɑː.kɪŋ ʌp ðə rɒŋ triː/",
+    pos: "idiom",
+    level: "B2",
+    time: "31:40",
+    turnId: "turn-81",
+    cat: "idioms",
+    def: "Pursuing an erroneous line of investigation or directing accusations at the wrong target or person.",
+    quote: "Louie (33:21): \"Like a dog looking for a squirrel, but the bird is in the other tree—you're barking up the wrong tree!\"",
+    th: "เข้าใจผิดทิศทาง / ถามผิดคน / สงสัยผิดจุด"
+  },
+  "cost-an-arm-and-a-leg": {
+    word: "cost an arm and a leg",
+    ipa: "/kɒst ən ɑːm ənd ə leɡ/",
+    pos: "idiom",
+    level: "B2",
+    time: "31:52",
+    turnId: "turn-83",
+    cat: "idioms",
+    def: "To be astronomically and exorbitantly priced, far exceeding what one reasonably anticipated.",
+    quote: "Louie (32:21): \"It means it cost you more than you expected because limbs are so precious!\"",
+    th: "แพงหูฉี่ / แพงมากจนกระเป๋าฉีก"
+  },
+  "silver-lining": {
+    word: "every cloud has a silver lining",
+    ipa: "/ˈsɪl.və ˈlaɪ.nɪŋ/",
+    pos: "idiom",
+    level: "B2",
+    time: "32:06",
+    turnId: "turn-84",
+    cat: "idioms",
+    def: "The comforting philosophy that every dark, discouraging circumstance conceals a redeeming advantage.",
+    quote: "Louie (31:55): \"When a bad situation has some kind of good outcome.\" Worachon (32:06): \"Silver lining!\"",
+    th: "แสงสว่างในความมืดมน / ข้อดีที่แฝงอยู่ในเรื่องร้าย"
+  },
+  "break-a-leg": {
+    word: "break a leg",
+    ipa: "/breɪk ə leɡ/",
+    pos: "idiom",
+    level: "B2",
+    time: "34:30",
+    turnId: "turn-89",
+    cat: "idioms",
+    def: "Traditional theatrical idiom expressing good luck before a major performance, presentation, or interview.",
+    quote: "Worachon (34:21): \"It's like wishing you good luck.\" Louie (34:30): \"Break a leg! Because if you break a leg, you're in the cast of the show!\"",
+    th: "ขอให้โชคดี (สำนวนอวยพรก่อนขึ้นเวทีหรือสัมภาษณ์)"
+  },
+  "in-over-ones-head": {
+    word: "in over one's head",
+    ipa: "/ɪn ˈəʊ.vər wʌnz hed/",
+    pos: "idiom",
+    level: "C1",
+    time: "35:08",
+    turnId: "turn-91",
+    cat: "idioms",
+    def: "Entangled in a task, crisis, or challenge that greatly exceeds one's current expertise or emotional bandwidth.",
+    quote: "Louie (35:08): \"In over your head? When a situation exceeds your capability to cope.\"",
+    th: "ตกอยู่ในสถานการณ์ที่ยากเกินจะรับมือได้"
+  },
+  "the-last-straw": {
+    word: "the last straw",
+    ipa: "/ðə lɑːst strɔː/",
+    pos: "idiom",
+    level: "B2",
+    time: "35:36",
+    turnId: "turn-93",
+    cat: "idioms",
+    def: "The final minor aggravation in a long succession of troubles that ultimately exhausts one's forbearance.",
+    quote: "Worachon (35:10): \"A situation that exceeds your capability to be patient.\" Louie (35:36): \"The last straw!\"",
+    th: "ฟางเส้นสุดท้าย (สิ่งที่ทำให้หมดความอดทนในที่สุด)"
+  },
+  "splint": {
+    word: "splint",
+    ipa: "/splɪnt/",
+    pos: "noun",
+    level: "C1",
+    time: "37:31",
+    turnId: "turn-97",
+    cat: "medical",
+    def: "A rigid orthotic appliance used to immobilize, align, and support fractured skeletal elements.",
+    quote: "Louie (37:31): \"It's like a splint—we wrap your leg inside it to keep the fracture still.\"",
+    th: "เฝือกดามชั่วคราว / ไม้ดามกระดูก"
+  },
+  "orthopedic-cast": {
+    word: "cast (medical)",
+    ipa: "/kɑːst/",
+    pos: "noun",
+    level: "B2",
+    time: "37:24",
+    turnId: "turn-96",
+    cat: "medical",
+    def: "A hard protective casing, traditionally molded from plaster of Paris, encasing a healing fracture.",
+    quote: "Louie (37:24): \"When you break your leg, they cover it in plaster called a cast—and actors in a play are also the cast!\"",
+    th: "เฝือกปูนดามกระดูก"
+  },
+  "long-distance-friendship": {
+    word: "long-distance friendship",
+    ipa: "/lɒŋ ˈdɪs.təns ˈfrend.ʃɪp/",
+    pos: "noun",
+    level: "B2",
+    time: "40:35",
+    turnId: "turn-102",
+    cat: "relationships",
+    def: "An enduring close companionship preserved across vast geographic distances and international time zones.",
+    quote: "Worachon (40:44): \"Many of my friends are far away in the US, Singapore, UK... I text them often to keep the bond strong.\"",
+    th: "มิตรภาพทางไกล (เพื่อนที่อยู่คนละประเทศ/เขตเวลา)"
+  },
+  "exhausted": {
+    word: "exhausted",
+    ipa: "/ɪɡˈzɔː.stɪd/",
+    pos: "adjective",
+    level: "B2",
+    time: "39:35",
+    turnId: "turn-100",
+    cat: "medical",
+    def: "Entirely depleted of vital physical stamina, mental clarity, or nervous energy.",
+    quote: "Worachon (39:35): \"If I am very exhausted, I usually go to bed around 10:00 PM.\"",
+    th: "เหนื่อยล้าจนหมดแรง / อ่อนเพลียอย่างยิ่ง"
+  },
+  "attachment": {
+    word: "attachment",
+    ipa: "/əˈtætʃ.mənt/",
+    pos: "noun",
+    level: "C1",
+    time: "41:24",
+    turnId: "turn-103",
+    cat: "psychology",
+    def: "An emotional bonding or psychological reliance based on proximity, comfort, or personal satisfaction.",
+    quote: "Louie (41:24): \"Attachment is when you are fond of someone and love being around them, but love is caring even when things are difficult.\"",
+    th: "ความผูกพัน / การยึดติดทางอารมณ์"
+  },
+  "unconditional-love": {
+    word: "unconditional love",
+    ipa: "/ˌʌn.kənˈdɪʃ.ən.əl lʌv/",
+    pos: "noun",
+    level: "C1",
+    time: "41:24",
+    turnId: "turn-103",
+    cat: "concepts",
+    def: "Selfless, compassionate affection that endures independent of reciprocity, status, or material utility.",
+    quote: "Louie (41:24): \"Even when they don't increase the financial value of your life, you still look after each other.\"",
+    th: "ความรักที่ไม่มีเงื่อนไข"
+  },
+  "life-altering": {
+    word: "life-altering",
+    ipa: "/ˈlaɪf ˌɔːl.tər.ɪŋ/",
+    pos: "adjective",
+    level: "C1",
+    time: "42:57",
+    turnId: "turn-105",
+    cat: "concepts",
+    def: "Exerting a radical, irreversible impact on an individual's character, life philosophy, or destiny.",
+    quote: "Worachon (42:57): \"Seeing my friends behave differently after experiencing life-altering situations.\"",
+    th: "ที่เปลี่ยนแปลงชีวิตไปอย่างสิ้นเชิง"
+  },
+  "emotional-intelligence": {
+    word: "emotional intelligence (EQ)",
+    ipa: "/ɪˌməʊ.ʃən.əl ɪnˈtel.ɪ.dʒะns/",
+    pos: "noun",
+    level: "C1",
+    time: "45:25",
+    turnId: "turn-109",
+    cat: "psychology",
+    def: "The capacity to perceive, evaluate, articulate, and constructively regulate emotions in oneself and others.",
+    quote: "Worachon (45:31): \"I have to be very sad or experience extreme situations to get my own lessons and develop how to manage it.\"",
+    th: "ความฉลาดทางอารมณ์ (EQ)"
+  },
+  "slavery": {
+    word: "slavery",
+    ipa: "/ˈsleɪ.vər.i/",
+    pos: "noun",
+    level: "B2",
+    time: "44:08",
+    turnId: "turn-107",
+    cat: "concepts",
+    def: "The heinous institution where human beings are subjugated as chattel and coerced into forced labor.",
+    quote: "Louie (44:08): \"If I could solve one world problem, I would truly end human trafficking and slavery.\"",
+    th: "ความเป็นทาส / การค้ามนุษย์"
+  },
+  "a-problem-shared-is-a-problem-halved": {
+    word: "a problem shared is a problem halved",
+    ipa: "/ə ˈprɒb.ləm ʃeəd ɪz ə ˈprɒb.ləm hɑːvd/",
+    pos: "idiom / proverb",
+    level: "C1",
+    time: "46:07",
+    turnId: "turn-110",
+    cat: "idioms",
+    def: "A comforting proverb signifying that articulating one's distress to a sympathetic ear alleviates the burden.",
+    quote: "Louie (46:07): \"Men need to talk more about mental health. A problem shared is a problem halved.\"",
+    th: "การบอกเล่าปัญหาให้ผู้อื่นฟังช่วยแบ่งเบาความทุกข์ไปได้ครึ่งหนึ่ง"
+  },
+  "frame-of-mind": {
+    word: "frame of mind",
+    ipa: "/freɪm əv maɪnd/",
+    pos: "noun",
+    level: "C1",
+    time: "46:07",
+    turnId: "turn-110",
+    cat: "psychology",
+    def: "A prevailing mental outlook, psychological disposition, or affective mood at a specific moment.",
+    quote: "Louie (46:07): \"The feeling that you cannot live with a crisis is just a temporary frame of mind; your perspective shifts.\"",
+    th: "สภาพจิตใจ / กรอบความคิดในขณะนั้น"
+  },
+  "procrastination": {
+    word: "procrastination",
+    ipa: "/prəˌkræs.tɪˈneɪ.ʃən/",
+    pos: "noun",
+    level: "B2",
+    time: "47:50",
+    turnId: "turn-112",
+    cat: "psychology",
+    def: "The persistent tendency to delay or postpone tasks that necessitate timely resolution.",
+    quote: "Louie (47:59): \"Procrastination is saying 'I'll do it later, I'll play games now.'\" Worachon: \"If an exam is in 3 days, it forces me to overcome it!\"",
+    th: "การผัดวันประกันพรุ่ง"
+  },
+  "instantaneously": {
+    word: "instantaneously",
+    ipa: "/ˌɪn.stənˈteɪ.ni.əs.li/",
+    pos: "adverb",
+    level: "C1",
+    time: "48:15",
+    turnId: "turn-114",
+    cat: "concepts",
+    def: "Without any perceptible delay; occurring or executing in a lightning-fast instant.",
+    quote: "Worachon (48:15): \"It forces me to overcome procrastination instantaneously.\"",
+    th: "โดยทันทีทันใด / ในพริบตาเดียว"
+  },
+  "incubation": {
+    word: "incubation period (thinking)",
+    ipa: "/ˌɪŋ.kjʊˈbeɪ.ʃən/",
+    pos: "noun",
+    level: "C2",
+    time: "48:41",
+    turnId: "turn-115",
+    cat: "psychology",
+    def: "The subconscious cognitive period wherein ideas mature quietly while conscious attention is displaced.",
+    quote: "Louie (48:41): \"Sometimes procrastination gives you time to hold the concept in your head and think more deeply.\"",
+    th: "ช่วงบ่มเพาะความคิด (การให้สมองประมวลผลเบื้องหลัง)"
+  },
+  "simplicity": {
+    word: "simplicity",
+    ipa: "/sɪmˈplɪs.ə.ti/",
+    pos: "noun",
+    level: "B2",
+    time: "52:09",
+    turnId: "turn-120",
+    cat: "communication",
+    def: "The clarity, lucidity, and absence of pretension that renders complex notions understandable.",
+    quote: "Worachon (52:09): \"I actually love this way of learning... I love the way you explain those words into simplicity.\"",
+    th: "ความเรียบง่าย / ความชัดเจนกระจ่าง"
+  }
+};
+
+// -----------------------------------------------------------------------------
+// 2. CONVERSATION TURNS ARRAY (00:00 - 53:24)
+// -----------------------------------------------------------------------------
+// Helper inline generators
+function v(key, displayWord) {
+  const item = VOCAB_DB[key];
+  const label = displayWord || (item ? item.word : key);
+  return `<span class="vocab-mark" data-vkey="${key}" onclick="inspectVocab('${key}')">${label}</span>`;
+}
+function fixBadge(actualSpoken, rawMishearing) {
+  return `<span class="asr-fix-pill" title="Note-taker misheard '${actualSpoken}' as '${rawMishearing}'">✨ Fixed: "${actualSpoken}" <span class="text-stone-400 font-normal">("${rawMishearing}")</span></span>`;
+}
+
+const TRANSCRIPT_TURNS = [
+  // CHAPTER I
+  {
+    id: "turn-1",
+    chapterId: "chap-1",
+    chapterTitle: "Chapter I • Warm Greetings, Thailand Hip Prosthetics & Rapid Warm-up (00:00 – 05:30)",
+    speaker: "Louie",
+    time: "00:00",
+    html: `Hey—hello, how are you doing today?`
+  },
+  {
+    id: "turn-2",
+    speaker: "Worachon",
+    time: "00:02",
+    html: `Hello, I'm good!`
+  },
+  {
+    id: "turn-3",
+    speaker: "Louie",
+    time: "00:12",
+    html: `Good, good. I spoke to my other students who are hip replacement orthopedic surgeons—the husband of my student—and they were super happy because they actually source specialized materials for their ${v("prosthetic", "prosthetics")} in Thailand! They couldn't remember ${v("off-the-top-of-ones-head", "off the top of their head")}, but they're going to get me the company's name. They are actually heading over to Thailand for training on the material, and they said if you have any questions, you're ${v("more-than-welcome", "more than welcome")} to ask!`
+  },
+  {
+    id: "turn-4",
+    speaker: "Worachon",
+    time: "01:43",
+    html: `I see... that is really cool, pretty remarkable!`
+  },
+  {
+    id: "turn-5",
+    speaker: "Worachon",
+    time: "02:00",
+    html: `Actually, I got ${fixBadge("influenza", "influencer")} ${v("influenza", "(the flu)")}... my ${fixBadge("voice isn't great yet", "boy is in great enough yet")}, so I've been recovering.`
+  },
+  {
+    id: "turn-6",
+    speaker: "Louie",
+    time: "02:23",
+    html: `Oh, a flu infection! It's no problem at all—if you feel sick, I can ${v("reschedule", "reschedule")} this lesson and let you rest. But why don't we take things a little lighter today? I have a fun game ready for you to keep your mind off the sickness!`
+  },
+  {
+    id: "turn-7",
+    speaker: "Worachon",
+    time: "02:35",
+    html: `I think it's okay, we can definitely do it!`
+  },
+  {
+    id: "turn-8",
+    speaker: "Louie",
+    time: "03:45",
+    html: `Super! Let's start easy with the Heads Up guessing game. Which topic would you like to start with?`
+  },
+  {
+    id: "turn-9",
+    speaker: "Worachon",
+    time: "04:00",
+    html: `Maybe food... food is fine!`
+  },
+  {
+    id: "turn-10",
+    speaker: "Louie",
+    time: "04:15",
+    html: `Alright! First one: it grows on a tree, has a very hard brown shell, and inside it has lovely sweet water and white cream. If it drops on your head, it really hurts! You use a heavy knife—like a ${v("machete", "machete")}—to crack it open.`
+  },
+  {
+    id: "turn-11",
+    speaker: "Worachon",
+    time: "04:48",
+    html: `Is it a coconut?`
+  },
+  {
+    id: "turn-12",
+    speaker: "Louie",
+    time: "04:49",
+    html: `Spot on! Next one: it's green, very ${v("waxy", "waxy")} and rich, and people love smashing it on morning toast...`
+  },
+  {
+    id: "turn-13",
+    speaker: "Worachon",
+    time: "05:10",
+    html: `Avocado?`
+  },
+  {
+    id: "turn-14",
+    speaker: "Louie",
+    time: "05:13",
+    html: `Yes! And the last food: a classic British staple with battered cod and chunky fried potatoes: fish and chips!`
+  },
+
+  // CHAPTER II
+  {
+    id: "turn-15",
+    chapterId: "chap-2",
+    chapterTitle: "Chapter II • Wordplay, The Tricky Raccoon & Sports Descriptions (05:31 – 13:15)",
+    speaker: "Louie",
+    time: "05:31",
+    html: `Now it's your go! You describe to me, and I'll choose animals.`
+  },
+  {
+    id: "turn-16",
+    speaker: "Worachon",
+    time: "05:50",
+    html: `Okay, this is a pretty hard one! It looks like a dog, but it's not a dog. You observe it in Marvel movies... it has very sharp teeth and a furry tail.`
+  },
+  {
+    id: "turn-17",
+    speaker: "Worachon",
+    time: "06:51",
+    html: `No, not a wolf or hyena... it's actually a raccoon! Like Rocket Raccoon!`
+  },
+  {
+    id: "turn-18",
+    speaker: "Louie",
+    time: "06:58",
+    html: `Oh, a raccoon! Gray and black with stripes, wearing a little bandit mask. In Canada and the US, they live in trash bins. People treat them like ${v("vermin", "vermin")}, but they're surprisingly smart!`
+  },
+  {
+    id: "turn-19",
+    speaker: "Worachon",
+    time: "07:27",
+    html: `Let's choose sports next.`
+  },
+  {
+    id: "turn-20",
+    speaker: "Louie",
+    time: "07:31",
+    html: `Inside the Olympics, no ball. Athletes do cartwheels, backflips, balance beam, and high bar routines. A sport all about pure ${v("endurance", "endurance")} and flexibility...`
+  },
+  {
+    id: "turn-21",
+    speaker: "Worachon",
+    time: "08:11",
+    html: `Gymnastics!`
+  },
+  {
+    id: "turn-22",
+    speaker: "Louie",
+    time: "08:12",
+    html: `Exactly! Next: an ${v("extreme-sport", "extreme sport")} on wheels where you wear a protective helmet, do high-speed aerial tricks, and slide the metal trucks along handrails—called ${v("grinding", "grinding")}...`
+  },
+  {
+    id: "turn-23",
+    speaker: "Worachon",
+    time: "08:49",
+    html: `Skateboard!`
+  },
+  {
+    id: "turn-24",
+    speaker: "Louie",
+    time: "09:00",
+    html: `Well done! Now give me cartoons!`
+  },
+  {
+    id: "turn-25",
+    speaker: "Worachon",
+    time: "09:13",
+    html: `A girl with a purple backpack exploring everywhere... ${fixBadge("Dora the Explorer", "Door of the Explorer")}!`
+  },
+  {
+    id: "turn-26",
+    speaker: "Worachon",
+    time: "09:24",
+    html: `Next: a cat and a mouse constantly chasing each other... Tom and Jerry! And next: a boy raised by apes in the deep jungle...`
+  },
+  {
+    id: "turn-27",
+    speaker: "Louie",
+    time: "09:57",
+    html: `Tarzan! And Popeye the sailor who downs spinach to gain super strength!`
+  },
+  {
+    id: "turn-28",
+    speaker: "Louie",
+    time: "10:33",
+    html: `Speaking of Tarzan: I once had a super serious corporate board meeting with my brother. Just before opening the boardroom door, I whispered to him: 'The chairman looks exactly like Jane's dad from Tarzan!' My brother tried to hold it in, but burst out laughing in front of the entire board!`
+  },
+
+  // CHAPTER III
+  {
+    id: "turn-29",
+    chapterId: "chap-3",
+    chapterTitle: "Chapter III • Thinkers, Alexander Graham Bell & The Science of Genetics (13:16 – 21:10)",
+    speaker: "Louie",
+    time: "11:42",
+    html: `Jobs round: someone on a ship? A sailor. The officer in command? The captain. Making fancy drinks in a pub? A bartender. Baking sourdough loaves? A baker!`
+  },
+  {
+    id: "turn-30",
+    speaker: "Worachon",
+    time: "13:20",
+    html: `Let's try historical figures now!`
+  },
+  {
+    id: "turn-31",
+    speaker: "Worachon",
+    time: "13:39",
+    html: `A legendary English playwright and poet who wrote Romeo and Juliet... Shakespeare!`
+  },
+  {
+    id: "turn-32",
+    speaker: "Worachon",
+    time: "14:13",
+    html: `A deaf German musical genius who composed the Ninth Symphony... Beethoven!`
+  },
+  {
+    id: "turn-33",
+    speaker: "Worachon",
+    time: "14:19",
+    html: `The American founding father who flew a kite with a key in a thunderstorm... Benjamin Franklin!`
+  },
+  {
+    id: "turn-34",
+    speaker: "Worachon",
+    time: "14:41",
+    html: `The inventor who pioneered alternating current electricity... Nikola Tesla!`
+  },
+  {
+    id: "turn-35",
+    speaker: "Louie",
+    time: "15:48",
+    html: `Great recall! Now the inventor of the acoustic telephone: Alexander Graham Bell!`
+  },
+  {
+    id: "turn-36",
+    speaker: "Louie",
+    time: "16:04",
+    html: `And famous Greek thinkers: Plato and ${v("philosopher", "philosophers")} like Socrates. Albert Einstein with E = mc², and King Henry VIII with his six wives.`
+  },
+  {
+    id: "turn-37",
+    speaker: "Louie",
+    time: "16:39",
+    html: `And Attila the Hun, the famous ancient Eurasian ${v("warlord", "warlord")}.`
+  },
+  {
+    id: "turn-38",
+    speaker: "Louie",
+    time: "17:45",
+    html: `Coming back to Alexander Graham Bell: in British English, because of his invention, we have a very famous idiom: ${v("give-someone-a-bell", "'I'll give you a bell'")}! It simply means 'I'll telephone you' or 'I'll give you a ring.' We say it every single day in the UK!`
+  },
+  {
+    id: "turn-39",
+    speaker: "Worachon",
+    time: "17:57",
+    html: `Now science and inventions!`
+  },
+  {
+    id: "turn-40",
+    speaker: "Worachon",
+    time: "18:06",
+    html: `The medical doctor whose job is to ensure a patient sleeps painlessly and monitors vitals during surgery...`
+  },
+  {
+    id: "turn-41",
+    speaker: "Louie",
+    time: "18:15",
+    html: `An ${v("anesthesiologist", "anesthesiologist")}! And the medical state is anesthesia.`
+  },
+  {
+    id: "turn-42",
+    speaker: "Worachon",
+    time: "18:22",
+    html: `Yes! And the scientific discipline studying how biological parents pass an ${v("inherited-trait", "inherited trait")} down to children...`
+  },
+  {
+    id: "turn-43",
+    speaker: "Louie",
+    time: "18:37",
+    html: `DNA, the molecular double helix, chromosomes...`
+  },
+  {
+    id: "turn-44",
+    speaker: "Worachon",
+    time: "18:49",
+    html: `The scientific field is ${v("genetics", "genetics")}!`
+  },
+  {
+    id: "turn-45",
+    speaker: "Louie",
+    time: "19:56",
+    html: `Genetics! When you said that, the Vietnamese term popped into my mind: they combine 'gen' with 'học' (study of) to make 'di truyền học' or 'gen học'!`
+  },
+  {
+    id: "turn-46",
+    speaker: "Worachon",
+    time: "19:21",
+    html: `Next: Alfred Nobel's invention used for controlled blasting in mines: ${v("dynamite", "dynamite")}.`
+  },
+  {
+    id: "turn-47",
+    speaker: "Worachon",
+    time: "19:24",
+    html: `And the technology that sends acoustic sound waves through water to locate obstacles...`
+  },
+  {
+    id: "turn-48",
+    speaker: "Worachon",
+    time: "19:39",
+    html: `It's ${v("sonar", "sonar")}. It uses sound propagation, but operates differently from medical ultrasound.`
+  },
+
+  // CHAPTER IV
+  {
+    id: "turn-49",
+    chapterId: "chap-4",
+    chapterTitle: "Chapter IV • Plate Tectonics, Quantum Paradoxes & Abstract Concepts (21:11 – 30:40)",
+    speaker: "Louie",
+    time: "21:01",
+    html: `Now my turn to describe scientific phenomena to you!`
+  },
+  {
+    id: "turn-50",
+    speaker: "Louie",
+    time: "21:20",
+    html: `When you rub two surfaces together, creating thermal heat and mechanical resistance, like on car brake pads...`
+  },
+  {
+    id: "turn-51",
+    speaker: "Worachon",
+    time: "21:32",
+    html: `${v("friction", "Friction")}!`
+  },
+  {
+    id: "turn-52",
+    speaker: "Louie",
+    time: "21:42",
+    html: `The massive lithospheric slabs floating on Earth's mantle that cause continental drift and earthquakes when they collide...`
+  },
+  {
+    id: "turn-53",
+    speaker: "Worachon",
+    time: "22:20",
+    html: `Plate tectonics!`
+  },
+  {
+    id: "turn-54",
+    speaker: "Louie",
+    time: "22:21",
+    html: `Yes, ${v("plate-tectonics", "plate tectonics")}! What do you know about how they interact?`
+  },
+  {
+    id: "turn-55",
+    speaker: "Worachon",
+    time: "22:27",
+    html: `When tectonic plates collide or subduct under the sea, the displacement causes huge tsunamis. But when continental plates smash together on land, the crust crumples upwards over millions of years to form massive mountain ranges like Mount Everest!`
+  },
+  {
+    id: "turn-56",
+    speaker: "Louie",
+    time: "23:06",
+    html: `Brilliantly explained! It pushes the rock strata skyward. And inside the layers, it dredges up mineral veins and ${v("sedimentary", "sedimentary")} rock sequences that let geologists read Earth's chronological history.`
+  },
+  {
+    id: "turn-57",
+    speaker: "Louie",
+    time: "24:48",
+    html: `Next: microscopic organisms that enter biological systems...`
+  },
+  {
+    id: "turn-58",
+    speaker: "Worachon",
+    time: "25:01",
+    html: `${v("microbe", "Microbes")}!`
+  },
+  {
+    id: "turn-59",
+    speaker: "Worachon",
+    time: "25:51",
+    html: `A ${v("microbe", "microbe")} can be a ${v("living-organism", "living organism")} like bacteria, but it can also refer to viruses, which are non-cellular genetic agents and not technically alive on their own.`
+  },
+  {
+    id: "turn-60",
+    speaker: "Louie",
+    time: "25:24",
+    html: `That's a very sharp scientific distinction! Then we have ${v("quantum", "quantum")} physics with Schrödinger's cat, ${v("osmosis", "osmosis")} for solvent transport across membranes, and a complete spatial ${v("vacuum", "vacuum")}.`
+  },
+  {
+    id: "turn-61",
+    speaker: "Louie",
+    time: "26:45",
+    html: `Now let's switch to abstract conceptual vocabulary!`
+  },
+  {
+    id: "turn-62",
+    speaker: "Worachon",
+    time: "27:03",
+    html: `When previous methods or structures fail, we have to perform this action to construct something better from scratch...`
+  },
+  {
+    id: "turn-63",
+    speaker: "Louie",
+    time: "27:36",
+    html: `${v("rebuild", "Rebuild")}! Learn from mistakes and ${v("evolve", "evolve")}!`
+  },
+  {
+    id: "turn-64",
+    speaker: "Worachon",
+    time: "28:28",
+    html: `When people unite in collective goodwill and working as one peaceful whole...`
+  },
+  {
+    id: "turn-65",
+    speaker: "Louie",
+    time: "28:43",
+    html: `${v("harmony", "Harmony")}! A state of peaceful balance.`
+  },
+  {
+    id: "turn-66",
+    speaker: "Worachon",
+    time: "29:48",
+    html: `When learning to ride a bicycle, this physical equilibrium is what you require most.`
+  },
+  {
+    id: "turn-67",
+    speaker: "Louie",
+    time: "29:53",
+    html: `${v("stability", "Stability")} and balance!`
+  },
+  {
+    id: "turn-68",
+    speaker: "Worachon",
+    time: "30:01",
+    html: `As adults and parents, you hold this duty over children. At work, when assigned a critical project, you take on this burden.`
+  },
+  {
+    id: "turn-69",
+    speaker: "Louie",
+    time: "30:15",
+    html: `${v("responsibility", "Responsibility")}!`
+  },
+  {
+    id: "turn-70",
+    speaker: "Worachon",
+    time: "30:16",
+    html: `And when your social circle urges you to conform: ${v("peer-pressure", "peer pressure")}!`
+  },
+
+  // CHAPTER V
+  {
+    id: "turn-71",
+    chapterId: "chap-5",
+    chapterTitle: "Chapter V • The Idiom Studio — Superstitions, Silver Linings & The Last Straw (30:41 – 38:50)",
+    speaker: "Louie",
+    time: "30:43",
+    html: `Now let's dive into English idioms and sayings! This is one of the most rewarding parts of learning natural English.`
+  },
+  {
+    id: "turn-72",
+    speaker: "Louie",
+    time: "31:00",
+    html: `First one: when water is pouring down torrentially from the English sky, what do we say?`
+  },
+  {
+    id: "turn-73",
+    speaker: "Worachon",
+    time: "31:16",
+    html: `It's raining ${fixBadge("cats and dogs", "Cassandra")}! ${v("raining-cats-and-dogs", "Raining cats and dogs")}!`
+  },
+  {
+    id: "turn-74",
+    speaker: "Louie",
+    time: "31:40",
+    html: `Yes! And when someone pursues a completely false assumption or directs suspicion at the wrong individual, like a hunting hound tracking a squirrel to the wrong trunk?`
+  },
+  {
+    id: "turn-75",
+    speaker: "Worachon",
+    time: "31:42",
+    html: `${v("barking-up-the-wrong-tree", "Barking up the wrong tree")}!`
+  },
+  {
+    id: "turn-76",
+    speaker: "Louie",
+    time: "31:52",
+    html: `And what's the idiom for when an item or service costs an absurd, shockingly exorbitant amount of money?`
+  },
+  {
+    id: "turn-77",
+    speaker: "Worachon",
+    time: "31:54",
+    html: `${v("cost-an-arm-and-a-leg", "Cost an arm and a leg")}!`
+  },
+  {
+    id: "turn-78",
+    speaker: "Louie",
+    time: "32:21",
+    html: `Exactly! It cost you far more than anticipated because your limbs are irreplaceable and precious. In English, whenever an unexpected bill is exorbitant, you sigh: 'That cost me an arm and a leg!'`
+  },
+  {
+    id: "turn-79",
+    speaker: "Louie",
+    time: "32:04",
+    html: `And when an unfortunate, gloomy predicament carries an unexpected positive benefit or consolation?`
+  },
+  {
+    id: "turn-80",
+    speaker: "Worachon",
+    time: "32:06",
+    html: `Every cloud has a ${v("silver-lining", "silver lining")}!`
+  },
+  {
+    id: "turn-81",
+    speaker: "Worachon",
+    time: "34:21",
+    html: `Now my turn! An idiom used to wish an actor, musician, or friend good luck before taking the stage...`
+  },
+  {
+    id: "turn-82",
+    speaker: "Louie",
+    time: "34:30",
+    html: `${v("break-a-leg", "Break a leg")}!`
+  },
+  {
+    id: "turn-83",
+    speaker: "Worachon",
+    time: "34:36",
+    html: `And what do we say when an ongoing conflict or stressful problem continues for ages, and then one final small thing pushes your patience completely past its limit?`
+  },
+  {
+    id: "turn-84",
+    speaker: "Louie",
+    time: "35:08",
+    html: `Are you ${v("in-over-ones-head", "in over your head")}?`
+  },
+  {
+    id: "turn-85",
+    speaker: "Worachon",
+    time: "35:10",
+    html: `No, it's the situation that exceeds your capacity to stay patient... ${fixBadge("the last straw", "the last store")}!`
+  },
+  {
+    id: "turn-86",
+    speaker: "Louie",
+    time: "35:36",
+    html: `Oh, ${v("the-last-straw", "the last straw")}! Of course! The straw that broke the camel's back!`
+  },
+  {
+    id: "turn-87",
+    speaker: "Louie",
+    time: "35:52",
+    html: `Have I ever told you why we say ${v("break-a-leg", "'break a leg'")}? It's fascinating! In old English theatrical superstition, saying 'good luck' was believed to jinx the show. But there's also brilliant wordplay: the actors and performers in a play are officially called the 'cast'—and when an orthopedic doctor fixes a fractured leg with plaster, they encase it in an ${v("orthopedic-cast", "orthopedic cast")} or ${v("splint", "splint")}! So if you break a leg, you're literally in the cast!`
+  },
+
+  // CHAPTER VI
+  {
+    id: "turn-88",
+    chapterId: "chap-6",
+    chapterTitle: "Chapter VI • Checkers Sanctuary — Friendships, Emotional Intelligence & Notes Tour (38:51 – 53:24)",
+    speaker: "Louie",
+    time: "38:40",
+    html: `Let's switch over to my custom HTML English Checkers game! I programmed the board myself with deep reflective questions so we have rich topics to discuss while you're feeling a bit under the weather.`
+  },
+  {
+    id: "turn-89",
+    speaker: "Worachon",
+    time: "39:35",
+    html: `First question: What time do you normally go to bed? Usually around midnight, but if I feel completely ${v("exhausted", "exhausted")}, I'm asleep by 10:00 PM.`
+  },
+  {
+    id: "turn-90",
+    speaker: "Louie",
+    time: "40:35",
+    html: `Here's your next checker square: How do you sustain a meaningful ${v("long-distance-friendship", "long-distance friendship")}?`
+  },
+  {
+    id: "turn-91",
+    speaker: "Worachon",
+    time: "40:44",
+    html: `Many of my close friends live far away in the United States, Singapore, and the United Kingdom. I have to manage time zones carefully, but the key is consistent communication: whenever something significant happens in my life, I text them to keep them in the loop and ask how they're doing.`
+  },
+  {
+    id: "turn-92",
+    speaker: "Louie",
+    time: "41:24",
+    html: `That consistency is what keeps bonds alive! Now my question: What is the fundamental difference between love and attachment? I believe ${v("unconditional-love", "unconditional love")} means caring for someone's well-being even when it requires sacrifice and they provide no material benefit to you. ${v("attachment", "Attachment")}, on the other hand, is an emotional reliance—enjoying someone's company because of personal comfort or proximity.`
+  },
+  {
+    id: "turn-93",
+    speaker: "Worachon",
+    time: "42:57",
+    html: `My question on square nine: Do you believe people can truly change? Personally, I think people can change, but it depends on how we define change. I've watched friends alter their behaviors significantly after passing through ${v("life-altering", "life-altering")} situations—both for the better and the worse. Situations transform outward behaviors, even if core identity runs deep.`
+  },
+  {
+    id: "turn-94",
+    speaker: "Louie",
+    time: "44:08",
+    html: `Very insightful. My question: If you could eradicate one global problem, what would it be? For me, it would be human trafficking and modern ${v("slavery", "slavery")}. It remains a horrific crisis near border regions in Southeast Asia and parts of the Middle East, and it needs to be wiped out entirely.`
+  },
+  {
+    id: "turn-95",
+    speaker: "Louie",
+    time: "45:25",
+    html: `Next square for you: How do you develop true ${v("emotional-intelligence", "emotional intelligence (EQ)")}?`
+  },
+  {
+    id: "turn-96",
+    speaker: "Worachon",
+    time: "45:31",
+    html: `For me, developing ${v("emotional-intelligence", "emotional intelligence")} has always come through living through hardship and life-altering situations. I have to experience deep sorrow or navigate extreme challenges firsthand to extract my own lessons, understand my internal emotional mechanisms, and learn how to navigate future pain.`
+  },
+  {
+    id: "turn-97",
+    speaker: "Louie",
+    time: "46:07",
+    html: `That is profound: you have to weather adversity to grow internal strength. That connects to men's mental health. We have an old saying: ${v("a-problem-shared-is-a-problem-halved", "'a problem shared is a problem halved'")}! Too many men bottle up their agony, believing suicide is an escape, when suicide is a permanent solution to a temporary ${v("frame-of-mind", "frame of mind")}. When you share your burden, the weight is cut in half.`
+  },
+  {
+    id: "turn-98",
+    speaker: "Louie",
+    time: "47:50",
+    html: `Square five: How do you overcome ${v("procrastination", "procrastination")}?`
+  },
+  {
+    id: "turn-99",
+    speaker: "Worachon",
+    time: "48:15",
+    html: `I haven't fully conquered it yet! But when an exam or deadline is within three days, the intense urgency forces me to overcome ${v("procrastination", "procrastination")} ${v("instantaneously", "instantaneously")}!`
+  },
+  {
+    id: "turn-100",
+    speaker: "Louie",
+    time: "48:41",
+    html: `Fascinatingly, cognitive research suggests moderate procrastinators often produce higher-quality creative work than those who rush immediately. Holding a problem in your head allows an unconscious ${v("incubation", "incubation period")} where deeper, unexpected connections form!`
+  },
+  {
+    id: "turn-101",
+    speaker: "Louie",
+    time: "49:59",
+    html: `Oh no! Look at that—the custom HTML checkers board just crashed! How did my code crash? Ah, well!`
+  },
+  {
+    id: "turn-102",
+    speaker: "Louie",
+    time: "50:11",
+    html: `Before we wrap up, you did a magnificent job today, especially while coping with the flu! Let me quickly show you the interactive lesson notes app you'll be receiving. It contains our full cleaned transcript, hover definitions, CEFR indicators, and a dedicated Vocabulary & Idiom Dictionary tab.`
+  },
+  {
+    id: "turn-103",
+    speaker: "Demo Text-to-Speech",
+    time: "51:37",
+    html: `<span class="italic text-stone-500">[Speech Synthesis Audio Demo]: "Make the most of."</span>`
+  },
+  {
+    id: "turn-104",
+    speaker: "Worachon",
+    time: "52:09",
+    html: `I actually love this way of learning! I discover so many advanced words, and I truly love the way you explain complex concepts into ${v("simplicity", "simplicity")}.`
+  },
+  {
+    id: "turn-105",
+    speaker: "Louie",
+    time: "52:26",
+    html: `Thank you so much, Worachon! That means the world to me. Rest up, drink plenty of warm tea, and let's conquer more idioms in our next lesson!`
+  }
+];
+
+// -----------------------------------------------------------------------------
+// 3. FLASHCARDS & IDIOM GYM DATA
+// -----------------------------------------------------------------------------
+const FLASHCARDS = [
+  {
+    front: "Break a leg",
+    type: "Idiom • Good Luck",
+    ipa: "/breɪk ə leɡ/",
+    example: "\"You have that major client pitch today—break a leg!\"",
+    back: "ขอให้โชคดี (สำนวนอวยพรก่อนขึ้นเวทีหรือสัมภาษณ์)",
+    origin: "Originates from old theatrical superstition that wishing 'good luck' jinxes the show. Also plays on the double meaning of 'cast' (the actors in a show vs an orthopedic plaster cast)!"
+  },
+  {
+    front: "Cost an arm and a leg",
+    type: "Idiom • Exorbitant Price",
+    ipa: "/kɒst ən ɑːm ənd ə leɡ/",
+    example: "\"Holiday flights during peak Christmas season cost an arm and a leg.\"",
+    back: "แพงหูฉี่ / แพงมากจนกระเป๋าฉีก",
+    origin: "Reflects the immense, irreplaceable value of human limbs; paying a price so high you feel as though you've sacrificed a limb!"
+  },
+  {
+    front: "Barking up the wrong tree",
+    type: "Idiom • Mistaken Target",
+    ipa: "/ˈbɑː.kɪŋ ʌp ðə rɒŋ triː/",
+    example: "\"If you think Worachon caused the server outage, you're barking up the wrong tree.\"",
+    back: "เข้าใจผิดทิศทาง / ถามผิดคน / สงสัยผิดจุด",
+    origin: "Derived from 19th-century American raccoon hunting dogs barking frantically beneath a tree after their quarry had already leaped to an adjacent branch!"
+  },
+  {
+    front: "Raining cats and dogs",
+    type: "Idiom • Torrential Deluge",
+    ipa: "/ˈreɪn.ɪŋ kæts ənd dɒɡz/",
+    example: "\"Don't forget your umbrella—it's raining cats and dogs outside!\"",
+    back: "ฝนตกหนักไม่ลืมหูลืมตา / ฝนตกกระหน่ำ",
+    origin: "Traditional English idiom for heavy downpours, dating back to 17th-century England when heavy rainstorms flooded street gutters."
+  },
+  {
+    front: "Every cloud has a silver lining",
+    type: "Idiom • Consolation & Hope",
+    ipa: "/ˈsɪl.və ˈlaɪ.nɪŋ/",
+    example: "\"Being sick made me rest and reflect—every cloud has a silver lining.\"",
+    back: "แสงสว่างในความมืดมน / ข้อดีที่แฝงอยู่ในเรื่องร้าย",
+    origin: "Coined by John Milton in 1634 ('Comus'), noticing sunlight shining brightly around the dark perimeter of heavy rainclouds."
+  },
+  {
+    front: "In over one's head",
+    type: "Idiom • Overwhelmed",
+    ipa: "/ɪn ˈəʊ.vər wʌnz hed/",
+    example: "\"Taking on three international projects at once left him in over his head.\"",
+    back: "ตกอยู่ในสถานการณ์ที่ยากเกินจะรับมือได้",
+    origin: "A metaphor drawn from deep water where the depth exceeds a swimmer's height, leaving them struggling to touch ground."
+  },
+  {
+    front: "The last straw",
+    type: "Idiom • Final Burden",
+    ipa: "/ðə lɑːst strɔː/",
+    example: "\"When the subway broke down after a 12-hour workday, it was the last straw.\"",
+    back: "ฟางเส้นสุดท้าย (สิ่งที่ทำให้หมดความอดทนในที่สุด)",
+    origin: "Shortened from the classic proverb: 'It is the last straw that breaks the camel's back'—a tiny addition collapsing an overloaded system."
+  },
+  {
+    front: "A problem shared is a problem halved",
+    type: "Proverb • Emotional Relief",
+    ipa: "/ə ˈprɒb.ləm ʃeəd ɪz ə ˈprɒb.ləm hɑːvd/",
+    example: "\"Tell me what's stressing you out; a problem shared is a problem halved.\"",
+    back: "การบอกเล่าปัญหาให้ผู้อื่นฟังช่วยแบ่งเบาความทุกข์ไปได้ครึ่งหนึ่ง",
+    origin: "Traditional English folk wisdom highlighting that articulating mental burdens immediately cuts emotional isolation and clarifies thinking."
+  },
+  {
+    front: "Give someone a bell",
+    type: "British Idiom • Telephone",
+    ipa: "/ɡɪv ˈsʌm.wʌn ə bel/",
+    example: "\"As soon as I touch down in London, I'll give you a bell.\"",
+    back: "โทรหา (สำนวนอังกฤษที่ใช้ในชีวิตประจำวัน)",
+    origin: "Directly linked to Alexander Graham Bell, inventor of the telephone, and the acoustic ringing bell of early telephone instruments."
+  },
+  {
+    front: "Off the top of one's head",
+    type: "Idiom • Spontaneous Recall",
+    ipa: "/ɒf ðə tɒp əv wʌnz hed/",
+    example: "\"Off the top of my head, I'd say the flight takes about eleven hours.\"",
+    back: "คิดออกทันทีโดยไม่ต้องเปิดดู / จำได้คร่าวๆ",
+    origin: "Describes information retrieved straight from the surface of memory without consulting records or deeply calculating."
+  },
+  {
+    front: "Emotional intelligence (EQ)",
+    type: "Concept • Psychological Skill",
+    ipa: "/ɪˌməʊ.ʃən.əl ɪnˈtel.ɪ.dʒəns/",
+    example: "\"Navigating adversity with maturity is the hallmark of emotional intelligence.\"",
+    back: "ความฉลาดทางอารมณ์ (EQ)",
+    origin: "Popularized by Daniel Goleman; in our lesson, Worachon highlighted that true EQ is forged through surviving personal sorrow and hardship."
+  },
+  {
+    front: "Procrastination",
+    type: "Concept • Cognitive Habit",
+    ipa: "/prəˌkræs.tɪˈneɪ.ʃən/",
+    example: "\"Deadline pressure forces me to conquer procrastination instantaneously!\"",
+    back: "การผัดวันประกันพรุ่ง",
+    origin: "From Latin 'procrastinare' (pro = forward, crastinus = of tomorrow). Can provide an incubation period for creative problem-solving!"
+  }
+];
+
+// -----------------------------------------------------------------------------
+// 4. IDIOM GYM CHALLENGES (6 Real-World Scenarios)
+// -----------------------------------------------------------------------------
+const IDIOM_CHALLENGES = [
+  {
+    id: 1,
+    scenario: "Your colleague is nervously pacing outside an executive boardroom before delivering a high-stakes presentation. You want to offer warm English theatrical good luck:",
+    correct: "Break a leg!",
+    options: ["Break a leg!", "Cost an arm and a leg!", "Barking up the wrong tree!"],
+    explanation: "🌟 Correct! 'Break a leg' is the time-honored way to wish performers and presenters success without jinxing them."
+  },
+  {
+    id: 2,
+    scenario: "You booked last-minute business class flights to London during peak holiday season and the fare was shockingly exorbitant. You tell your friend:",
+    correct: "It cost an arm and a leg!",
+    options: ["It was raining cats and dogs!", "It cost an arm and a leg!", "It's the last straw!"],
+    explanation: "🌟 Spot on! 'Cost an arm and a leg' perfectly describes an astronomically high price."
+  },
+  {
+    id: 3,
+    scenario: "A project manager wrongly accuses Worachon's department for a software bug caused by a third-party vendor. Worachon politely explains:",
+    correct: "You're barking up the wrong tree.",
+    options: ["You're barking up the wrong tree.", "A problem shared is a problem halved.", "Every cloud has a silver lining."],
+    explanation: "🌟 Perfect! 'Barking up the wrong tree' means pursuing a mistaken lead or pointing suspicion at the wrong party."
+  },
+  {
+    id: 4,
+    scenario: "Your close friend has been keeping work stress bottled up for weeks. You invite them for coffee and urge them to confide in you, saying:",
+    correct: "A problem shared is a problem halved.",
+    options: ["I'll give you a bell.", "A problem shared is a problem halved.", "It's off the top of my head."],
+    explanation: "🌟 Exactly! Expressing your distress to someone who cares instantly lightens the psychological weight."
+  },
+  {
+    id: 5,
+    scenario: "You're wrapping up a chat with Louie in London and want to tell him you will telephone him tomorrow afternoon using natural British phrasing:",
+    correct: "I'll give you a bell tomorrow.",
+    options: ["I'll give you a bell tomorrow.", "I'll break a leg tomorrow.", "I'm in over my head."],
+    explanation: "🌟 Brilliant! 'Give someone a bell' is quintessential British English for a friendly phone call."
+  },
+  {
+    id: 6,
+    scenario: "After a grueling week with delayed trains, missed flights, and a lost suitcase, your phone battery dies right when you need GPS navigation:",
+    correct: "That was the last straw!",
+    options: ["That was the last straw!", "It's raining cats and dogs!", "Every cloud has a silver lining!"],
+    explanation: "🌟 Spot on! 'The last straw' represents the final minor frustration that collapses all remaining patience."
+  }
+];
+
+// -----------------------------------------------------------------------------
+// 5. CONTEXT QUIZ QUESTIONS (6 Multi-Choice Questions)
+// -----------------------------------------------------------------------------
+const QUIZ_QUESTIONS = [
+  {
+    id: 1,
+    question: "Why do British English speakers say 'I'll give you a bell' when referring to a telephone call?",
+    options: [
+      "Because church bells were historically used to alert towns about meetings",
+      "Because Alexander Graham Bell invented the telephone, making his name synonymous with calls",
+      "Because early Morse code machines utilized brass bells",
+      "Because Victorian butlers carried handbells to summon guests"
+    ],
+    correctIndex: 1,
+    explanation: "Alexander Graham Bell patented the acoustic telephone in 1876. In England, the combination of his surname and the physical ringing bell created the idiom 'give you a bell'!"
+  },
+  {
+    id: 2,
+    question: "In our lesson, why did Louie explain that saying 'break a leg' connects to the word 'cast'?",
+    options: [
+      "Because stage lights were cast out of heavy brass fixtures",
+      "Because orthopedic surgeons cast fractured bones in plaster, and actors in a show are also called the cast",
+      "Because performers used to cast shadows against backdrops",
+      "Because playwrights cast spells for good luck behind the curtain"
+    ],
+    correctIndex: 1,
+    explanation: "It's a clever theatrical pun: if an actor breaks a leg, they end up wearing a plaster 'cast'—and actors in a play belong to the 'cast'!"
+  },
+  {
+    id: 3,
+    question: "According to Worachon's explanation in class, what is the key biological distinction between bacteria and viruses?",
+    options: [
+      "Bacteria only exist in water, while viruses only exist in air",
+      "Bacteria can be living cellular organisms, whereas viruses are non-cellular genetic agents",
+      "Viruses can be treated with antibiotics, but bacteria cannot",
+      "There is no scientific difference; both are identical living organisms"
+    ],
+    correctIndex: 1,
+    explanation: "Worachon accurately noted that bacteria are living, single-celled organisms, while viruses require a host cell to replicate and are not technically independent living entities."
+  },
+  {
+    id: 4,
+    question: "What happens when continental plate tectonics collide on land over millions of years?",
+    options: [
+      "They generate deep-sea oceanic trenches",
+      "They compress rock layers and thrust crust skyward into mountain ranges like Everest",
+      "They dissolve into the earth's molten core without leaving rocks",
+      "They cause permanent spatial vacuums in the atmosphere"
+    ],
+    correctIndex: 1,
+    explanation: "When continental plates crumple together, orogenic forces buckle the sedimentary strata upwards, forming massive mountain ranges like the Himalayas!"
+  },
+  {
+    id: 5,
+    question: "How did Worachon describe his personal method for developing true emotional intelligence (EQ)?",
+    options: [
+      "By memorizing academic textbooks and psychology journals",
+      "By avoiding all difficult emotional conflicts and stressful situations",
+      "By living through deep sorrow and extreme hardships to derive personal lessons",
+      "By relying solely on advice from social media influencers"
+    ],
+    correctIndex: 2,
+    explanation: "Worachon gave a profound philosophical response: true emotional intelligence is forged through enduring personal hardship, sadness, and extreme life trials."
+  },
+  {
+    id: 6,
+    question: "What did psychological research reveal about moderate procrastination during complex problem-solving?",
+    options: [
+      "Procrastinators always fail their tasks completely",
+      "Allowing an incubation period gives the subconscious mind time to mature creative insights",
+      "People who finish homework in five minutes always have the highest IQ",
+      "Procrastination destroys all ability to recall vocabulary"
+    ],
+    correctIndex: 1,
+    explanation: "As Louie highlighted, holding an idea in your head over a couple of days allows an 'incubation period' where the brain forms holistic, original connections."
+  }
+];
+
+console.log("Compiling HTML template with interactive UI components...");
+
+// -----------------------------------------------------------------------------
+// 6. BUILD HTML MARKUP
+// -----------------------------------------------------------------------------
+const htmlContent = `<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worachon's English Sanctuary & Idiom Studio | Lesson Notes</title>
+
+  <!-- Google Fonts: Cormorant Garamond, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            parchment: {
+              50: '#fbf9f5',
+              100: '#f6f1e7',
+              200: '#ede3d1',
+              300: '#dfd0b5',
+              400: '#cbb38e',
+              500: '#b6966b',
+            },
+            autumn: {
+              50: '#fcf6f0',
+              100: '#f7e9db',
+              200: '#eed0b5',
+              300: '#e2b086',
+              400: '#d38c57',
+              500: '#be6f38',
+              600: '#a3582b',
+              700: '#854524',
+              800: '#6c3921',
+            },
+            sage: {
+              50: '#f4f7f5',
+              100: '#e4ece7',
+              200: '#cadad1',
+              300: '#a5bfb1',
+              400: '#7b9f8d',
+              500: '#5b826f',
+              600: '#476858',
+              700: '#3a5448',
+              800: '#30443b',
+            },
+            slatewarm: {
+              700: '#3d4441',
+              800: '#2b312e',
+              900: '#1e2321',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP for Smooth Transitions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Popper & Tippy.js for Vocabulary Popovers -->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css" />
+
+  <!-- Canvas Confetti for Encouraging Practice -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --bg-base: #f9f6f0;
+      --bg-card: rgba(255, 253, 249, 0.92);
+      --bg-subcard: rgba(255, 255, 255, 0.95);
+      --border-soft: #e6decb;
+      --border-accent: #d9c8b0;
+      --text-main: #2b312e;
+      --text-muted: #5c6660;
+      --grad-1: rgba(238, 208, 181, 0.42);
+      --grad-2: rgba(202, 218, 209, 0.48);
+      --grad-3: rgba(246, 241, 231, 0.70);
+    }
+
+    body[data-theme="winchester"] {
+      --bg-base: #f3f6f5;
+      --bg-card: rgba(252, 254, 253, 0.93);
+      --bg-subcard: rgba(255, 255, 255, 0.96);
+      --border-soft: #d7e2dc;
+      --border-accent: #b8ccc2;
+      --text-main: #26312d;
+      --text-muted: #52635c;
+      --grad-1: rgba(202, 218, 209, 0.50);
+      --grad-2: rgba(219, 228, 238, 0.48);
+      --grad-3: rgba(244, 240, 230, 0.55);
+    }
+
+    body[data-theme="twilight"] {
+      --bg-base: #f5efe6;
+      --bg-card: rgba(253, 249, 242, 0.94);
+      --bg-subcard: rgba(255, 252, 247, 0.97);
+      --border-soft: #e2d2be;
+      --border-accent: #cfaea0;
+      --text-main: #2d2622;
+      --text-muted: #665850;
+      --grad-1: rgba(226, 176, 134, 0.36);
+      --grad-2: rgba(214, 196, 176, 0.42);
+      --grad-3: rgba(235, 220, 202, 0.55);
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      background-image: 
+        radial-gradient(at 0% 0%, var(--grad-1) 0px, transparent 55%),
+        radial-gradient(at 100% 0%, var(--grad-2) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, var(--grad-3) 0px, transparent 65%);
+      background-attachment: fixed;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    .sanctuary-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px -5px rgba(61, 68, 65, 0.05), 0 4px 12px -2px rgba(163, 88, 43, 0.03);
+    }
+
+    .sanctuary-subcard {
+      background: var(--bg-subcard);
+      border: 1px solid var(--border-soft);
+    }
+
+    /* Vocabulary Highlighting */
+    .vocab-mark {
+      background: linear-gradient(120deg, rgba(226, 176, 134, 0.48) 0%, rgba(211, 140, 87, 0.36) 100%);
+      border-bottom: 2px solid #be6f38;
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-weight: 600;
+      color: #1e2321;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    .vocab-mark:hover, .vocab-mark.active-vocab {
+      background: linear-gradient(120deg, rgba(190, 111, 56, 0.35) 0%, rgba(247, 233, 219, 0.95) 100%);
+      border-bottom-color: #854524;
+      transform: scale(1.02);
+      box-shadow: 0 2px 8px rgba(190, 111, 56, 0.25);
+    }
+    body.hide-vocab-highlights .vocab-mark {
+      background: transparent !important;
+      border-bottom-color: transparent !important;
+      padding: 0 !important;
+      font-weight: inherit !important;
+    }
+
+    /* ASR Note-Taker Fix Badges */
+    .asr-fix-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(91, 130, 111, 0.14);
+      border: 1px solid rgba(91, 130, 111, 0.35);
+      border-radius: 9999px;
+      padding: 1px 8px;
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #30443b;
+      margin: 0 3px;
+      vertical-align: middle;
+      transition: opacity 0.2s;
+    }
+    body.hide-asr-fixes .asr-fix-pill {
+      display: none !important;
+    }
+
+    /* Tippy Tooltip Custom Theme */
+    .tippy-box[data-theme~='autumn-sanctuary'] {
+      background-color: #fffdf9;
+      color: #2b312e;
+      border: 1px solid #dfd0b5;
+      border-radius: 1rem;
+      box-shadow: 0 20px 38px -8px rgba(61, 68, 65, 0.16), 0 6px 16px -4px rgba(163, 88, 43, 0.08);
+      padding: 0.35rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .tippy-box[data-theme~='autumn-sanctuary'][data-placement^='top'] > .tippy-arrow::before {
+      border-top-color: #dfd0b5;
+    }
+    .tippy-box[data-theme~='autumn-sanctuary'][data-placement^='bottom'] > .tippy-arrow::before {
+      border-bottom-color: #dfd0b5;
+    }
+
+    /* Golden Glow Pulse Animation for Jumps */
+    @keyframes goldenGlow {
+      0% { background-color: rgba(226, 176, 134, 0.65); transform: scale(1.01); }
+      50% { background-color: rgba(165, 191, 177, 0.45); }
+      100% { background-color: transparent; transform: scale(1); }
+    }
+    .turn-highlight-flash {
+      animation: goldenGlow 2.8s ease-out;
+    }
+
+    /* Flashcard Flip Mechanics */
+    .card-perspective {
+      perspective: 1000px;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .card-inner.flipped {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 1.5rem;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    @media print {
+      .no-print, #autumn-breeze-canvas { display: none !important; }
+      body { background: #fff !important; }
+      .sanctuary-card, .sanctuary-subcard { box-shadow: none !important; border: 1px solid #ccc !important; }
+    }
+  </style>
+</head>
+<body data-theme="kensington" class="font-sans antialiased min-h-screen selection:bg-autumn-200 selection:text-slatewarm-900 relative">
+
+  <!-- CALMING AMBIENT BREEZE CANVAS OVERLAY -->
+  <canvas id="autumn-breeze-canvas" class="fixed inset-0 pointer-events-none z-20 opacity-80"></canvas>
+
+  <!-- TOP STUDENT BADGE STRIP -->
+  <aside class="bg-gradient-to-r from-sage-800 via-sage-700 to-autumn-700 text-white text-xs py-2 px-4 text-center font-medium shadow-sm relative z-50 flex items-center justify-between gap-3 flex-wrap">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/20 text-white font-mono text-[11px] font-bold">
+        🇹🇭 Bangkok • Preply English Sanctuary
+      </span>
+      <span>Worachon P. • Advanced English, Scientific Discourse & Idiom Mastery</span>
+    </div>
+    <div class="flex items-center gap-2 font-mono text-[11px]">
+      <span>Lesson 01 • 22 October 2026</span>
+      <span class="hidden sm:inline">• Tutor: Louie (Lewis O'Shea)</span>
+    </div>
+  </aside>
+
+  <!-- STICKY PEACEFUL ATMOSPHERE & NAV BAR -->
+  <header class="sticky top-0 z-40 border-b border-[#e6decb]/90 bg-[#fbf9f5]/90 backdrop-blur-md no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Logo & Student Profile -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-autumn-500 to-sage-600 flex items-center justify-center text-white shadow-sm font-serif font-bold text-lg">
+          W
+        </div>
+        <div>
+          <h1 class="font-serif font-bold text-lg sm:text-xl text-slatewarm-900 leading-tight">Worachon's English Sanctuary</h1>
+          <p class="text-[11px] text-stone-500 font-sans">Interactive Transcript, Medical Lexicon & Idiom Practice Portal</p>
+        </div>
+      </div>
+
+      <!-- Atmospheric Controls -->
+      <div class="flex items-center gap-2 flex-wrap">
+        
+        <!-- Web Audio API Soundscape Player -->
+        <div class="flex items-center gap-1 sanctuary-subcard px-2.5 py-1.5 rounded-xl text-xs text-stone-700 shadow-xs">
+          <i data-lucide="headphones" class="w-3.5 h-3.5 text-sage-600"></i>
+          <span class="font-medium mr-1 text-[11px]">Soundscape:</span>
+          <button onclick="toggleSoundscape('breeze')" id="sound-breeze-btn" class="px-2 py-0.5 rounded-md hover:bg-sage-100 text-[11px] font-medium transition">🍂 Breeze</button>
+          <button onclick="toggleSoundscape('rain')" id="sound-rain-btn" class="px-2 py-0.5 rounded-md hover:bg-sage-100 text-[11px] font-medium transition">🌧️ Rain</button>
+          <button onclick="toggleSoundscape('hearth')" id="sound-hearth-btn" class="px-2 py-0.5 rounded-md hover:bg-sage-100 text-[11px] font-medium transition">🪵 Hearth</button>
+          <button onclick="stopSoundscape()" id="sound-off-btn" class="px-1.5 py-0.5 rounded-md bg-stone-200 text-stone-600 text-[11px] font-medium transition">Off</button>
+        </div>
+
+        <!-- Canvas Breeze Particle Toggle -->
+        <button onclick="cycleLeafBreeze()" id="leaf-breeze-btn" class="sanctuary-subcard px-2.5 py-1.5 rounded-xl text-xs font-medium text-stone-700 hover:bg-parchment-100 transition flex items-center gap-1.5 shadow-xs" title="Adjust Falling Autumn Leaves Speed">
+          <i data-lucide="wind" class="w-3.5 h-3.5 text-autumn-600"></i>
+          <span id="leaf-status-text" class="text-[11px]">Leaves: Gentle</span>
+        </button>
+
+        <!-- Theme Switcher -->
+        <button onclick="cycleTheme()" class="sanctuary-subcard px-2.5 py-1.5 rounded-xl text-xs font-medium text-stone-700 hover:bg-parchment-100 transition flex items-center gap-1.5 shadow-xs" title="Switch Calming Color Theme">
+          <i data-lucide="palette" class="w-3.5 h-3.5 text-sage-600"></i>
+          <span id="theme-btn-text" class="text-[11px]">Bath Stone</span>
+        </button>
+
+        <!-- Speech Synthesis Rate -->
+        <button onclick="toggleSpeechRate()" id="speech-rate-btn" class="sanctuary-subcard px-2.5 py-1.5 rounded-xl text-xs font-mono font-medium text-stone-700 hover:bg-parchment-100 transition flex items-center gap-1 shadow-xs" title="Toggle audio pronunciation speed">
+          <i data-lucide="volume-2" class="w-3.5 h-3.5 text-autumn-600"></i>
+          <span id="speech-rate-label">0.85×</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- MAIN NAVIGATION TABS -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-1 pb-2">
+      <nav class="flex flex-wrap items-center gap-1.5 border-t border-stone-200/60 pt-2" aria-label="Tabs">
+        <button onclick="switchTab('transcript')" id="tab-btn-transcript" class="tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 bg-sage-700 text-white shadow-sm">
+          <i data-lucide="message-square-quote" class="w-4 h-4"></i>
+          <span>Cleaned Transcript</span>
+          <span class="px-1.5 py-0.2 rounded-full bg-white/20 text-[10px] font-mono">00:00–53:24</span>
+        </button>
+
+        <button onclick="switchTab('vocab')" id="tab-btn-vocab" class="tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="book-marked" class="w-4 h-4 text-autumn-600"></i>
+          <span>Vocabulary & Idioms</span>
+          <span class="px-1.5 py-0.2 rounded-full bg-autumn-100 text-autumn-800 text-[10px] font-mono font-bold">55</span>
+        </button>
+
+        <button onclick="switchTab('fixes')" id="tab-btn-fixes" class="tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="sparkles" class="w-4 h-4 text-sage-600"></i>
+          <span>Natural Phrasing & ASR Fixes</span>
+          <span class="px-1.5 py-0.2 rounded-full bg-sage-100 text-sage-800 text-[10px] font-mono font-bold">12</span>
+        </button>
+
+        <button onclick="switchTab('topics')" id="tab-btn-topics" class="tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="compass" class="w-4 h-4 text-autumn-600"></i>
+          <span>Science & Life Philosophy</span>
+        </button>
+
+        <button onclick="switchTab('practice')" id="tab-btn-practice" class="tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="coffee" class="w-4 h-4 text-sage-600"></i>
+          <span>Peaceful Practice & Idiom Gym</span>
+          <span class="px-1.5 py-0.2 rounded-full bg-autumn-500 text-white text-[10px] font-mono font-bold">Gym 🥊</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-30">
+
+    <!-- =================================================================== -->
+    <!-- TAB 1: FULL CLEANED TRANSCRIPT -->
+    <!-- =================================================================== -->
+    <section id="tab-panel-transcript" class="tab-panel space-y-6">
+      
+      <!-- Chapter Jump Pills & Transcript Toolbar -->
+      <div class="sanctuary-card rounded-3xl p-5 space-y-4">
+        
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="font-serif font-bold text-xl text-slatewarm-900 flex items-center gap-2">
+              <i data-lucide="scroll-text" class="w-5 h-5 text-autumn-600"></i>
+              Chronological Lesson Transcript (00:00 – 53:24)
+            </h2>
+            <p class="text-xs text-stone-500 mt-0.5">Forensically cleaned • Accurate speaker attribution • 55 flagged vocabulary & idiom markers</p>
+          </div>
+
+          <!-- ASR Toggle & Highlights Toggle -->
+          <div class="flex items-center gap-2 flex-wrap text-xs">
+            <button onclick="toggleAsrBadges()" id="asr-toggle-btn" class="sanctuary-subcard px-3 py-1.5 rounded-xl font-medium text-sage-800 hover:bg-sage-100 transition flex items-center gap-1.5 border border-sage-300">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-sage-600"></i>
+              <span id="asr-btn-text">Note-Taker Fixes: Visible</span>
+            </button>
+            <button onclick="toggleVocabHighlights()" id="vocab-toggle-btn" class="sanctuary-subcard px-3 py-1.5 rounded-xl font-medium text-autumn-800 hover:bg-autumn-100 transition flex items-center gap-1.5 border border-autumn-300">
+              <i data-lucide="highlighter" class="w-3.5 h-3.5 text-autumn-600"></i>
+              <span id="vocab-btn-text">Vocab Highlights: On</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Search Bar & Filters -->
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-2 border-t border-stone-200/60">
+          <div class="sm:col-span-7 relative">
+            <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="transcript-search" oninput="filterTranscript()" placeholder="Search spoken dialogue, idioms, or terms (e.g., 'prosthetic', 'raccoon', 'break a leg')..." class="w-full pl-10 pr-10 py-2.5 rounded-xl border border-stone-300 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-autumn-400 text-xs sm:text-sm font-sans placeholder:text-stone-400" />
+            <button onclick="clearTranscriptSearch()" id="clear-search-btn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Speaker Filter -->
+          <div class="sm:col-span-5 flex items-center gap-1.5 justify-end">
+            <span class="text-xs text-stone-500 font-medium mr-1">Speaker:</span>
+            <button onclick="filterSpeaker('all')" id="spk-all-btn" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-sage-700 text-white shadow-xs transition">All</button>
+            <button onclick="filterSpeaker('Louie')" id="spk-louie-btn" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 transition">Louie (Tutor)</button>
+            <button onclick="filterSpeaker('Worachon')" id="spk-worachon-btn" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 transition">Worachon (Student)</button>
+          </div>
+        </div>
+
+        <!-- Chapter Navigation Pills -->
+        <div class="pt-2 flex items-center gap-2 overflow-x-auto pb-1 text-xs">
+          <span class="text-stone-400 font-mono text-[11px] shrink-0">Jump:</span>
+          <a href="#chap-1" class="px-2.5 py-1 rounded-lg bg-parchment-100 hover:bg-parchment-200 text-stone-700 shrink-0 font-medium transition">I. Hip Prosthetics (00:00)</a>
+          <a href="#chap-2" class="px-2.5 py-1 rounded-lg bg-parchment-100 hover:bg-parchment-200 text-stone-700 shrink-0 font-medium transition">II. Raccoons & Sports (05:31)</a>
+          <a href="#chap-3" class="px-2.5 py-1 rounded-lg bg-parchment-100 hover:bg-parchment-200 text-stone-700 shrink-0 font-medium transition">III. Bell & Genetics (13:16)</a>
+          <a href="#chap-4" class="px-2.5 py-1 rounded-lg bg-parchment-100 hover:bg-parchment-200 text-stone-700 shrink-0 font-medium transition">IV. Plate Tectonics (21:11)</a>
+          <a href="#chap-5" class="px-2.5 py-1 rounded-lg bg-parchment-100 hover:bg-parchment-200 text-stone-700 shrink-0 font-medium transition">V. Idiom Studio (30:41)</a>
+          <a href="#chap-6" class="px-2.5 py-1 rounded-lg bg-parchment-100 hover:bg-parchment-200 text-stone-700 shrink-0 font-medium transition">VI. Checkers & Philosophy (38:51)</a>
+        </div>
+      </div>
+
+      <!-- Main Two-Column Layout: Transcript Feed + Sticky Spotlight -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Left: Transcript Feed -->
+        <div class="lg:col-span-8 space-y-4" id="transcript-feed-container">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- Right: Sticky Desktop Vocabulary Spotlight Panel -->
+        <div class="lg:col-span-4 sticky top-28 hidden lg:block space-y-4">
+          <div class="sanctuary-card rounded-3xl p-6 space-y-4 border-2 border-autumn-200/80 shadow-md" id="desktop-spotlight-card">
+            
+            <div class="flex items-center justify-between pb-3 border-b border-stone-200">
+              <div class="flex items-center gap-2">
+                <i data-lucide="sparkle" class="w-4 h-4 text-autumn-600 animate-pulse"></i>
+                <span class="text-xs font-mono uppercase tracking-wider text-autumn-700 font-bold">Vocabulary Spotlight</span>
+              </div>
+              <span id="spotlight-level" class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-autumn-100 text-autumn-800">C1</span>
+            </div>
+
+            <div>
+              <div class="flex items-baseline justify-between gap-2">
+                <h3 id="spotlight-word" class="font-serif font-bold text-2xl text-slatewarm-900 leading-tight">off the top of one's head</h3>
+                <span id="spotlight-pos" class="text-xs italic text-stone-500 font-sans">idiom</span>
+              </div>
+              <div class="flex items-center gap-2 mt-1">
+                <span id="spotlight-ipa" class="font-mono text-xs text-stone-600">/ɒf ðə tɒp əv wʌnz hed/</span>
+                <button onclick="speakCurrentSpotlight()" class="p-1 rounded-md text-stone-500 hover:text-autumn-600 hover:bg-parchment-100 transition" title="Listen to pronunciation">
+                  <i data-lucide="volume-2" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Thai Translation Card -->
+            <div class="p-3 rounded-2xl bg-gradient-to-r from-autumn-50 to-parchment-100 border border-autumn-200/60">
+              <div class="flex items-center gap-1.5 text-[11px] font-bold text-autumn-800 mb-1">
+                <span>🇹🇭 ความหมายภาษาไทย (Thai):</span>
+              </div>
+              <p id="spotlight-thai" class="text-sm font-sans font-medium text-slatewarm-900 leading-snug">คิดออกทันทีโดยไม่ต้องเปิดดู / พูดจากความทรงจำ</p>
+            </div>
+
+            <!-- English Definition -->
+            <div class="space-y-1">
+              <h4 class="text-[11px] uppercase tracking-wider text-stone-400 font-mono font-bold">English Meaning</h4>
+              <p id="spotlight-def" class="text-xs text-stone-700 font-sans leading-relaxed">
+                From immediate spontaneous recall without consulting reference materials, notes, or calculating carefully.
+              </p>
+            </div>
+
+            <!-- Spoken Lesson Quote -->
+            <div class="space-y-1 pt-2 border-t border-stone-200">
+              <div class="flex items-center justify-between">
+                <h4 class="text-[11px] uppercase tracking-wider text-stone-400 font-mono font-bold">Spoken in Lesson</h4>
+                <span id="spotlight-time" class="text-[10px] font-mono text-autumn-700">🕒 01:09</span>
+              </div>
+              <p id="spotlight-quote" class="text-xs italic text-stone-600 bg-parchment-50 p-3 rounded-xl border border-stone-200 font-serif leading-relaxed">
+                "They couldn't remember off the top of their head, but they're going to get me the company's name."
+              </p>
+            </div>
+
+            <!-- Quick Action Links -->
+            <div class="pt-2 flex items-center justify-between text-xs">
+              <button onclick="jumpToActiveSpotlightTurn()" class="text-autumn-700 hover:text-autumn-800 font-semibold flex items-center gap-1">
+                <span>Jump to transcript turn</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </button>
+              <span id="spotlight-cat" class="px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 text-[10px] font-mono capitalize">idioms</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 2: VOCABULARY & IDIOMS DICTIONARY -->
+    <!-- =================================================================== -->
+    <section id="tab-panel-vocab" class="tab-panel hidden space-y-6">
+      
+      <!-- Lexicon Header & Controls -->
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="font-serif font-bold text-2xl text-slatewarm-900 flex items-center gap-2">
+              <i data-lucide="book-open-check" class="w-6 h-6 text-autumn-600"></i>
+              Interactive Lexicon & Idiom Sanctuary
+            </h2>
+            <p class="text-xs sm:text-sm text-stone-600 mt-1">
+              55 carefully selected terms, B2–C2 concepts, and spoken idioms with authentic Thai translations & direct timestamp links.
+            </p>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="flex items-center gap-2 text-xs font-mono">
+            <span class="px-3 py-1.5 rounded-xl bg-autumn-100 text-autumn-800 font-bold border border-autumn-200">55 Terms</span>
+            <span class="px-3 py-1.5 rounded-xl bg-sage-100 text-sage-800 font-bold border border-sage-200">12 Idioms</span>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-3 border-t border-stone-200/60">
+          
+          <!-- Search Input -->
+          <div class="sm:col-span-5 relative">
+            <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="vocab-search" oninput="filterVocabGrid()" placeholder="Filter by English word, meaning, or Thai (เช่น 'เฝือก', 'กระเป๋าฉีก')..." class="w-full pl-10 pr-8 py-2.5 rounded-xl border border-stone-300 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-autumn-400 text-xs sm:text-sm font-sans" />
+          </div>
+
+          <!-- Category Pills -->
+          <div class="sm:col-span-7 flex flex-wrap items-center gap-1.5 justify-start sm:justify-end text-xs">
+            <button onclick="filterVocabCategory('all')" id="vcat-all" class="px-3 py-1.5 rounded-xl font-semibold bg-sage-700 text-white shadow-xs transition">All</button>
+            <button onclick="filterVocabCategory('idioms')" id="vcat-idioms" class="px-3 py-1.5 rounded-xl font-semibold bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 transition">✨ Idioms</button>
+            <button onclick="filterVocabCategory('science')" id="vcat-science" class="px-3 py-1.5 rounded-xl font-semibold bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 transition">🔬 Science</button>
+            <button onclick="filterVocabCategory('medical')" id="vcat-medical" class="px-3 py-1.5 rounded-xl font-semibold bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 transition">🩺 Medical</button>
+            <button onclick="filterVocabCategory('psychology')" id="vcat-psychology" class="px-3 py-1.5 rounded-xl font-semibold bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 transition">🧠 Mind & EQ</button>
+          </div>
+        </div>
+
+        <!-- CEFR Level Filters -->
+        <div class="flex items-center gap-2 pt-2 text-xs">
+          <span class="text-stone-400 font-mono text-[11px]">Level:</span>
+          <button onclick="filterVocabLevel('all')" id="vlvl-all" class="px-2.5 py-1 rounded-lg bg-parchment-100 hover:bg-parchment-200 text-stone-700 font-bold transition">All Levels</button>
+          <button onclick="filterVocabLevel('B2')" id="vlvl-B2" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 font-bold transition">B2 Vantage</button>
+          <button onclick="filterVocabLevel('C1')" id="vlvl-C1" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 font-bold transition">C1 Advanced</button>
+          <button onclick="filterVocabLevel('C2')" id="vlvl-C2" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 font-bold transition">C2 Mastery</button>
+        </div>
+      </div>
+
+      <!-- Vocab Card Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="vocab-cards-grid">
+        <!-- Dynamically rendered via JS -->
+      </div>
+
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 3: STRENGTHS & PHRASING POLISHES -->
+    <!-- =================================================================== -->
+    <section id="tab-panel-fixes" class="tab-panel hidden space-y-6">
+      
+      <!-- Section A: Confidence & Celebrated Natural Strengths -->
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
+            <i data-lucide="trophy" class="w-5 h-5 text-autumn-600"></i>
+          </div>
+          <div>
+            <h2 class="font-serif font-bold text-2xl text-slatewarm-900">Your Natural Strengths (Spoken in Lesson)</h2>
+            <p class="text-xs sm:text-sm text-stone-500">6 moments where Worachon demonstrated remarkable precision, scientific clarity, and social tact.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          
+          <div class="sanctuary-subcard p-5 rounded-2xl border-l-4 border-l-sage-500 space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-mono text-sage-800 font-bold">1. Scientific Distinction: Viruses vs Bacteria</span>
+              <span class="font-mono text-stone-400">🕒 25:51</span>
+            </div>
+            <p class="font-serif italic text-sm text-stone-800">"Microbes can be living organisms like bacteria, but can also be viruses which are not living organisms."</p>
+            <p class="text-xs text-stone-600"><strong>Why this stood out:</strong> Highly sophisticated biological precision. Recognizing that viruses lack cellular machinery and depend on hosts showed deep technical fluency in English.</p>
+          </div>
+
+          <div class="sanctuary-subcard p-5 rounded-2xl border-l-4 border-l-sage-500 space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-mono text-sage-800 font-bold">2. Geodynamics & Orogeny</span>
+              <span class="font-mono text-stone-400">🕒 22:27</span>
+            </div>
+            <p class="font-serif italic text-sm text-stone-800">"If plate tectonics emerge or collide under the sea, it causes a tsunami; on land, it gives a very high mountain."</p>
+            <p class="text-xs text-stone-600"><strong>Why this stood out:</strong> Flawless causal description of geological phenomena, smoothly differentiating subduction zone tsunamis from continental mountain-building.</p>
+          </div>
+
+          <div class="sanctuary-subcard p-5 rounded-2xl border-l-4 border-l-sage-500 space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-mono text-sage-800 font-bold">3. Maintaining Global Friendships</span>
+              <span class="font-mono text-stone-400">🕒 40:44</span>
+            </div>
+            <p class="font-serif italic text-sm text-stone-800">"Whatever happens in my life, I text them to inform and ask about them very often."</p>
+            <p class="text-xs text-stone-600"><strong>Why this stood out:</strong> Warm, natural interpersonal communication. Explaining time zone coordination across Singapore, the US, and UK effortlessly.</p>
+          </div>
+
+          <div class="sanctuary-subcard p-5 rounded-2xl border-l-4 border-l-sage-500 space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-mono text-sage-800 font-bold">4. Philosophical Framing on Personal Change</span>
+              <span class="font-mono text-stone-400">🕒 42:57</span>
+            </div>
+            <p class="font-serif italic text-sm text-stone-800">"It depends on how we define change."</p>
+            <p class="text-xs text-stone-600"><strong>Why this stood out:</strong> Outstanding intellectual control. Clarifying definitions before tackling a complex psychological question is a classic C2 debate skill.</p>
+          </div>
+
+          <div class="sanctuary-subcard p-5 rounded-2xl border-l-4 border-l-sage-500 space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-mono text-sage-800 font-bold">5. Emotional Intelligence Through Adversity</span>
+              <span class="font-mono text-stone-400">🕒 45:31</span>
+            </div>
+            <p class="font-serif italic text-sm text-stone-800">"I have to experience some extreme situation in order to get my own lesson and develop my way to understand it."</p>
+            <p class="text-xs text-stone-600"><strong>Why this stood out:</strong> Profound maturity. Articulating that resilience and self-awareness are forged through adversity rather than theoretical study.</p>
+          </div>
+
+          <div class="sanctuary-subcard p-5 rounded-2xl border-l-4 border-l-sage-500 space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-mono text-sage-800 font-bold">6. High-Level Adverbial Precision</span>
+              <span class="font-mono text-stone-400">🕒 48:15</span>
+            </div>
+            <p class="font-serif italic text-sm text-stone-800">"It forces me to overcome it instantaneously."</p>
+            <p class="text-xs text-stone-600"><strong>Why this stood out:</strong> Deploying the advanced adverb <em>instantaneously</em> accurately on the spot while feeling sick demonstrates a rich mental lexicon.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Section B: Gentle Phrasing Polishes -->
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-sage-100 text-sage-800 flex items-center justify-center font-bold">
+            <i data-lucide="feather" class="w-5 h-5 text-sage-700"></i>
+          </div>
+          <div>
+            <h2 class="font-serif font-bold text-2xl text-slatewarm-900">Gentle Phrasing Polishes</h2>
+            <p class="text-xs sm:text-sm text-stone-500">Subtle native upgrades to take your already impressive English to native executive cadence.</p>
+          </div>
+        </div>
+
+        <div class="space-y-4 pt-2">
+          
+          <div class="sanctuary-subcard p-5 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-mono font-bold">Medical Health & Voice</span>
+              <span class="text-stone-400 font-mono">02:00</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div class="bg-stone-50 p-3 rounded-xl border border-stone-200">
+                <span class="text-[10px] uppercase font-mono font-bold text-stone-400 block mb-1">In The Moment Spoken</span>
+                <p class="text-stone-700 italic">"Actually, I got influencer... because my boy is in great enough yet."</p>
+              </div>
+              <div class="bg-sage-50 p-3 rounded-xl border border-sage-200">
+                <span class="text-[10px] uppercase font-mono font-bold text-sage-700 block mb-1">Gentle Native Polish</span>
+                <p class="text-sage-900 font-semibold">"Actually, I came down with the flu... my voice hasn't quite recovered yet."</p>
+              </div>
+            </div>
+            <p class="text-xs text-stone-500"><em>Why:</em> 'Come down with' is the natural British/American phrasal verb for catching respiratory illnesses.</p>
+          </div>
+
+          <div class="sanctuary-subcard p-5 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-mono font-bold">Acoustic Technology</span>
+              <span class="text-stone-400 font-mono">19:24</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div class="bg-stone-50 p-3 rounded-xl border border-stone-200">
+                <span class="text-[10px] uppercase font-mono font-bold text-stone-400 block mb-1">In The Moment Spoken</span>
+                <p class="text-stone-700 italic">"The method of using sound wave to do something experimentally."</p>
+              </div>
+              <div class="bg-sage-50 p-3 rounded-xl border border-sage-200">
+                <span class="text-[10px] uppercase font-mono font-bold text-sage-700 block mb-1">Gentle Native Polish</span>
+                <p class="text-sage-900 font-semibold">"A technique utilizing acoustic sound waves for underwater navigation and detection."</p>
+              </div>
+            </div>
+            <p class="text-xs text-stone-500"><em>Why:</em> 'Acoustic waves' and 'navigation' make technical descriptions punchy and authoritative.</p>
+          </div>
+
+          <div class="sanctuary-subcard p-5 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-mono font-bold">Idiomatic Threshold</span>
+              <span class="text-stone-400 font-mono">34:36</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div class="bg-stone-50 p-3 rounded-xl border border-stone-200">
+                <span class="text-[10px] uppercase font-mono font-bold text-stone-400 block mb-1">In The Moment Spoken</span>
+                <p class="text-stone-700 italic">"When you have been in the problem with someone... have it like make it exceed your ability to be patient."</p>
+              </div>
+              <div class="bg-sage-50 p-3 rounded-xl border border-sage-200">
+                <span class="text-[10px] uppercase font-mono font-bold text-sage-700 block mb-1">Gentle Native Polish</span>
+                <p class="text-sage-900 font-semibold">"When an ongoing conflict finally pushes you past your breaking point—it becomes the last straw."</p>
+              </div>
+            </div>
+            <p class="text-xs text-stone-500"><em>Why:</em> 'Breaking point' and 'threshold of patience' pair seamlessly with 'the last straw'.</p>
+          </div>
+
+          <div class="sanctuary-subcard p-5 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-mono font-bold">Life-Changing Events</span>
+              <span class="text-stone-400 font-mono">42:57</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div class="bg-stone-50 p-3 rounded-xl border border-stone-200">
+                <span class="text-[10px] uppercase font-mono font-bold text-stone-400 block mb-1">In The Moment Spoken</span>
+                <p class="text-stone-700 italic">"Seeing my friend behave differently after they got into some life-affecting situations."</p>
+              </div>
+              <div class="bg-sage-50 p-3 rounded-xl border border-sage-200">
+                <span class="text-[10px] uppercase font-mono font-bold text-sage-700 block mb-1">Gentle Native Polish</span>
+                <p class="text-sage-900 font-semibold">"Watching friends alter their demeanor after going through major life-altering experiences."</p>
+              </div>
+            </div>
+            <p class="text-xs text-stone-500"><em>Why:</em> 'Life-altering' is the idiomatic compound adjective preferred over 'life-affecting'.</p>
+          </div>
+
+          <div class="sanctuary-subcard p-5 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-mono font-bold">Overcoming Deadlines</span>
+              <span class="text-stone-400 font-mono">48:15</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div class="bg-stone-50 p-3 rounded-xl border border-stone-200">
+                <span class="text-[10px] uppercase font-mono font-bold text-stone-400 block mb-1">In The Moment Spoken</span>
+                <p class="text-stone-700 italic">"If the exam is on like the next three days, it force me to overcome it."</p>
+              </div>
+              <div class="bg-sage-50 p-3 rounded-xl border border-sage-200">
+                <span class="text-[10px] uppercase font-mono font-bold text-sage-700 block mb-1">Gentle Native Polish</span>
+                <p class="text-sage-900 font-semibold">"If the exam is coming up in three days, the urgency forces me to buckle down immediately."</p>
+              </div>
+            </div>
+            <p class="text-xs text-stone-500"><em>Why:</em> 'Buckle down' is a brilliant native phrasal verb meaning to apply yourself with intense focus.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Section C: Note-Taker Forensic Mishearing Log -->
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="font-serif font-bold text-2xl text-slatewarm-900 flex items-center gap-2">
+              <i data-lucide="bot" class="w-5 h-5 text-autumn-600"></i>
+              Note-Taker Forensic Mishearing Log
+            </h2>
+            <p class="text-xs text-stone-500">Automated speech-to-text algorithms frequently stumble over proper nouns, medical terms, and British idioms.</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-autumn-100 text-autumn-800 text-xs font-mono font-bold">10 Fixed Errors</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-stone-200 text-stone-400 font-mono uppercase text-[10px]">
+                <th class="py-2.5 px-3">Time</th>
+                <th class="py-2.5 px-3">Raw Note-Taker Error</th>
+                <th class="py-2.5 px-3">Spoken Truth</th>
+                <th class="py-2.5 px-3">Forensic Context & Why it Stumbled</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-100">
+              <tr>
+                <td class="py-2.5 px-3 font-mono text-autumn-700">00:00</td>
+                <td class="py-2.5 px-3 font-mono text-red-600 line-through">"Speaker 2"</td>
+                <td class="py-2.5 px-3 font-bold text-sage-900">Worachon</td>
+                <td class="py-2.5 px-3 text-stone-600">The automated note-taker left the student anonymously labeled as 'Speaker 2' and inverted speaker channels in chapters 5 and 6!</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-mono text-autumn-700">02:00</td>
+                <td class="py-2.5 px-3 font-mono text-red-600 line-through">"influencer"</td>
+                <td class="py-2.5 px-3 font-bold text-sage-900">influenza (flu)</td>
+                <td class="py-2.5 px-3 text-stone-600">Acoustic confusion: the model heard the Latin medical term 'influenza' and mapped it to the modern internet word 'influencer'!</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-mono text-autumn-700">02:09</td>
+                <td class="py-2.5 px-3 font-mono text-red-600 line-through">"my boy is in great enough yet"</td>
+                <td class="py-2.5 px-3 font-bold text-sage-900">my voice isn't great yet</td>
+                <td class="py-2.5 px-3 text-stone-600">Worachon had hoarseness from the virus, causing the ASR engine to mishear 'voice isn't' as 'boy is in'.</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-mono text-autumn-700">09:18</td>
+                <td class="py-2.5 px-3 font-mono text-red-600 line-through">"Door of the Explorer"</td>
+                <td class="py-2.5 px-3 font-bold text-sage-900">Dora the Explorer</td>
+                <td class="py-2.5 px-3 text-stone-600">Phonetic collapse of the animated heroine's name.</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-mono text-autumn-700">15:48</td>
+                <td class="py-2.5 px-3 font-mono text-red-600 line-through">"give you the bell"</td>
+                <td class="py-2.5 px-3 font-bold text-sage-900">give you a bell</td>
+                <td class="py-2.5 px-3 text-stone-600">Article mishearing: in British English the idiom is strictly 'give you a bell'.</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-mono text-autumn-700">19:56</td>
+                <td class="py-2.5 px-3 font-mono text-red-600 line-through">"gen home"</td>
+                <td class="py-2.5 px-3 font-bold text-sage-900">gen học (Vietnamese)</td>
+                <td class="py-2.5 px-3 text-stone-600">The Vietnamese term 'học' (study of) was misheard by English acoustic models as 'home'.</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-mono text-autumn-700">31:17</td>
+                <td class="py-2.5 px-3 font-mono text-red-600 line-through">"Cassandra"</td>
+                <td class="py-2.5 px-3 font-bold text-sage-900">Cats and dogs</td>
+                <td class="py-2.5 px-3 text-stone-600">Hilarious note-taker hallucination: 'cats and dogs' was compressed into the Greek mythological name 'Cassandra'!</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-mono text-autumn-700">35:36</td>
+                <td class="py-2.5 px-3 font-mono text-red-600 line-through">"the last store"</td>
+                <td class="py-2.5 px-3 font-bold text-sage-900">the last straw</td>
+                <td class="py-2.5 px-3 text-stone-600">Non-rhotic vowel confusion between 'straw' /strɔː/ and 'store' /stɔː/.</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-mono text-autumn-700">37:15</td>
+                <td class="py-2.5 px-3 font-mono text-red-600 line-through">"art plaster"</td>
+                <td class="py-2.5 px-3 font-bold text-sage-900">plaster cast</td>
+                <td class="py-2.5 px-3 text-stone-600">Medical plaster of Paris used for limb immobilization misheard as art supplies.</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-mono text-autumn-700">51:40</td>
+                <td class="py-2.5 px-3 font-mono text-red-600 line-through">"vocash"</td>
+                <td class="py-2.5 px-3 font-bold text-sage-900">vocabulary</td>
+                <td class="py-2.5 px-3 text-stone-600">Louie's fast spoken contraction of 'vocabulary tab'.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 4: SCIENCE & LIFE PHILOSOPHY TOPICS -->
+    <!-- =================================================================== -->
+    <section id="tab-panel-topics" class="tab-panel hidden space-y-6">
+      
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-6">
+        <div>
+          <h2 class="font-serif font-bold text-2xl text-slatewarm-900 flex items-center gap-2">
+            <i data-lucide="compass" class="w-6 h-6 text-autumn-600"></i>
+            Science, Culture & Life Philosophy
+          </h2>
+          <p class="text-xs sm:text-sm text-stone-500 mt-1">4 deep editorial studies exploring the intellectual discussions from our lesson.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Card 1: Bell & Etymology -->
+          <article class="sanctuary-subcard rounded-3xl p-6 space-y-4 border-t-4 border-t-autumn-500">
+            <div class="flex items-center justify-between text-xs font-mono text-stone-400">
+              <span class="text-autumn-800 font-bold uppercase tracking-wider">Etymology & Language</span>
+              <span>🕒 17:45</span>
+            </div>
+            <h3 class="font-serif font-bold text-xl text-slatewarm-900">Alexander Graham Bell & "Give You a Bell"</h3>
+            <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+              When Scottish inventor Alexander Graham Bell patented the acoustic electromagnetic telephone in 1876, early British adopters installed physical brass bells to ring when an incoming call arrived. Over generations, British speakers fused the inventor's surname with the physical sound, creating the beloved colloquialism: <em>"I'll give you a bell later!"</em>
+            </p>
+            <div class="bg-parchment-50 p-3 rounded-2xl border border-stone-200 text-xs text-stone-600">
+              <p><strong>Everyday usage:</strong> In modern London and across the UK, you will hear colleagues say: <em>"Give me a bell when you get home"</em> instead of the formal <em>"Telephone me"</em>.</p>
+            </div>
+          </article>
+
+          <!-- Card 2: Theatrical Superstitions -->
+          <article class="sanctuary-subcard rounded-3xl p-6 space-y-4 border-t-4 border-t-sage-500">
+            <div class="flex items-center justify-between text-xs font-mono text-stone-400">
+              <span class="text-sage-800 font-bold uppercase tracking-wider">Theatrical Folklore</span>
+              <span>🕒 35:52</span>
+            </div>
+            <h3 class="font-serif font-bold text-xl text-slatewarm-900">Why We Say "Break a Leg" (And the Double Meaning of Cast)</h3>
+            <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+              In theatrical superstition, directly wishing a performer 'good luck' was thought to tempt mischievous spirits or invite stage disasters. Performers inverted the wish into an apparent curse: <em>"Break a leg!"</em>
+            </p>
+            <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+              As Louie explained, English wordplay adds an unforgettable linguistic layer: the actors who make up the performance ensemble are officially termed the <strong>cast</strong>. And when an orthopedic doctor treats a broken limb, they encase it in a rigid plaster <strong>cast</strong>! Thus, if you break a leg, you're literally in the cast!
+            </p>
+          </article>
+
+          <!-- Card 3: Emotional Intelligence -->
+          <article class="sanctuary-subcard rounded-3xl p-6 space-y-4 border-t-4 border-t-autumn-500">
+            <div class="flex items-center justify-between text-xs font-mono text-stone-400">
+              <span class="text-autumn-800 font-bold uppercase tracking-wider">Psychology & Resilience</span>
+              <span>🕒 45:31</span>
+            </div>
+            <h3 class="font-serif font-bold text-xl text-slatewarm-900">Developing Emotional Intelligence Through Adversity</h3>
+            <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+              When asked on the Checkers board how emotional intelligence (EQ) is developed, Worachon delivered an exceptionally mature answer: EQ cannot be learned passively from textbooks. It requires weathering life-altering challenges and sorrow firsthand.
+            </p>
+            <div class="bg-parchment-50 p-3 rounded-2xl border border-stone-200 text-xs text-stone-600 space-y-1">
+              <p class="italic">"I have to experience some extreme situation in order to get my own lesson and develop my way to understand it."</p>
+              <p>Experiencing trial expands emotional empathy, enabling one to support others and navigate future crises with calm fortitude.</p>
+            </div>
+          </article>
+
+          <!-- Card 4: Procrastination & Incubation -->
+          <article class="sanctuary-subcard rounded-3xl p-6 space-y-4 border-t-4 border-t-sage-500">
+            <div class="flex items-center justify-between text-xs font-mono text-stone-400">
+              <span class="text-sage-800 font-bold uppercase tracking-wider">Cognitive Science</span>
+              <span>🕒 48:41</span>
+            </div>
+            <h3 class="font-serif font-bold text-xl text-slatewarm-900">The Incubation Paradox: Why Moderate Procrastinators Excel</h3>
+            <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+              While chronic procrastination creates anxiety, psychological studies show that individuals who finish complex conceptual tasks immediately often generate more conventional solutions. Moderate procrastination provides an unconscious <strong>cognitive incubation period</strong>.
+            </p>
+            <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+              Holding a problem in your mind while sleeping or going for a walk allows the brain's default mode network to connect disparate ideas, yielding deeper, more innovative breakthroughs before the final deadline triggers instantaneous focus!
+            </p>
+          </article>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 5: PEACEFUL PRACTICE & IDIOM GYM -->
+    <!-- =================================================================== -->
+    <section id="tab-panel-practice" class="tab-panel hidden space-y-8">
+      
+      <!-- Section 1: Flippable Idiom & Lexicon Flashcards -->
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="font-serif font-bold text-2xl text-slatewarm-900 flex items-center gap-2">
+              <i data-lucide="layers" class="w-6 h-6 text-autumn-600"></i>
+              Interactive Idiom & Lexicon Deck
+            </h2>
+            <p class="text-xs sm:text-sm text-stone-500">Flip the card to reveal authentic Thai translations, cultural etymology, and example sentences.</p>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-mono">
+            <span id="flashcard-counter" class="px-3 py-1 rounded-full bg-parchment-200 text-stone-700 font-bold">Card 1 / 12</span>
+          </div>
+        </div>
+
+        <!-- 3D Flippable Card Stage -->
+        <div class="card-perspective max-w-xl mx-auto h-72 sm:h-80 cursor-pointer" onclick="flipFlashcard()">
+          <div class="card-inner shadow-lg rounded-3xl" id="flashcard-inner">
+            
+            <!-- Front of Card -->
+            <div class="card-front sanctuary-subcard p-6 sm:p-8 flex flex-col justify-between border-2 border-autumn-300/80 bg-gradient-to-br from-parchment-50 to-autumn-50/40">
+              <div class="flex items-center justify-between text-xs">
+                <span id="fc-type" class="px-2.5 py-0.5 rounded-full bg-autumn-100 text-autumn-800 font-mono font-bold">Idiom • Good Luck</span>
+                <span class="text-stone-400 font-sans text-[11px] flex items-center gap-1">
+                  <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Click to Flip
+                </span>
+              </div>
+              <div class="space-y-2 my-auto">
+                <h3 id="fc-front-word" class="font-serif font-bold text-3xl sm:text-4xl text-slatewarm-900">Break a leg</h3>
+                <p id="fc-front-ipa" class="font-mono text-sm text-autumn-700">/breɪk ə leɡ/</p>
+                <p id="fc-front-example" class="text-xs sm:text-sm text-stone-600 font-serif italic max-w-md mx-auto">
+                  "You have that major client pitch today—break a leg!"
+                </p>
+              </div>
+              <div class="flex items-center justify-center gap-2">
+                <button onclick="event.stopPropagation(); speakFlashcardWord()" class="px-3 py-1 rounded-full bg-white border border-stone-200 text-stone-700 hover:text-autumn-600 text-xs font-medium flex items-center gap-1.5 transition">
+                  <i data-lucide="volume-2" class="w-3.5 h-3.5 text-autumn-600"></i>
+                  <span>Listen Pronunciation</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Back of Card -->
+            <div class="card-back sanctuary-subcard p-6 sm:p-8 flex flex-col justify-between border-2 border-sage-300/80 bg-gradient-to-br from-sage-50 to-parchment-50">
+              <div class="flex items-center justify-between text-xs">
+                <span class="px-2.5 py-0.5 rounded-full bg-sage-100 text-sage-800 font-mono font-bold">🇹🇭 ความหมายภาษาไทย (Thai)</span>
+                <span class="text-stone-400 font-sans text-[11px] flex items-center gap-1">
+                  <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Click to Flip Back
+                </span>
+              </div>
+              <div class="space-y-3 my-auto text-left">
+                <h3 id="fc-back-thai" class="font-sans font-bold text-xl sm:text-2xl text-slatewarm-900">
+                  ขอให้โชคดี (สำนวนอวยพรก่อนขึ้นเวทีหรือสัมภาษณ์)
+                </h3>
+                <p id="fc-back-origin" class="text-xs text-stone-600 font-sans leading-relaxed border-t border-stone-200/80 pt-2">
+                  Originates from old theatrical superstition that wishing 'good luck' jinxes the show. Also plays on the double meaning of 'cast' (the actors in a show vs an orthopedic plaster cast)!
+                </p>
+              </div>
+              <div class="text-center text-[11px] text-stone-400 font-mono">
+                Click anywhere on card to rotate
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="flex items-center justify-center gap-3 pt-2">
+          <button onclick="prevFlashcard()" class="p-2.5 rounded-2xl sanctuary-subcard hover:bg-parchment-100 text-stone-700 transition" title="Previous Card">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          </button>
+          <button onclick="flipFlashcard()" class="px-5 py-2 rounded-2xl bg-autumn-500 text-white font-semibold text-xs sm:text-sm hover:bg-autumn-600 shadow-sm transition flex items-center gap-2">
+            <i data-lucide="rotate-3d" class="w-4 h-4"></i>
+            <span>Flip Card</span>
+          </button>
+          <button onclick="nextFlashcard()" class="p-2.5 rounded-2xl sanctuary-subcard hover:bg-parchment-100 text-stone-700 transition" title="Next Card">
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+          <button onclick="shuffleFlashcards()" class="p-2.5 rounded-2xl sanctuary-subcard hover:bg-parchment-100 text-stone-700 transition" title="Shuffle Cards">
+            <i data-lucide="shuffle" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Section 2: The Idiom Gym (Scenario Matcher) -->
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="font-serif font-bold text-2xl text-slatewarm-900 flex items-center gap-2">
+              <i data-lucide="dumbbell" class="w-6 h-6 text-sage-700"></i>
+              The Idiom Gym (Real-Life Scenario Matcher)
+            </h2>
+            <p class="text-xs sm:text-sm text-stone-500">Pick the exact spoken idiom that naturally fits each real-world conversation.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-mono font-bold text-sage-800 bg-sage-100 px-3 py-1 rounded-full border border-sage-200">
+              Completed: <span id="idiom-gym-score">0</span> / 6
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="idiom-gym-grid">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+
+      <!-- Section 3: Interactive Context Quiz -->
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="font-serif font-bold text-2xl text-slatewarm-900 flex items-center gap-2">
+              <i data-lucide="help-circle" class="w-6 h-6 text-autumn-600"></i>
+              Interactive Lesson Context Quiz
+            </h2>
+            <p class="text-xs sm:text-sm text-stone-500">Test your mastery of the scientific terms, historical trivia, and idioms discussed with Louie.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-mono font-bold text-autumn-800 bg-autumn-100 px-3 py-1 rounded-full border border-autumn-200">
+              Score: <span id="quiz-score-val">0</span> / 6
+            </span>
+          </div>
+        </div>
+
+        <div class="space-y-6" id="quiz-container">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+
+      <!-- Section 4: Peaceful Reflection Prompts & Next Lesson -->
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-parchment-200 text-stone-800 flex items-center justify-center font-bold">
+            <i data-lucide="feather" class="w-5 h-5 text-autumn-700"></i>
+          </div>
+          <div>
+            <h2 class="font-serif font-bold text-2xl text-slatewarm-900">Peaceful Reflection Prompts for Next Lesson</h2>
+            <p class="text-xs sm:text-sm text-stone-500">Thoughtful topics to ponder before our next conversation.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          
+          <div class="sanctuary-subcard p-5 rounded-2xl space-y-2">
+            <span class="text-[10px] uppercase font-mono font-bold text-autumn-700">Prompt 1 • Growth</span>
+            <h4 class="font-serif font-bold text-base text-slatewarm-900">Adversity & Personal Resilience</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Reflect on a past challenge that initially felt like a setback, but ultimately gave you valuable emotional insight or resilience. How did that experience shift your perspective?
+            </p>
+          </div>
+
+          <div class="sanctuary-subcard p-5 rounded-2xl space-y-2">
+            <span class="text-[10px] uppercase font-mono font-bold text-autumn-700">Prompt 2 • Connection</span>
+            <h4 class="font-serif font-bold text-base text-slatewarm-900">Bonds Across Global Distance</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              When keeping in touch with friends across the US, Singapore, or the UK, what digital habits help keep the emotional connection warm despite time zone hurdles?
+            </p>
+          </div>
+
+          <div class="sanctuary-subcard p-5 rounded-2xl space-y-2">
+            <span class="text-[10px] uppercase font-mono font-bold text-autumn-700">Prompt 3 • Mind</span>
+            <h4 class="font-serif font-bold text-base text-slatewarm-900">Harnessing Incubation</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Have you ever wrestled with a difficult coding, scientific, or personal problem, stepped away, and had the solution pop into your mind spontaneously while doing something completely unrelated?
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Share Lesson Summary to Clipboard -->
+        <div class="pt-4 flex items-center justify-between flex-wrap gap-4 border-t border-stone-200">
+          <div>
+            <h4 class="text-xs font-semibold text-stone-800">Ready to share your progress with Louie?</h4>
+            <p class="text-[11px] text-stone-500">Copies a friendly lesson summary note to paste directly into Preply chat.</p>
+          </div>
+          <button onclick="copyLessonSummary()" id="copy-summary-btn" class="px-4 py-2 rounded-xl bg-sage-700 text-white text-xs font-semibold hover:bg-sage-800 transition flex items-center gap-2 shadow-sm">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+            <span>Copy Lesson Summary for Louie</span>
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#e6decb] bg-[#fbf9f5]/80 py-8 text-center text-xs text-stone-500 space-y-2 no-print relative z-30">
+    <p class="font-serif text-sm text-stone-700">Worachon's English Sanctuary & Idiom Studio • Lesson 01 Notes</p>
+    <p>Personalized learning portal prepared by Louie (Lewis O'Shea) • London & Winchester Autumn Breeze</p>
+  </footer>
+
+  <!-- =================================================================== -->
+  <!-- JAVASCRIPT LOGIC -->
+  <!-- =================================================================== -->
+  <script>
+    // Embed data objects
+    const VOCAB_DB = ${JSON.stringify(VOCAB_DB, null, 2)};
+    const TRANSCRIPT_TURNS = ${JSON.stringify(TRANSCRIPT_TURNS, null, 2)};
+    const FLASHCARDS = ${JSON.stringify(FLASHCARDS, null, 2)};
+    const IDIOM_CHALLENGES = ${JSON.stringify(IDIOM_CHALLENGES, null, 2)};
+    const QUIZ_QUESTIONS = ${JSON.stringify(QUIZ_QUESTIONS, null, 2)};
+
+    let activeVocabKey = "off-the-top-of-ones-head";
+    let activeSpeakerFilter = "all";
+    let activeVocabCategory = "all";
+    let activeVocabLevel = "all";
+    let speechRate = 0.85;
+    let currentFlashcardIndex = 0;
+    let gymMatchedCount = 0;
+    let quizScore = 0;
+    const answeredQuestions = {};
+
+    // -------------------------------------------------------------------------
+    // 1. SOUNDSCAPE GENERATOR (Web Audio API: Procedural Audio)
+    // -------------------------------------------------------------------------
+    let audioCtx = null;
+    let currentSoundType = null;
+    let noiseNode = null;
+    let filterNode = null;
+    let gainNode = null;
+    let lfoNode = null;
+    let lfoGain = null;
+
+    function initAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function toggleSoundscape(type) {
+      initAudioContext();
+      if (currentSoundType === type) {
+        stopSoundscape();
+        return;
+      }
+      stopSoundscape();
+      currentSoundType = type;
+
+      const bufferSize = audioCtx.sampleRate * 2;
+      const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const output = noiseBuffer.getChannelData(0);
+
+      // Pink / Brown Noise Generation
+      let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+      for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        b0 = 0.99886 * b0 + white * 0.0555179;
+        b1 = 0.99332 * b1 + white * 0.0750759;
+        b2 = 0.96900 * b2 + white * 0.1538520;
+        b3 = 0.86650 * b3 + white * 0.3104856;
+        b4 = 0.55000 * b4 + white * 0.5329522;
+        b5 = -0.7616 * b5 - white * 0.0168980;
+        output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.11;
+        b6 = white * 0.115926;
+      }
+
+      noiseNode = audioCtx.createBufferSource();
+      noiseNode.buffer = noiseBuffer;
+      noiseNode.loop = true;
+
+      filterNode = audioCtx.createBiquadFilter();
+      gainNode = audioCtx.createGain();
+
+      if (type === 'breeze') {
+        filterNode.type = 'lowpass';
+        filterNode.frequency.setValueAtTime(380, audioCtx.currentTime);
+        gainNode.gain.setValueAtTime(0.25, audioCtx.currentTime);
+
+        // LFO for gentle wind swell
+        lfoNode = audioCtx.createOscillator();
+        lfoGain = audioCtx.createGain();
+        lfoNode.frequency.value = 0.18;
+        lfoGain.gain.value = 180;
+        lfoNode.connect(filterNode.frequency);
+        lfoNode.start();
+      } else if (type === 'rain') {
+        filterNode.type = 'bandpass';
+        filterNode.frequency.setValueAtTime(800, audioCtx.currentTime);
+        filterNode.Q.setValueAtTime(0.8, audioCtx.currentTime);
+        gainNode.gain.setValueAtTime(0.18, audioCtx.currentTime);
+      } else if (type === 'hearth') {
+        filterNode.type = 'lowpass';
+        filterNode.frequency.setValueAtTime(260, audioCtx.currentTime);
+        gainNode.gain.setValueAtTime(0.35, audioCtx.currentTime);
+      }
+
+      noiseNode.connect(filterNode);
+      filterNode.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      noiseNode.start();
+
+      updateSoundscapeUI(type);
+    }
+
+    function stopSoundscape() {
+      if (noiseNode) {
+        try { noiseNode.stop(); } catch(e){}
+        noiseNode.disconnect();
+        noiseNode = null;
+      }
+      if (lfoNode) {
+        try { lfoNode.stop(); } catch(e){}
+        lfoNode.disconnect();
+        lfoNode = null;
+      }
+      currentSoundType = null;
+      updateSoundscapeUI(null);
+    }
+
+    function updateSoundscapeUI(active) {
+      ['breeze', 'rain', 'hearth'].forEach(t => {
+        const btn = document.getElementById(\`sound-\${t}-btn\`);
+        if (btn) {
+          if (t === active) {
+            btn.className = 'px-2 py-0.5 rounded-md bg-sage-700 text-white text-[11px] font-bold shadow-xs transition';
+          } else {
+            btn.className = 'px-2 py-0.5 rounded-md hover:bg-sage-100 text-[11px] font-medium transition';
+          }
+        }
+      });
+      const offBtn = document.getElementById('sound-off-btn');
+      if (offBtn) {
+        offBtn.className = active ? 'px-1.5 py-0.5 rounded-md hover:bg-stone-300 text-stone-500 text-[11px] font-medium transition' : 'px-1.5 py-0.5 rounded-md bg-stone-300 text-stone-800 text-[11px] font-bold transition';
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 2. CANVAS FALLING AUTUMN LEAVES OVERLAY
+    // -------------------------------------------------------------------------
+    const leafCanvas = document.getElementById('autumn-breeze-canvas');
+    const leafCtx = leafCanvas.getContext('2d');
+    let leafMode = 'gentle'; // 'still', 'gentle', 'breeze'
+    let leafAnimationId = null;
+    let leaves = [];
+
+    const LEAF_COLORS = [
+      'rgba(190, 111, 56, 0.45)', // amber
+      'rgba(163, 88, 43, 0.40)',  // russet
+      'rgba(91, 130, 111, 0.35)', // sage
+      'rgba(211, 140, 87, 0.38)', // golden
+      'rgba(133, 69, 36, 0.30)'   // deep maple
+    ];
+
+    function resizeLeafCanvas() {
+      leafCanvas.width = window.innerWidth;
+      leafCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeLeafCanvas);
+    resizeLeafCanvas();
+
+    function initLeaves(count) {
+      leaves = [];
+      for (let i = 0; i < count; i++) {
+        leaves.push({
+          x: Math.random() * leafCanvas.width,
+          y: Math.random() * leafCanvas.height,
+          size: Math.random() * 9 + 6,
+          speedX: Math.random() * 0.8 + 0.2,
+          speedY: Math.random() * 0.9 + 0.4,
+          rotation: Math.random() * Math.PI * 2,
+          rotSpeed: (Math.random() - 0.5) * 0.02,
+          color: LEAF_COLORS[Math.floor(Math.random() * LEAF_COLORS.length)],
+          sway: Math.random() * Math.PI * 2,
+          swaySpeed: Math.random() * 0.02 + 0.01
+        });
+      }
+    }
+    initLeaves(28);
+
+    function drawLeaf(l) {
+      leafCtx.save();
+      leafCtx.translate(l.x, l.y);
+      leafCtx.rotate(l.rotation);
+      leafCtx.fillStyle = l.color;
+      leafCtx.beginPath();
+      leafCtx.ellipse(0, 0, l.size, l.size * 0.55, 0, 0, Math.PI * 2);
+      leafCtx.fill();
+      leafCtx.restore();
+    }
+
+    function animateLeaves() {
+      leafCtx.clearRect(0, 0, leafCanvas.width, leafCanvas.height);
+      if (leafMode !== 'still') {
+        const speedMult = leafMode === 'breeze' ? 1.8 : 1.0;
+        leaves.forEach(l => {
+          l.sway += l.swaySpeed;
+          l.x += (l.speedX + Math.sin(l.sway) * 0.5) * speedMult;
+          l.y += l.speedY * speedMult;
+          l.rotation += l.rotSpeed;
+
+          if (l.y > leafCanvas.height + 20) {
+            l.y = -20;
+            l.x = Math.random() * leafCanvas.width;
+          }
+          if (l.x > leafCanvas.width + 20) {
+            l.x = -20;
+          }
+          drawLeaf(l);
+        });
+      }
+      leafAnimationId = requestAnimationFrame(animateLeaves);
+    }
+    animateLeaves();
+
+    function cycleLeafBreeze() {
+      const modes = ['gentle', 'breeze', 'still'];
+      const nextIndex = (modes.indexOf(leafMode) + 1) % modes.length;
+      leafMode = modes[nextIndex];
+      const statusText = document.getElementById('leaf-status-text');
+      if (leafMode === 'gentle') statusText.textContent = 'Leaves: Gentle';
+      if (leafMode === 'breeze') statusText.textContent = 'Leaves: Breeze 💨';
+      if (leafMode === 'still') statusText.textContent = 'Leaves: Still (Off)';
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. THEME SWITCHING (Kensington, Winchester, Twilight)
+    // -------------------------------------------------------------------------
+    function cycleTheme() {
+      const themes = ['kensington', 'winchester', 'twilight'];
+      const current = document.body.getAttribute('data-theme') || 'kensington';
+      const next = themes[(themes.indexOf(current) + 1) % themes.length];
+      document.body.setAttribute('data-theme', next);
+
+      const label = document.getElementById('theme-btn-text');
+      if (next === 'kensington') label.textContent = 'Bath Stone';
+      if (next === 'winchester') label.textContent = 'Winchester Mist';
+      if (next === 'twilight') label.textContent = 'Twilight Study';
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. SPEECH SYNTHESIS HELPER
+    // -------------------------------------------------------------------------
+    function toggleSpeechRate() {
+      speechRate = speechRate === 0.85 ? 1.0 : 0.85;
+      document.getElementById('speech-rate-label').textContent = speechRate + '×';
+    }
+
+    function speakWord(text) {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = speechRate;
+      utterance.lang = 'en-GB';
+
+      const voices = window.speechSynthesis.getVoices();
+      const ukVoice = voices.find(v => v.lang.includes('en-GB') || v.name.includes('British') || v.name.includes('UK'));
+      if (ukVoice) utterance.voice = ukVoice;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function speakTurn(turnId) {
+      const turn = TRANSCRIPT_TURNS.find(t => t.id === turnId);
+      if (!turn) return;
+      const temp = document.createElement('div');
+      temp.innerHTML = turn.html;
+      temp.querySelectorAll('.asr-fix-pill').forEach(el => el.remove());
+      speakWord(temp.textContent || '');
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. VOCABULARY SPOTLIGHT & TIPPY TOOLTIPS
+    // -------------------------------------------------------------------------
+    function inspectVocab(key) {
+      const item = VOCAB_DB[key];
+      if (!item) return;
+      activeVocabKey = key;
+
+      document.getElementById('spotlight-word').textContent = item.word;
+      document.getElementById('spotlight-ipa').textContent = item.ipa;
+      document.getElementById('spotlight-pos').textContent = item.pos;
+      document.getElementById('spotlight-level').textContent = item.level;
+      document.getElementById('spotlight-def').textContent = item.def;
+      document.getElementById('spotlight-thai').textContent = item.th;
+      document.getElementById('spotlight-quote').textContent = item.quote;
+      document.getElementById('spotlight-time').textContent = '🕒 ' + item.time;
+      document.getElementById('spotlight-cat').textContent = item.cat;
+
+      // Update active highlight class
+      document.querySelectorAll('.vocab-mark').forEach(el => {
+        if (el.getAttribute('data-vkey') === key) {
+          el.classList.add('active-vocab');
+        } else {
+          el.classList.remove('active-vocab');
+        }
+      });
+    }
+
+    function speakCurrentSpotlight() {
+      const item = VOCAB_DB[activeVocabKey];
+      if (item) speakWord(item.word);
+    }
+
+    function jumpToActiveSpotlightTurn() {
+      const item = VOCAB_DB[activeVocabKey];
+      if (item && item.turnId) {
+        jumpToTranscriptTurn(item.turnId, activeVocabKey);
+      }
+    }
+
+    function initTippyTooltips() {
+      tippy('.vocab-mark', {
+        theme: 'autumn-sanctuary',
+        animation: 'shift-away',
+        allowHTML: true,
+        interactive: true,
+        placement: 'top',
+        delay: [120, 80],
+        content(reference) {
+          const key = reference.getAttribute('data-vkey');
+          const item = VOCAB_DB[key];
+          if (!item) return '';
+          return \`
+            <div class="p-3 max-w-xs space-y-2 text-left font-sans">
+              <div class="flex items-center justify-between gap-2 border-b border-stone-200 pb-1.5">
+                <span class="font-serif font-bold text-base text-slatewarm-900">\${item.word}</span>
+                <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-autumn-100 text-autumn-800">\${item.level}</span>
+              </div>
+              <div class="text-[11px] text-stone-500 font-mono">\${item.ipa} • <span class="italic">\${item.pos}</span></div>
+              <p class="text-xs text-stone-700 leading-snug">\${item.def}</p>
+              <div class="p-2 rounded-lg bg-parchment-100/90 text-xs text-slatewarm-900 font-medium">
+                🇹🇭 <strong>ไทย:</strong> \${item.th}
+              </div>
+              <div class="flex items-center justify-between text-[11px] pt-1">
+                <span class="font-mono text-stone-400">🕒 \${item.time}</span>
+                <button onclick="speakWord('\${item.word.replace(/'/g, "\\\\'")}')" class="text-autumn-700 hover:text-autumn-800 font-semibold flex items-center gap-1">
+                  <span>🔊 Listen</span>
+                </button>
+              </div>
+            </div>
+          \`;
+        }
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. RENDER TRANSCRIPT
+    // -------------------------------------------------------------------------
+    function renderTranscript() {
+      const container = document.getElementById('transcript-feed-container');
+      const searchVal = (document.getElementById('transcript-search').value || '').toLowerCase().trim();
+      let html = '';
+
+      TRANSCRIPT_TURNS.forEach(turn => {
+        // Speaker filter
+        if (activeSpeakerFilter !== 'all' && turn.speaker !== activeSpeakerFilter) {
+          return;
+        }
+
+        // Search filter
+        if (searchVal) {
+          const temp = document.createElement('div');
+          temp.innerHTML = turn.html;
+          const text = (turn.speaker + ' ' + turn.time + ' ' + temp.textContent).toLowerCase();
+          if (!text.includes(searchVal)) return;
+        }
+
+        // Chapter header
+        if (turn.chapterTitle && activeSpeakerFilter === 'all' && !searchVal) {
+          html += \`
+            <div id="\${turn.chapterId}" class="pt-6 pb-2">
+              <div class="px-5 py-3 rounded-2xl bg-gradient-to-r from-sage-100/95 via-parchment-100 to-autumn-50 border border-sage-200/80 flex items-center gap-2 text-xs sm:text-sm font-serif font-bold text-sage-900 shadow-xs">
+                <i data-lucide="bookmark" class="w-4 h-4 text-autumn-600 shrink-0"></i>
+                <span>\${turn.chapterTitle}</span>
+              </div>
+            </div>
+          \`;
+        }
+
+        const isLouie = turn.speaker === 'Louie';
+        const isWorachon = turn.speaker === 'Worachon';
+        const cardBg = isWorachon 
+          ? 'bg-[#fffdf9] border-l-4 border-l-autumn-500' 
+          : 'bg-[#f8faf8] border-l-4 border-l-sage-600';
+        const badgeColor = isWorachon 
+          ? 'bg-autumn-100 text-autumn-800 border-autumn-200' 
+          : 'bg-sage-100 text-sage-800 border-sage-200';
+
+        html += \`
+          <div id="\${turn.id}" class="sanctuary-subcard rounded-2xl p-4 sm:p-5 transition hover:shadow-sm space-y-2.5 \${cardBg}">
+            <div class="flex items-center justify-between text-xs">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border font-mono \${badgeColor}">
+                  \${turn.speaker}
+                </span>
+                <span class="font-mono text-stone-400 text-[11px]">🕒 \${turn.time}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="speakTurn('\${turn.id}')" class="p-1 rounded-md text-stone-400 hover:text-autumn-600 hover:bg-parchment-100 transition" title="Listen to this turn">
+                  <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+            <div class="text-xs sm:text-sm text-stone-800 font-sans leading-relaxed">
+              \${turn.html}
+            </div>
+          </div>
+        \`;
+      });
+
+      if (!html) {
+        html = \`
+          <div class="text-center py-12 sanctuary-card rounded-3xl p-6 text-stone-500 space-y-2">
+            <i data-lucide="search-x" class="w-8 h-8 mx-auto text-stone-400"></i>
+            <p class="font-serif text-base">No transcript lines matched your search.</p>
+            <button onclick="clearTranscriptSearch()" class="px-4 py-1.5 rounded-xl bg-sage-700 text-white text-xs font-semibold">Clear Search</button>
+          </div>
+        \`;
+      }
+
+      container.innerHTML = html;
+      lucide.createIcons();
+      initTippyTooltips();
+    }
+
+    function filterTranscript() {
+      const val = document.getElementById('transcript-search').value;
+      document.getElementById('clear-search-btn').classList.toggle('hidden', !val);
+      renderTranscript();
+    }
+
+    function clearTranscriptSearch() {
+      document.getElementById('transcript-search').value = '';
+      document.getElementById('clear-search-btn').classList.add('hidden');
+      renderTranscript();
+    }
+
+    function filterSpeaker(speaker) {
+      activeSpeakerFilter = speaker;
+      ['all', 'Louie', 'Worachon'].forEach(s => {
+        const btn = document.getElementById(\`spk-\${s.toLowerCase()}-btn\`);
+        if (btn) {
+          if (s === speaker) {
+            btn.className = 'px-3 py-1.5 rounded-xl text-xs font-semibold bg-sage-700 text-white shadow-xs transition';
+          } else {
+            btn.className = 'px-3 py-1.5 rounded-xl text-xs font-semibold bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 transition';
+          }
+        }
+      });
+      renderTranscript();
+    }
+
+    function toggleAsrBadges() {
+      document.body.classList.toggle('hide-asr-fixes');
+      const hidden = document.body.classList.contains('hide-asr-fixes');
+      document.getElementById('asr-btn-text').textContent = hidden ? 'Note-Taker Fixes: Hidden' : 'Note-Taker Fixes: Visible';
+    }
+
+    function toggleVocabHighlights() {
+      document.body.classList.toggle('hide-vocab-highlights');
+      const hidden = document.body.classList.contains('hide-vocab-highlights');
+      document.getElementById('vocab-btn-text').textContent = hidden ? 'Vocab Highlights: Off' : 'Vocab Highlights: On';
+    }
+
+    function jumpToTranscriptTurn(turnId, vocabKey) {
+      switchTab('transcript');
+      if (vocabKey) inspectVocab(vocabKey);
+
+      setTimeout(() => {
+        const el = document.getElementById(turnId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add('turn-highlight-flash');
+          setTimeout(() => el.classList.remove('turn-highlight-flash'), 2900);
+        }
+      }, 150);
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. RENDER VOCABULARY DICTIONARY
+    // -------------------------------------------------------------------------
+    function renderVocabGrid() {
+      const container = document.getElementById('vocab-cards-grid');
+      const searchVal = (document.getElementById('vocab-search').value || '').toLowerCase().trim();
+      let html = '';
+
+      Object.keys(VOCAB_DB).forEach(key => {
+        const item = VOCAB_DB[key];
+
+        // Category filter
+        if (activeVocabCategory !== 'all') {
+          if (activeVocabCategory === 'idioms' && item.cat !== 'idioms') return;
+          if (activeVocabCategory === 'science' && item.cat !== 'science') return;
+          if (activeVocabCategory === 'medical' && item.cat !== 'medical') return;
+          if (activeVocabCategory === 'psychology' && item.cat !== 'psychology' && item.cat !== 'concepts') return;
+        }
+
+        // Level filter
+        if (activeVocabLevel !== 'all' && !item.level.startsWith(activeVocabLevel)) {
+          return;
+        }
+
+        // Search query
+        if (searchVal) {
+          const combined = (item.word + ' ' + item.def + ' ' + item.th + ' ' + item.cat + ' ' + item.quote).toLowerCase();
+          if (!combined.includes(searchVal)) return;
+        }
+
+        html += \`
+          <div class="sanctuary-subcard rounded-2xl p-5 space-y-3.5 transition hover:shadow-md flex flex-col justify-between border-t-2 border-t-autumn-400">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-autumn-100 text-autumn-800">\${item.level}</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono text-stone-500 capitalize bg-stone-100">\${item.cat}</span>
+              </div>
+              <div>
+                <div class="flex items-baseline justify-between">
+                  <h3 class="font-serif font-bold text-xl text-slatewarm-900 leading-tight">\${item.word}</h3>
+                  <button onclick="speakWord('\${item.word.replace(/'/g, "\\\\'")}')" class="p-1 text-stone-400 hover:text-autumn-600 transition" title="Listen">
+                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
+                <div class="text-[11px] font-mono text-stone-500">\${item.ipa} • <span class="italic font-sans">\${item.pos}</span></div>
+              </div>
+              <p class="text-xs text-stone-700 font-sans leading-relaxed">\${item.def}</p>
+              
+              <div class="p-2.5 rounded-xl bg-gradient-to-r from-parchment-100 to-autumn-50/50 border border-autumn-200/70 text-xs font-medium text-slatewarm-900">
+                🇹🇭 <strong>ไทย:</strong> \${item.th}
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
+              <span class="text-stone-400 font-mono text-[11px]">🕒 \${item.time}</span>
+              <button onclick="jumpToTranscriptTurn('\${item.turnId}', '\${key}')" class="text-autumn-700 hover:text-autumn-800 font-semibold flex items-center gap-1 transition">
+                <span>View in turn</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        \`;
+      });
+
+      if (!html) {
+        html = \`
+          <div class="col-span-full text-center py-12 sanctuary-card rounded-3xl p-6 text-stone-500 space-y-2">
+            <i data-lucide="book-x" class="w-8 h-8 mx-auto text-stone-400"></i>
+            <p class="font-serif text-base">No vocabulary items matched your filter.</p>
+          </div>
+        \`;
+      }
+
+      container.innerHTML = html;
+      lucide.createIcons();
+    }
+
+    function filterVocabGrid() {
+      renderVocabGrid();
+    }
+
+    function filterVocabCategory(cat) {
+      activeVocabCategory = cat;
+      ['all', 'idioms', 'science', 'medical', 'psychology'].forEach(c => {
+        const btn = document.getElementById(\`vcat-\${c}\`);
+        if (btn) {
+          if (c === cat) {
+            btn.className = 'px-3 py-1.5 rounded-xl font-semibold bg-sage-700 text-white shadow-xs transition';
+          } else {
+            btn.className = 'px-3 py-1.5 rounded-xl font-semibold bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 transition';
+          }
+        }
+      });
+      renderVocabGrid();
+    }
+
+    function filterVocabLevel(lvl) {
+      activeVocabLevel = lvl;
+      ['all', 'B2', 'C1', 'C2'].forEach(l => {
+        const btn = document.getElementById(\`vlvl-\${l}\`);
+        if (btn) {
+          if (l === lvl) {
+            btn.className = 'px-2.5 py-1 rounded-lg bg-autumn-600 text-white font-bold transition';
+          } else {
+            btn.className = 'px-2.5 py-1 rounded-lg bg-white border border-stone-200 text-stone-700 hover:bg-parchment-100 font-bold transition';
+          }
+        }
+      });
+      renderVocabGrid();
+    }
+
+    // -------------------------------------------------------------------------
+    // 8. FLASHCARD DECK LOGIC
+    // -------------------------------------------------------------------------
+    function updateFlashcardUI() {
+      const card = FLASHCARDS[currentFlashcardIndex];
+      const inner = document.getElementById('flashcard-inner');
+      inner.classList.remove('flipped');
+
+      document.getElementById('flashcard-counter').textContent = \`Card \${currentFlashcardIndex + 1} / \${FLASHCARDS.length}\`;
+      document.getElementById('fc-type').textContent = card.type;
+      document.getElementById('fc-front-word').textContent = card.front;
+      document.getElementById('fc-front-ipa').textContent = card.ipa;
+      document.getElementById('fc-front-example').textContent = card.example;
+      document.getElementById('fc-back-thai').textContent = card.back;
+      document.getElementById('fc-back-origin').textContent = card.origin;
+    }
+
+    function flipFlashcard() {
+      const inner = document.getElementById('flashcard-inner');
+      inner.classList.toggle('flipped');
+    }
+
+    function nextFlashcard() {
+      currentFlashcardIndex = (currentFlashcardIndex + 1) % FLASHCARDS.length;
+      updateFlashcardUI();
+    }
+
+    function prevFlashcard() {
+      currentFlashcardIndex = (currentFlashcardIndex - 1 + FLASHCARDS.length) % FLASHCARDS.length;
+      updateFlashcardUI();
+    }
+
+    function shuffleFlashcards() {
+      FLASHCARDS.sort(() => Math.random() - 0.5);
+      currentFlashcardIndex = 0;
+      updateFlashcardUI();
+    }
+
+    function speakFlashcardWord() {
+      const card = FLASHCARDS[currentFlashcardIndex];
+      speakWord(card.front);
+    }
+
+    // -------------------------------------------------------------------------
+    // 9. IDIOM GYM SCENARIO MATCHER
+    // -------------------------------------------------------------------------
+    function renderIdiomGym() {
+      const container = document.getElementById('idiom-gym-grid');
+      let html = '';
+
+      IDIOM_CHALLENGES.forEach(c => {
+        html += \`
+          <div id="gym-challenge-\${c.id}" class="sanctuary-subcard rounded-2xl p-5 space-y-3 border-l-4 border-l-autumn-400">
+            <span class="text-[10px] uppercase font-mono font-bold text-stone-400">Scenario \${c.id}</span>
+            <p class="text-xs sm:text-sm text-stone-800 leading-relaxed">\${c.scenario}</p>
+            
+            <div class="space-y-1.5 pt-1">
+              \${c.options.map(opt => \`
+                <button onclick="checkGymAnswer(\${c.id}, '\${opt.replace(/'/g, "\\\\'")}')" id="gym-opt-\${c.id}-\${opt.replace(/[^a-zA-Z]/g, '')}" class="gym-btn-\${c.id} w-full text-left px-3 py-2 rounded-xl text-xs font-semibold bg-white border border-stone-200 text-stone-700 hover:border-autumn-400 hover:bg-parchment-50 transition">
+                  \${opt}
+                </button>
+              \`).join('')}
+            </div>
+
+            <div id="gym-feedback-\${c.id}" class="hidden p-3 rounded-xl text-xs font-sans"></div>
+          </div>
+        \`;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function checkGymAnswer(challengeId, selected) {
+      const challenge = IDIOM_CHALLENGES.find(c => c.id === challengeId);
+      const feedback = document.getElementById(\`gym-feedback-\${challengeId}\`);
+      const buttons = document.querySelectorAll(\`.gym-btn-\${challengeId}\`);
+      
+      buttons.forEach(b => b.disabled = true);
+
+      if (selected === challenge.correct) {
+        feedback.className = 'p-3 rounded-xl text-xs font-sans bg-sage-100 text-sage-900 border border-sage-300';
+        feedback.innerHTML = challenge.explanation;
+        feedback.classList.remove('hidden');
+        gymMatchedCount++;
+        document.getElementById('idiom-gym-score').textContent = gymMatchedCount;
+
+        if (gymMatchedCount === IDIOM_CHALLENGES.length) {
+          triggerConfettiCelebration();
+        }
+      } else {
+        feedback.className = 'p-3 rounded-xl text-xs font-sans bg-amber-50 text-amber-900 border border-amber-300';
+        feedback.innerHTML = \`Almost! The natural idiom here is <strong>\${challenge.correct}</strong>. \${challenge.explanation}\`;
+        feedback.classList.remove('hidden');
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 10. CONTEXT QUIZ LOGIC
+    // -------------------------------------------------------------------------
+    function renderQuiz() {
+      const container = document.getElementById('quiz-container');
+      let html = '';
+
+      QUIZ_QUESTIONS.forEach((q, idx) => {
+        html += \`
+          <div class="sanctuary-subcard rounded-2xl p-5 space-y-3.5 border-t-2 border-t-autumn-400">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="font-bold text-autumn-800">Question \${idx + 1} of \${QUIZ_QUESTIONS.length}</span>
+            </div>
+            <h3 class="font-serif font-bold text-base sm:text-lg text-slatewarm-900 leading-snug">\${q.question}</h3>
+            
+            <div class="space-y-2 pt-1">
+              \${q.options.map((opt, optIdx) => \`
+                <button onclick="handleQuizAnswer(\${q.id}, \${optIdx})" id="q-\${q.id}-opt-\${optIdx}" class="q-btn-\${q.id} w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-sans bg-white border border-stone-200 text-stone-700 hover:border-autumn-400 hover:bg-parchment-50 transition">
+                  <span class="font-mono font-bold mr-2 text-stone-400">\${String.fromCharCode(65 + optIdx)}.</span>
+                  <span>\${opt}</span>
+                </button>
+              \`).join('')}
+            </div>
+
+            <div id="quiz-explain-\${q.id}" class="hidden p-3.5 rounded-xl text-xs font-sans leading-relaxed"></div>
+          </div>
+        \`;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function handleQuizAnswer(questionId, selectedIdx) {
+      if (answeredQuestions[questionId] !== undefined) return;
+      answeredQuestions[questionId] = selectedIdx;
+
+      const q = QUIZ_QUESTIONS.find(item => item.id === questionId);
+      const isCorrect = selectedIdx === q.correctIndex;
+      const explainBox = document.getElementById(\`quiz-explain-\${questionId}\`);
+      const buttons = document.querySelectorAll(\`.q-btn-\${questionId}\`);
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === q.correctIndex) {
+          btn.className = 'w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-sans bg-sage-100 border border-sage-500 text-sage-900 font-semibold';
+        } else if (idx === selectedIdx) {
+          btn.className = 'w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-sans bg-amber-100 border border-amber-500 text-amber-900 line-through';
+        }
+      });
+
+      if (isCorrect) {
+        quizScore++;
+        document.getElementById('quiz-score-val').textContent = quizScore;
+        explainBox.className = 'p-3.5 rounded-xl text-xs font-sans leading-relaxed bg-sage-50 text-sage-900 border border-sage-300';
+        explainBox.innerHTML = '<strong>✨ Brilliant!</strong> ' + q.explanation;
+        confetti({ particleCount: 30, spread: 60, origin: { y: 0.8 } });
+      } else {
+        explainBox.className = 'p-3.5 rounded-xl text-xs font-sans leading-relaxed bg-parchment-100 text-stone-800 border border-stone-300';
+        explainBox.innerHTML = '<strong>Good effort!</strong> ' + q.explanation;
+      }
+      explainBox.classList.remove('hidden');
+
+      if (Object.keys(answeredQuestions).length === QUIZ_QUESTIONS.length) {
+        if (quizScore >= 4) triggerConfettiCelebration();
+      }
+    }
+
+    function triggerConfettiCelebration() {
+      confetti({
+        particleCount: 80,
+        spread: 90,
+        origin: { y: 0.6 }
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 11. TAB SWITCHER
+    // -------------------------------------------------------------------------
+    function switchTab(tabName) {
+      ['transcript', 'vocab', 'fixes', 'topics', 'practice'].forEach(t => {
+        const panel = document.getElementById(\`tab-panel-\${t}\`);
+        const btn = document.getElementById(\`tab-btn-\${t}\`);
+        if (panel && btn) {
+          if (t === tabName) {
+            panel.classList.remove('hidden');
+            btn.className = 'tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 bg-sage-700 text-white shadow-sm';
+            gsap.fromTo(panel, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' });
+          } else {
+            panel.classList.add('hidden');
+            btn.className = 'tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100';
+          }
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // -------------------------------------------------------------------------
+    // 12. COPY LESSON SUMMARY
+    // -------------------------------------------------------------------------
+    function copyLessonSummary() {
+      const summaryText = \`Hi Louie! I reviewed our lesson notes and cleaned transcript for Lesson 01 (22 October 2026). I loved learning about Alexander Graham Bell ('give you a bell'), why we say 'break a leg' (and the play cast vs orthopedic cast pun), and practicing the idioms in the Idiom Gym! Looking forward to our next lesson.\`;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(summaryText).then(() => {
+          const btn = document.getElementById('copy-summary-btn');
+          const original = btn.innerHTML;
+          btn.innerHTML = '<i data-lucide="check" class="w-3.5 h-3.5 text-white"></i><span>Copied to Clipboard!</span>';
+          lucide.createIcons();
+          setTimeout(() => { btn.innerHTML = original; lucide.createIcons(); }, 2500);
+        });
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 13. APP INITIALIZATION
+    // -------------------------------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTranscript();
+      renderVocabGrid();
+      inspectVocab('off-the-top-of-ones-head');
+      updateFlashcardUI();
+      renderIdiomGym();
+      renderQuiz();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+`;
+
+// Write the complete index.html file
+const outputPath = path.join(__dirname, 'index.html');
+fs.writeFileSync(outputPath, htmlContent, 'utf8');
+
+console.log(`Successfully generated index.html (${htmlContent.length} bytes)!`);
