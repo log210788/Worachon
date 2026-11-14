@@ -14,7 +14,8 @@ Worachon can seamlessly access both lessons directly through the top **Course Ar
 
 | Lesson | Date | Primary Themes & Scientific Discussions | Access Link |
 | :--- | :--- | :--- | :--- |
-| **Lesson 02 (Latest)** | **23 October 2026** | **Wan Piyamaharaj (ปิยมหาราช) & Pith Helmets, Richard Dawkins' Memes & Digital Gatekeepers, The Brain's Pain Paradox & Awake Craniotomies, Dura Mater Traction, Pyloric Sphincter & Alcohol Kinetics, Munich Work-Life Equilibrium, UCLA Fundamental Research vs Instant Impact, Fiber Optic Refractive Cladding.** | [**Launch Lesson 02 (index.html)**](./index.html) • [Direct Link](./lesson_10-23-2026.html) |
+| **Latest Lesson** | **14 November 2026** | **Clothing & Functionality vs. Image, Medical Specialty Hierarchies, Undervalued Professions (Sanitation & Merchants), STEM/Public Policy/Law School, Class President Duties.** | [**Launch Latest (index.html)**](./index.html) • [Direct Link](./lesson_11-14-2026.html) |
+| **Lesson 02** | **23 October 2026** | **Wan Piyamaharaj (ปิยมหาราช) & Pith Helmets, Richard Dawkins' Memes & Digital Gatekeepers, The Brain's Pain Paradox & Awake Craniotomies, Dura Mater Traction, Pyloric Sphincter & Alcohol Kinetics, Munich Work-Life Equilibrium, UCLA Fundamental Research vs Instant Impact, Fiber Optic Refractive Cladding.** | [Direct Link](./lesson_10-23-2026.html) |
 | **Lesson 01** | **22 October 2026** | **Orthopedic Prosthetics, Microbial Biology (Living Bacteria vs Viral Agents), Continental Plate Tectonics & Tsunamis, English Idiom Studio (Raining Cats & Dogs, Break a Leg, Last Straw, Silver Linings), Emotional Resilience Through Adversity.** | [**Launch Lesson 01**](./lesson_10-22-2026.html) |
 
 ---

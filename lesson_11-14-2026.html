@@ -1,0 +1,2070 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Worachon's Peaceful English Sanctuary | Latest Lesson Transcript & Vocabulary</title>
+
+  <!-- Google Fonts: Cormorant Garamond (Literary Serif), Plus Jakarta Sans (Soft Modern UI), JetBrains Mono (Timestamps & IPA) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            parchment: {
+              50: '#fbf9f5',
+              100: '#f6f1e7',
+              200: '#ede3d1',
+              300: '#dfd0b5',
+              400: '#cbb38e',
+              500: '#b6966b',
+            },
+            autumn: {
+              50: '#fcf6f0',
+              100: '#f7e9db',
+              200: '#eed0b5',
+              300: '#e2b086',
+              400: '#d38c57',
+              500: '#be6f38',
+              600: '#a3582b',
+              700: '#854524',
+              800: '#6c3921',
+            },
+            sage: {
+              50: '#f4f7f5',
+              100: '#e4ece7',
+              200: '#cadad1',
+              300: '#a5bfb1',
+              400: '#7b9f8d',
+              500: '#5b826f',
+              600: '#476858',
+              700: '#3a5448',
+              800: '#30443b',
+            },
+            slatewarm: {
+              700: '#3d4441',
+              800: '#2b312e',
+              900: '#1e2321',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP for Gentle Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Popper & Tippy.js for Interactive Vocabulary Explanations -->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css" />
+
+  <!-- Canvas Confetti for Gentle Practice Encouragement -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --bg-base: #f9f6f0;
+      --bg-card: rgba(255, 253, 249, 0.90);
+      --bg-subcard: rgba(255, 255, 255, 0.94);
+      --border-soft: #e6decb;
+      --border-accent: #d9c8b0;
+      --text-main: #2b312e;
+      --text-muted: #5c6660;
+      --grad-1: rgba(238, 208, 181, 0.42);
+      --grad-2: rgba(202, 218, 209, 0.48);
+      --grad-3: rgba(246, 241, 231, 0.70);
+    }
+
+    body[data-theme="winchester"] {
+      --bg-base: #f3f6f5;
+      --bg-card: rgba(252, 254, 253, 0.91);
+      --bg-subcard: rgba(255, 255, 255, 0.95);
+      --border-soft: #d7e2dc;
+      --border-accent: #b8ccc2;
+      --text-main: #26312d;
+      --text-muted: #52635c;
+      --grad-1: rgba(202, 218, 209, 0.50);
+      --grad-2: rgba(219, 228, 238, 0.48);
+      --grad-3: rgba(244, 240, 230, 0.55);
+    }
+
+    body[data-theme="twilight"] {
+      --bg-base: #f5efe6;
+      --bg-card: rgba(253, 249, 242, 0.92);
+      --bg-subcard: rgba(255, 252, 247, 0.96);
+      --border-soft: #e2d2be;
+      --border-accent: #cfaea0;
+      --text-main: #2d2622;
+      --text-muted: #665850;
+      --grad-1: rgba(226, 176, 134, 0.36);
+      --grad-2: rgba(214, 196, 176, 0.42);
+      --grad-3: rgba(235, 220, 202, 0.55);
+    }
+
+    body {
+      background-color: var(--bg-base);
+      background-image:
+        radial-gradient(at 8% 5%, var(--grad-1) 0px, transparent 52%),
+        radial-gradient(at 92% 18%, var(--grad-2) 0px, transparent 52%),
+        radial-gradient(at 50% 88%, var(--grad-3) 0px, transparent 58%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      transition: background-color 0.5s ease, color 0.4s ease;
+      overflow-x: hidden;
+    }
+
+    .sanctuary-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 36px -10px rgba(91, 130, 111, 0.08), 0 4px 14px -3px rgba(43, 49, 46, 0.04);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sanctuary-subcard {
+      background: var(--bg-subcard);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 4px 14px -4px rgba(43, 49, 46, 0.04);
+      transition: all 0.25s ease;
+    }
+
+    /* Inline Vocabulary Highlight in Transcript */
+    .vocab-mark {
+      display: inline-block;
+      background: linear-gradient(120deg, rgba(226, 176, 134, 0.25) 0%, rgba(165, 191, 177, 0.28) 100%);
+      border-bottom: 2px dashed #a3582b;
+      color: #5b3216;
+      font-weight: 600;
+      padding: 0px 5px;
+      margin: 0 1px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .vocab-mark:hover, .vocab-mark.active-vocab {
+      background: linear-gradient(120deg, rgba(190, 111, 56, 0.25) 0%, rgba(91, 130, 111, 0.32) 100%);
+      border-bottom-style: solid;
+      border-bottom-color: #476858;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(163, 88, 43, 0.14);
+    }
+
+    body.hide-vocab-highlights .vocab-mark {
+      background: transparent !important;
+      border-bottom: none !important;
+      color: inherit !important;
+      font-weight: inherit !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+
+    /* Note-taker fix badge */
+    .asr-fix-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f4f7f5;
+      color: #476858;
+      border: 1px solid #cadad1;
+      padding: 1px 7px;
+      border-radius: 999px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    body.hide-asr-fixes .asr-fix-pill {
+      display: none !important;
+    }
+
+    /* Custom Tippy Tooltip Theme: Peaceful Autumn */
+    .tippy-box[data-theme~='autumn-sanctuary'] {
+      background-color: #fffdf9;
+      color: #2b312e;
+      border: 1px solid #dfd0b5;
+      border-radius: 1rem;
+      box-shadow: 0 20px 38px -8px rgba(61, 68, 65, 0.16), 0 6px 16px -4px rgba(163, 88, 43, 0.08);
+      padding: 0.35rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .tippy-box[data-theme~='autumn-sanctuary'][data-placement^='top'] > .tippy-arrow::before {
+      border-top-color: #dfd0b5;
+    }
+    .tippy-box[data-theme~='autumn-sanctuary'][data-placement^='bottom'] > .tippy-arrow::before {
+      border-bottom-color: #dfd0b5;
+    }
+
+    /* Highlight pulse when jumping to a transcript line */
+    @keyframes gentleGlow {
+      0% { background-color: rgba(226, 176, 134, 0.45); transform: scale(1.005); }
+      50% { background-color: rgba(165, 191, 177, 0.38); }
+      100% { background-color: transparent; transform: scale(1); }
+    }
+    .turn-highlight-flash {
+      animation: gentleGlow 2.8s ease-out;
+    }
+
+    @media print {
+      .no-print, #autumn-breeze-canvas { display: none !important; }
+      body { background: #fff !important; }
+      .sanctuary-card, .sanctuary-subcard { box-shadow: none !important; border: 1px solid #ccc !important; }
+    }
+  </style>
+</head>
+<body data-theme="kensington" class="font-sans antialiased min-h-screen selection:bg-autumn-200 selection:text-slatewarm-900 relative">
+
+  <!-- CALMING AUTUMN BREEZE CANVAS OVERLAY -->
+  <canvas id="autumn-breeze-canvas" class="fixed inset-0 pointer-events-none z-20 opacity-80"></canvas>
+
+  <!-- STICKY PEACEFUL NAVIGATION & ATMOSPHERE BAR -->
+  <header class="sticky top-0 z-40 border-b border-[#e6decb]/90 bg-[#fbf9f5]/85 backdrop-blur-md no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div id="brand-initial" class="w-10 h-10 rounded-2xl bg-gradient-to-br from-sage-600 via-sage-500 to-autumn-500 flex items-center justify-center text-white font-serif text-xl font-bold shadow-sm">
+          D
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span id="brand-title" class="font-serif font-bold text-lg sm:text-xl tracking-tight text-slatewarm-900">Diego's Peaceful English Sanctuary</span>
+            <span id="brand-badge" class="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 text-[11px] font-medium rounded-full bg-sage-100 text-sage-800 border border-sage-200">
+              Lesson 02 • The 16-Second Pitch, Economic Debate, Two Truths and a Lie & Game of Life
+            </span>
+          </div>
+          <p id="brand-subtitle" class="text-[11px] text-stone-500 hidden md:block">A calm, tidy space with your corrected lesson transcript, timestamps, and flagged vocabulary</p>
+        </div>
+      </div>
+
+      <!-- Calming Atmosphere Controls -->
+      <div class="flex flex-wrap items-center gap-2">
+        <div class="flex items-center gap-1.5 bg-white/90 border border-[#dfd0b5] rounded-xl px-2.5 py-1 shadow-sm">
+          <button id="soundscape-btn" onclick="toggleSoundscape()" class="flex items-center gap-1.5 text-xs font-semibold text-sage-700 hover:text-sage-900 transition px-1.5 py-0.5 rounded-lg">
+            <i data-lucide="wind" class="w-3.5 h-3.5 text-autumn-600"></i>
+            <span id="soundscape-label">London Breeze Audio: Off</span>
+          </button>
+          <select id="soundscape-preset" onchange="changeSoundscapePreset(this.value)" class="text-[11px] bg-parchment-50 border border-parchment-200 rounded-lg px-1.5 py-0.5 text-stone-700 focus:outline-none">
+            <option value="breeze">🍂 Kensington Breeze</option>
+            <option value="rain">🌧️ Soft London Rain</option>
+            <option value="study">🕯️ Warm Study Hearth</option>
+          </select>
+          <input id="soundscape-volume" type="range" min="0.05" max="0.6" step="0.05" value="0.22" oninput="updateSoundscapeVolume(this.value)" class="w-14 accent-sage-600 cursor-pointer hidden sm:block" />
+        </div>
+
+        <button id="leaves-toggle-btn" onclick="cycleLeafBreeze()" class="px-2.5 py-1.5 rounded-xl bg-white/90 hover:bg-autumn-50 border border-[#dfd0b5] text-xs font-medium text-stone-700 flex items-center gap-1.5 shadow-sm transition">
+          <i data-lucide="leaf" class="w-3.5 h-3.5 text-autumn-600"></i>
+          <span id="leaves-label" class="hidden sm:inline">Leaves: Gentle</span>
+        </button>
+
+        <div class="flex items-center gap-1 bg-white/90 border border-[#dfd0b5] rounded-xl px-2 py-1 shadow-sm text-xs">
+          <i data-lucide="volume-2" class="w-3.5 h-3.5 text-sage-600"></i>
+          <button onclick="setVoiceRate(0.85)" id="rate-slow" class="px-1.5 py-0.5 rounded-md text-[11px] text-stone-600 hover:bg-parchment-100 transition">0.85×</button>
+          <button onclick="setVoiceRate(1.0)" id="rate-normal" class="px-1.5 py-0.5 rounded-md text-[11px] bg-sage-600 text-white font-semibold transition">UK 1×</button>
+        </div>
+
+        <div class="hidden lg:flex items-center gap-1 bg-white/90 border border-[#dfd0b5] rounded-xl p-1 text-[11px] shadow-sm">
+          <button onclick="setThemeMood('kensington')" id="theme-kensington" class="px-2 py-0.5 rounded-lg bg-autumn-100 text-autumn-800 font-semibold transition">Bath Stone</button>
+          <button onclick="setThemeMood('winchester')" id="theme-winchester" class="px-2 py-0.5 rounded-lg text-stone-600 hover:text-stone-900 transition">Winchester Mist</button>
+          <button onclick="setThemeMood('twilight')" id="theme-twilight" class="px-2 py-0.5 rounded-lg text-stone-600 hover:text-stone-900 transition">Warm Study</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 space-y-7 relative z-10">
+
+    <!-- HERO BANNER -->
+    <section class="sanctuary-card rounded-3xl p-6 sm:p-9 relative overflow-hidden">
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-7 items-center">
+        <div class="lg:col-span-8 space-y-3.5">
+          <div id="hero-meta-pill" class="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-sage-100/90 border border-sage-200 text-sage-800 text-xs font-medium"></div>
+          <h1 id="hero-heading" class="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-slatewarm-900 leading-[1.16]"></h1>
+          <p id="hero-intro" class="text-stone-600 text-sm sm:text-base leading-relaxed max-w-3xl"></p>
+        </div>
+
+        <div class="lg:col-span-4 grid grid-cols-2 gap-3">
+          <div onclick="switchTab('transcript')" class="cursor-pointer p-4 rounded-2xl bg-parchment-50/95 border border-parchment-300 hover:border-autumn-400 transition shadow-sm">
+            <div class="text-[11px] font-mono font-semibold uppercase text-autumn-700" id="stat-duration">Full Dialogue Log</div>
+            <div class="font-serif font-bold text-slatewarm-900 text-lg mt-0.5">Full Transcript</div>
+            <p class="text-[11px] text-stone-600 mt-0.5">Every turn tidied with inline vocab & timestamps</p>
+          </div>
+          <div onclick="switchTab('vocab')" class="cursor-pointer p-4 rounded-2xl bg-sage-50/95 border border-sage-200 hover:border-sage-400 transition shadow-sm">
+            <div class="text-[11px] font-mono font-semibold uppercase text-sage-700" id="stat-vocab-count">52 Items</div>
+            <div class="font-serif font-bold text-slatewarm-900 text-lg mt-0.5">Vocabulary & Idioms</div>
+            <p class="text-[11px] text-stone-600 mt-0.5">B2–C2 words, UK audio & Spanish equivalents</p>
+          </div>
+          <div onclick="switchTab('fixes')" class="cursor-pointer p-4 rounded-2xl bg-autumn-50/95 border border-autumn-200 hover:border-autumn-400 transition shadow-sm">
+            <div class="text-[11px] font-mono font-semibold uppercase text-autumn-700" id="stat-fixes-count">12 Fixes</div>
+            <div class="font-serif font-bold text-slatewarm-900 text-lg mt-0.5">Note-Taker Fixes</div>
+            <p class="text-[11px] text-stone-600 mt-0.5">Sorted speech-to-text errors & 6 phrasing polishes</p>
+          </div>
+          <div onclick="switchTab('places')" class="cursor-pointer p-4 rounded-2xl bg-parchment-50/95 border border-parchment-300 hover:border-sage-400 transition shadow-sm">
+            <div class="text-[11px] font-mono font-semibold uppercase text-sage-700">Masterclass</div>
+            <div class="font-serif font-bold text-slatewarm-900 text-lg mt-0.5">Topics & Practice</div>
+            <p class="text-[11px] text-stone-600 mt-0.5">Stage breakdowns, flashcards & quiz</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-TAB NAVIGATION BAR -->
+    <nav class="sanctuary-card rounded-2xl p-2 flex flex-wrap items-center justify-between gap-2 no-print">
+      <div class="flex flex-wrap items-center gap-1.5 w-full sm:w-auto">
+        <button onclick="switchTab('transcript')" id="tab-btn-transcript" class="tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 bg-sage-700 text-white shadow-sm">
+          <i data-lucide="message-square-quote" class="w-4 h-4"></i>
+          <span>1. Lesson Transcript & Inline Vocab</span>
+        </button>
+        <button onclick="switchTab('vocab')" id="tab-btn-vocab" class="tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="book-marked" class="w-4 h-4 text-autumn-600"></i>
+          <span>2. Vocabulary Dictionary</span>
+        </button>
+        <button onclick="switchTab('fixes')" id="tab-btn-fixes" class="tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="sparkles" class="w-4 h-4 text-sage-600"></i>
+          <span>3. Note-Taker Fixes & Natural Strengths</span>
+        </button>
+        <button onclick="switchTab('places')" id="tab-btn-places" class="tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="landmark" class="w-4 h-4 text-autumn-600"></i>
+          <span>4. Masterclass Topics & Strategy</span>
+        </button>
+        <button onclick="switchTab('practice')" id="tab-btn-practice" class="tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="coffee" class="w-4 h-4 text-sage-600"></i>
+          <span>5. Peaceful Practice</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- TAB 1: FULL LESSON TRANSCRIPT -->
+    <section id="tab-panel-transcript" class="tab-panel space-y-6">
+      <div class="sanctuary-card rounded-3xl p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#e6decb] pb-4">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-sage-700 font-semibold">Interactive Conversation Transcript</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900 mt-0.5">
+              Our Speaking Workshop — With Vocabulary Explained Right In Context
+            </h2>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 shrink-0">
+            <input id="transcript-search" type="text" oninput="filterTranscript()" placeholder="Search transcript or time..." class="px-3 py-1.5 rounded-xl bg-white border border-[#dfd0b5] text-xs text-stone-800 focus:outline-none w-48" />
+            <select id="speaker-filter" onchange="filterTranscript()" class="px-3 py-1.5 rounded-xl bg-white border border-[#dfd0b5] text-xs font-medium text-stone-700">
+              <option value="all">Both Speakers</option>
+              <option value="Worachon" id="opt-student-speaker">Worachon's Turns Only</option>
+              <option value="Louie">Louie Only</option>
+            </select>
+            <button onclick="toggleVocabHighlights()" id="btn-toggle-highlights" class="px-3 py-1.5 rounded-xl bg-autumn-100 text-autumn-800 border border-autumn-300 text-xs font-semibold">
+              <span>Vocab Highlights: On</span>
+            </button>
+            <button onclick="toggleAsrBadges()" id="btn-toggle-asr" class="px-3 py-1.5 rounded-xl bg-sage-100 text-sage-800 border border-sage-300 text-xs font-semibold">
+              <span>Note-Taker Fixes: Visible</span>
+            </button>
+          </div>
+        </div>
+        <div id="chapter-pills-bar" class="flex flex-wrap items-center gap-1.5 pt-1"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-8 space-y-4" id="transcript-stream-container"></div>
+        <aside class="lg:col-span-4 lg:sticky lg:top-20 space-y-4">
+          <div class="sanctuary-card rounded-3xl p-5 sm:p-6 border-t-4 border-t-autumn-500 space-y-4 shadow-sm" id="vocab-inspector-card">
+            <div class="flex items-center justify-between gap-2 border-b border-[#e6decb] pb-3">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-autumn-700 font-semibold flex items-center gap-1.5">
+                <i data-lucide="sparkle" class="w-3.5 h-3.5"></i>
+                Vocabulary Spotlight
+              </span>
+              <span id="insp-time" class="px-2.5 py-0.5 rounded-full bg-parchment-100 border border-parchment-300 font-mono text-xs text-stone-700">🕒 00:00</span>
+            </div>
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <h3 id="insp-word" class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900">Select a word</h3>
+                <button id="insp-audio-btn" onclick="speakWord('Welcome')" class="p-2.5 rounded-xl bg-sage-100 hover:bg-sage-200 text-sage-800 transition shrink-0">
+                  <i data-lucide="volume-2" class="w-4 h-4"></i>
+                </button>
+              </div>
+              <div class="flex flex-wrap items-center gap-2 mt-1.5">
+                <span id="insp-ipa" class="text-xs font-mono text-stone-500"></span>
+                <span id="insp-pos" class="px-2 py-0.5 text-[11px] rounded-md bg-parchment-100 text-stone-700 font-medium"></span>
+                <span id="insp-level" class="px-2 py-0.5 text-[11px] rounded-md bg-autumn-100 text-autumn-800 font-mono font-semibold"></span>
+              </div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-parchment-50 border border-parchment-200 space-y-1">
+              <div class="text-[11px] font-mono uppercase tracking-wider text-stone-500">Meaning & Nuance</div>
+              <p id="insp-def" class="text-xs sm:text-sm text-slatewarm-800 leading-relaxed"></p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-sage-50/80 border border-sage-200 space-y-1">
+              <div class="text-[11px] font-mono uppercase tracking-wider text-sage-700">How It Was Used in Our Lesson</div>
+              <p id="insp-quote" class="text-xs italic text-stone-700 leading-relaxed"></p>
+            </div>
+            <div class="flex items-center justify-between pt-1 text-xs border-t border-[#e6decb]">
+              <span class="text-stone-500" id="insp-l1-label">🇪🇸 Conexión en español:</span>
+              <span id="insp-l1" class="font-semibold text-sage-800"></span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TAB 2: VOCABULARY DICTIONARY -->
+    <section id="tab-panel-vocab" class="tab-panel hidden space-y-6">
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#e6decb] pb-5">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-autumn-700 font-semibold">Timestamped Lexicon</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900 mt-1">Vocabulary, Idioms & Expressions</h2>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <input id="vocab-search" type="text" oninput="renderVocabGrid()" placeholder="Search word, meaning, time..." class="px-3 py-2 rounded-xl bg-white border border-[#dfd0b5] text-xs text-stone-800 w-52" />
+            <select id="vocab-level-filter" onchange="renderVocabGrid()" class="px-3 py-2 rounded-xl bg-white border border-[#dfd0b5] text-xs font-medium text-stone-700">
+              <option value="all">All Levels (B2–C2)</option>
+              <option value="C2">C2 Mastery</option>
+              <option value="C1">C1 Advanced</option>
+              <option value="B2">B2 Upper-Intermediate</option>
+            </select>
+          </div>
+        </div>
+        <div id="vocab-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: NOTE-TAKER FIXES & GENTLE NOTES -->
+    <section id="tab-panel-fixes" class="tab-panel hidden space-y-6">
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900">Your Natural Strengths & Gentle Phrasing Polishes</h2>
+        <div class="p-5 rounded-2xl bg-sage-50/90 border border-sage-200 space-y-3">
+          <div class="font-serif font-bold text-xl text-sage-800">Expressions You Used Naturally & Accurately Today</div>
+          <div id="student-strengths-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="gentle-polishes-grid"></div>
+      </div>
+
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900">How We Sorted Out the Automated Note-Taker's Spelling Mistakes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="asr-fixes-grid"></div>
+      </div>
+    </section>
+
+    <!-- TAB 4: MASTERCLASS TOPICS -->
+    <section id="tab-panel-places" class="tab-panel hidden space-y-6">
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900">Masterclass Frameworks & Strategic Breakdowns</h2>
+        <div id="cultural-places-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- TAB 5: PEACEFUL PRACTICE -->
+    <section id="tab-panel-practice" class="tab-panel hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-6 sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5 flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <h3 class="font-serif text-2xl font-bold text-slatewarm-900">Gentle Vocabulary Flashcards</h3>
+            <span id="fc-counter" class="text-xs font-mono text-stone-500">Card 1</span>
+          </div>
+          <div onclick="flipFlashcard()" class="cursor-pointer sanctuary-subcard rounded-2xl p-7 min-h-[240px] flex flex-col items-center justify-center text-center space-y-3 border-2 border-[#dfd0b5] hover:border-autumn-400 transition select-none">
+            <span id="fc-badge" class="px-2.5 py-0.5 rounded-full bg-autumn-100 text-autumn-800 text-[11px] font-mono"></span>
+            <h4 id="fc-front-title" class="font-serif text-3xl font-bold text-slatewarm-900"></h4>
+            <p id="fc-sub" class="text-xs sm:text-sm text-stone-600 max-w-md leading-relaxed"></p>
+            <div id="fc-back-details" class="hidden space-y-2 pt-2 border-t border-parchment-200 w-full">
+              <p id="fc-quote" class="text-xs italic text-sage-800"></p>
+              <p id="fc-l1" class="text-xs font-semibold text-autumn-700"></p>
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-2 pt-2">
+            <button onclick="prevFlashcard()" class="px-4 py-2 rounded-xl bg-parchment-100 hover:bg-parchment-200 text-xs font-semibold text-stone-700 transition">← Previous</button>
+            <button onclick="speakCurrentFlashcard()" class="px-4 py-2 rounded-xl bg-sage-100 hover:bg-sage-200 text-xs font-semibold text-sage-800 transition">🔊 Listen (UK)</button>
+            <button onclick="nextFlashcard()" class="px-4 py-2 rounded-xl bg-sage-700 hover:bg-sage-800 text-xs font-semibold text-white transition">Next →</button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5">
+          <div class="flex items-center justify-between">
+            <h3 class="font-serif text-2xl font-bold text-slatewarm-900">Match the Concept to Our Lesson</h3>
+            <span id="quiz-score-badge" class="px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-mono font-semibold">0 Completed</span>
+          </div>
+          <div id="quiz-container" class="space-y-4 max-h-[420px] overflow-y-auto pr-1"></div>
+        </div>
+      </div>
+
+      <!-- 3 Thoughtful Conversation Prompts -->
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-4">
+        <div class="flex items-center gap-2 text-autumn-800 font-serif font-bold text-2xl">
+          <i data-lucide="coffee" class="w-5 h-5 text-autumn-600"></i>
+          <span>3 Thoughtful Conversation Prompts for Worachon (For Next Lesson)</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <div class="sanctuary-subcard rounded-2xl p-5 space-y-2 border-l-4 border-l-sage-500">
+            <span class="text-[11px] font-mono uppercase text-sage-700 font-semibold">Prompt 01 • The 16-Second Elevator Pitch</span>
+            <h4 class="font-serif font-bold text-lg text-slatewarm-900">Concise Persuasion Under Pressure</h4>
+            <p class="text-stone-600 leading-relaxed">
+              Pick a workplace proposal, audio tech upgrade, or public policy idea. Set a 16-second timer and pitch your argument directly, anchoring your points around tangible citizen impact (quality of life), concrete actions, and measurable outcomes.
+            </p>
+          </div>
+          <div class="sanctuary-subcard rounded-2xl p-5 space-y-2 border-l-4 border-l-autumn-500">
+            <span class="text-[11px] font-mono uppercase text-autumn-700 font-semibold">Prompt 02 • Conceptual Nuance</span>
+            <h4 class="font-serif font-bold text-lg text-slatewarm-900">Distinguishing Near-Synonyms</h4>
+            <p class="text-stone-600 leading-relaxed">
+              Practice explaining the delicate boundary between two related philosophical or emotional states without using their direct names (e.g., <em>Knowledge</em> vs. <em>Wisdom</em>, <em>Ambition</em> vs. <em>Contentment</em>, or <em>Love</em> vs. <em>Attachment</em>). Highlight who benefits and where superficiality ends.
+            </p>
+          </div>
+          <div class="sanctuary-subcard rounded-2xl p-5 space-y-2 border-l-4 border-l-sage-500">
+            <span class="text-[11px] font-mono uppercase text-sage-700 font-semibold">Prompt 03 • Storytelling with Suspense</span>
+            <h4 class="font-serif font-bold text-lg text-slatewarm-900">The Strategic Narrative Twist</h4>
+            <p class="text-stone-600 leading-relaxed">
+              Recount a surprising real-life experience (such as your Mallorca wedding encounter or meeting FC Barcelona staff). Structure your narrative so that the surprising identity or unexpected outcome is withheld until the very last sentence to build maximum curiosity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const LESSON_CONFIG = {
+      studentName: "Worachon",
+      lessonNumber: "Latest Lesson",
+      lessonDate: "November 14, 2026",
+      lessonSubtitle: "Clothing, Medical Hierarchies, Law \u0026 Campus Leadership • Krisp AI Synced",
+      l1FlagAndLabel: "🇹🇭 ภาษาไทย:",
+      heroHeadingHtml: `Welcome, Worachon — Your <span class="text-autumn-700 italic font-semibold">Peaceful Sanctuary</span> for English Reflection`,
+      heroIntroText: "Here is your interactive lesson sanctuary from November 14, 2026 — covering functional vs. formal dress, medical specialty hierarchies, underrepresented professions, law vs. medicine, and your role as class president.",
+      defaultSpotlightKey: "functionality"
+    };
+
+    const VOCAB_DB = {
+    "functionality":  {
+                          "word":  "functionality",
+                          "ipa":  "/ˌfʌŋk.ʃənˈæl.ə.ti/",
+                          "pos":  "noun",
+                          "level":  "B2",
+                          "cat":  "abstract",
+                          "def":  "The quality of being suited to serve a practical purpose well.",
+                          "quote":  "Worachon (05:34): \"...when I grew up, I focused more on the functionality rather than the good-looking way of dressing.\"",
+                          "es":  "ประโยชน์ใช้สอย / ความคล่องตัว",
+                          "turnId":  "turn-3",
+                          "time":  "03:02"
+                      },
+    "textile":  {
+                    "word":  "textile",
+                    "ipa":  "/ˈtek.staɪl/",
+                    "pos":  "noun",
+                    "level":  "B2",
+                    "cat":  "lifestyle",
+                    "def":  "A type of cloth or woven fabric.",
+                    "quote":  "Louie (00:00): \"I go to textile shops, and I make them.\"",
+                    "es":  "สิ่งทอ / เนื้อผ้า",
+                    "turnId":  "turn-1",
+                    "time":  "00:00"
+                },
+    "hierarchy":  {
+                      "word":  "hierarchy",
+                      "ipa":  "/ˈhaɪə.rɑː.ki/",
+                      "pos":  "noun",
+                      "level":  "C1",
+                      "cat":  "abstract",
+                      "def":  "A system in which people or groups are ranked one above the other according to status or authority.",
+                      "quote":  "Worachon (10:30): \"I guess there are some hierarchies in the doctor specialty as well.\"",
+                      "es":  "ลำดับชั้น / โครงสร้างอำนาจ",
+                      "turnId":  "turn-37",
+                      "time":  "13:35"
+                  },
+    "crucial":  {
+                    "word":  "crucial",
+                    "ipa":  "/ˈkruː.ʃəl/",
+                    "pos":  "adjective",
+                    "level":  "B2",
+                    "cat":  "abstract",
+                    "def":  "Extremely important or necessary for the success of something.",
+                    "quote":  "Worachon (12:44): \"Actually, they are a very crucial part of the community...\"",
+                    "es":  "สำคัญอย่างยิ่ง",
+                    "turnId":  "turn-36",
+                    "time":  "12:44"
+                },
+    "underrepresented":  {
+                             "word":  "underrepresented",
+                             "ipa":  "/ˌʌn.də.rep.rɪˈzen.tɪd/",
+                             "pos":  "adjective",
+                             "level":  "C1",
+                             "cat":  "abstract",
+                             "def":  "Given insufficient representation or recognition compared to their actual importance or numbers.",
+                             "quote":  "Louie (13:35): \"There is another sector of workers that I think are underrepresented, and that is merchants.\"",
+                             "es":  "ที่ได้รับความสำคัญ/การยอมรับน้อยกว่าที่ควร",
+                             "turnId":  "turn-37",
+                             "time":  "13:35"
+                         },
+    "merchant":  {
+                     "word":  "merchant",
+                     "ipa":  "/ˈmɜː.tʃənt/",
+                     "pos":  "noun",
+                     "level":  "B2",
+                     "cat":  "lifestyle",
+                     "def":  "A person or business that buys and sells goods for profit.",
+                     "quote":  "Louie (13:35): \"In history, the merchant class has been pushed down.\"",
+                     "es":  "พ่อค้า / ผู้ประกอบการค้าขาย",
+                     "turnId":  "turn-37",
+                     "time":  "13:35"
+                 },
+    "enroll":  {
+                   "word":  "enroll",
+                   "ipa":  "/ɪnˈrəʊl/",
+                   "pos":  "verb",
+                   "level":  "B2",
+                   "cat":  "abstract",
+                   "def":  "To officially register as a member of an institution or a student on a course.",
+                   "quote":  "Worachon (17:38): \"I actually enrolled in law once I got into medical school...\"",
+                   "es":  "ลงทะเบียนเรียน / สมัครเข้าเรียน",
+                   "turnId":  "turn-44",
+                   "time":  "17:38"
+               },
+    "reschedule":  {
+                       "word":  "reschedule",
+                       "ipa":  "/ˌriːˈʃed.juːl/",
+                       "pos":  "verb",
+                       "level":  "B2",
+                       "cat":  "abstract",
+                       "def":  "To change the time or date of a planned event.",
+                       "quote":  "Worachon (24:56): \"I can actually reschedule it.\"",
+                       "es":  "เลื่อนตารางเวลา / นัดใหม่",
+                       "turnId":  "turn-88",
+                       "time":  "24:56"
+                   }
+};
+    const TRANSCRIPT_TURNS = [
+    {
+        "id":  "turn-1",
+        "chapterId":  "chap-1",
+        "chapterTitle":  "Chapter I • Dressing for Weather \u0026 Functionality (00:00)",
+        "speaker":  "Louie",
+        "time":  "00:00",
+        "html":  "I don\u0027t feel sick or tired, but my ear is not open yet. This ear is not completely open, but I feel fine. Everything\u0027s fine, but the ear is not open. Which is okay, and it\u0027s Saturday, so yeah, it\u0027s all great. Now I have a question for you. Okay, so let me preface this for you first. Everybody dresses in a way. You choose how you want to dress. Okay? So I choose my way. You choose your way, and I\u0027ll tell you why I dress this way just to get you ready for your answer, okay? So you can understand which way I\u0027m going. Now, I look like a clown, okay? I look like a clown, right? I have this weird shirt. It\u0027s got lots of detail on it. I wear lots of shirts like this, but the reason I dress like this is because I\u0027m in Vietnam, and people are very skeptical. They\u0027re very scared of foreigners, okay? So what I do is I actually make this shirt myself. Okay? So I make my own clothes. I go to \u003cspan class=\"vocab-mark\" data-vkey=\"textile\" onclick=\"inspectVocab(\u0027textile\u0027)\"\u003etextile\u003c/span\u003e shops, and I make them. So the reason I choose this style and textiles is because these are the textiles women wear in their dress in Vietnam. Okay? So I take the textiles they use in their dresses and make shirts out of them because the Vietnamese men do not do it. They do not do it. So my idea is this: I\u0027m showing strangers in Vietnam that I understand their culture, right? I understand how they dress and stuff like that. Before they talk to me because I know they could be scared, I\u0027m trying to make them show that I\u0027m interested in Vietnam. Maybe I know some of the language, and my goal is... Okay, so what I\u0027m trying to say is we put on clothes to try and send a message sometimes. And how do you dress? So when you\u0027re outside in the world, how do you dress?"
+    },
+    {
+        "id":  "turn-2",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "02:08",
+        "html":  "I normally wear, like, the sporty fit / athletic wear \u003cspan class=\"asr-fix-pill\" title=\"Krisp ASR misheard \u0027sporty fit\u0027 as \u0027spot fit\u0027.\"\u003e✨ Fixed: \"sporty fit / athletic wear\" (note-taker: \"spot fit\")\u003c/span\u003e. You know, the. And the reason behind this is, I used to live in the southern part of Thailand, where it\u0027s near the like it\u0027s near Malaysia very hot. So. What I what? What to say? What I, frequently do is that frequently this is that when I wear some, like, thick clothes or something like that, it would be very hot. So I have to change it like fre frequently. So I chose to wear, like, this easy going type of shirt or clothes, just to fit into the ho. What\u0027s called the season, the weather. Yeah..."
+    },
+    {
+        "id":  "turn-3",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "03:02",
+        "html":  "So you are looking for more \u003cspan class=\"vocab-mark\" data-vkey=\"functionality\" onclick=\"inspectVocab(\u0027functionality\u0027)\"\u003efunctionality\u003c/span\u003e?"
+    },
+    {
+        "id":  "turn-4",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "03:05",
+        "html":  "Their functionality..."
+    },
+    {
+        "id":  "turn-5",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "03:06",
+        "html":  "Good. So now within your functionality, do you have a style?"
+    },
+    {
+        "id":  "turn-6",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "03:14",
+        "html":  "Stylization. I love wearing, like, the Dark Tone dark Tone shirt, because it looked. I personally, I think it looked better on me, like, compared to the lighter ones \u003cspan class=\"asr-fix-pill\" title=\"ASR misheard \u0027those lighter ones\u0027 as \u0027Doors writer one\u0027.\"\u003e✨ Fixed: \"lighter ones\" (note-taker: \"Doors writer one\")\u003c/span\u003e. Yeah."
+    },
+    {
+        "id":  "turn-7",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "03:36",
+        "html":  "And why do you think darker ones look better? Why?"
+    },
+    {
+        "id":  "turn-8",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "03:42",
+        "html":  "Actually, I think, I\u0027m not sure about the color theory, but I think it would make me like. It would seem to be like in the good shape maybe compared to the. To the. Lighter one. And because of another reason is that, we it rains a lot here in... Thailand. And if I wear the lighters, like color, it would be some spot of the range showing on the shirt. And but when it is like the darker one that there is no, like the spotable point. Something like that."
+    },
+    {
+        "id":  "turn-9",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "04:19",
+        "html":  "Do you dress the same in the city as you do outside of the city?"
+    },
+    {
+        "id":  "turn-10",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "04:26",
+        "html":  "Yes. Exactly the same. But. When I\u0027m in the city, the difference is maybe, only the shorts. III changed the shorts to the what is called trouser, like the long. The long? Yeah..."
+    },
+    {
+        "id":  "turn-11",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "04:45",
+        "html":  "So now I have to ask, before, in your past, how did you use to dress before? Before, did you always dress this way, or did you make a conscious decision to change?"
+    },
+    {
+        "id":  "turn-12",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "04:59",
+        "html":  "Before I actually didn\u0027t dress like this. I used to do some shirts with a white shirt with long sleeves and long trousers because I thought it was cool at the time, but when I grew up, I focused more on the functionality rather than the good-looking way of dressing, something like that. I changed to what fits me better."
+    },
+    {
+        "id":  "turn-13",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "05:34",
+        "html":  "And how do you want to dress in the future? So do you ever think, when I when? When I\u0027m in a hospital or when I\u0027m a doctor? Do you? Are you already thinking about how you want to dress?"
+    },
+    {
+        "id":  "turn-14",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "05:49",
+        "html":  "Yeah, I\u0027ve. I\u0027ve been thinking of it because, you know, when. When I\u0027m a full time doctor, like as my career. I know that I can address like this chill because it\u0027s some of like the professionalism. So I guess I\u0027m gonna wear something like that shirt one, but I will choose. I\u0027m okay with any, like, style, but I would choose the what\u0027s called the text. No, is it called the text tile? Like the material used for clothes? Yeah, I we choose the texts based on, again, the functionality. The weather and, like, my. My own preferences. Yeah..."
+    },
+    {
+        "id":  "turn-15",
+        "chapterId":  "chap-2",
+        "chapterTitle":  "Chapter II • Medical Specialties \u0026 Dress Codes (06:34)",
+        "speaker":  "Louie",
+        "time":  "06:34",
+        "html":  "Now? Do you notice any? Thank you for your answer, by the way. Do you notice any differences between the different types of doctors and how they dress, for example? I\u0027m not saying this is true. This is just a joke, really. But pediatricians, they can really dress how they want. Obviously, it\u0027s not true because they have to deal with parents, right? But I can imagine. Maybe some doctors dress differently. Have you noticed at all?"
+    },
+    {
+        "id":  "turn-16",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "07:00",
+        "html":  "I\u0027ve. I\u0027ve noticed some from my lecturer, like when you when you\u0027re comparing like the ophthalmologies, the dermathologies comparing to some like lecturer in the very, hands on like for example. So general surgery or like, orthopedic surgery that they dressed are completely different. You know, but when it is like the ophthalmologies, the dermatologies, it will look more like, expensive. Well, dress. But when it comes to general surgery, I think it\u0027s because of like, their free time that they don\u0027t have a lot of free time. So they dress mainly based on functionality."
+    },
+    {
+        "id":  "turn-17",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "07:48",
+        "html":  "Yes. Why do you think that dermatologists dress? Like they have. Like they spent money on their clothes. You said they. It looks expensive."
+    },
+    {
+        "id":  "turn-18",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "07:59",
+        "html":  "Yeah, it look it looks expensive. I guess, one of the reasons is that, they need these good looking, what\u0027s called good looking v or like, on self appearance. Yeah..."
+    },
+    {
+        "id":  "turn-19",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "08:16",
+        "html":  "Yeah..."
+    },
+    {
+        "id":  "turn-20",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "08:17",
+        "html":  "Thank you."
+    },
+    {
+        "id":  "turn-21",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "08:17",
+        "html":  "That\u0027s right."
+    },
+    {
+        "id":  "turn-22",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "08:18",
+        "html":  "They need this good-looking appearance for their work as well. Patients want to come to the doctor. That looks good. When it comes to their methodology, something to work on their skin, their face. Something like this. The ophthalmologist... Even though the eyes are on your face, it\u0027s one of the organs on the face. But dressing wheels can influence the patient selection. Something like this. But when it comes to general surgeons or orthopedic surgeons, the cases are always like trauma or something like this. So the patients don\u0027t have to choose based on the appearance."
+    },
+    {
+        "id":  "turn-23",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "09:05",
+        "html":  "Yeah, very true. And how what about your friends? Do your friends dress the same as you?"
+    },
+    {
+        "id":  "turn-24",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "09:16",
+        "html":  "Yeah, actually, because, my campus, my faculty is it is in a very far away from the city, so people actually don\u0027t care much about, like, that way of dressing, but when. But again, when they go to the city in to get into the city, they dress differently. Like. Like more formal, something like that."
+    },
+    {
+        "id":  "turn-25",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "09:43",
+        "html":  "Yes, okay, very good. So what are your thoughts on the different...? How can I say how different doctors are received? So not about their appearance, but have you noticed there\u0027s a difference between how different doctors are received by the public or by people...?"
+    },
+    {
+        "id":  "turn-26",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "10:08",
+        "html":  "Asist. What do you mean by arcist..."
+    },
+    {
+        "id":  "turn-27",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "10:11",
+        "html":  "So, react so for..."
+    },
+    {
+        "id":  "turn-28",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "10:14",
+        "html":  "Or react?"
+    },
+    {
+        "id":  "turn-29",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "10:15",
+        "html":  "Example, yeah, so, I\u0027m a surgeon. I\u0027m a doctor. I\u0027m. I\u0027m a this. Have you noticed any. Any difference in the way people react to the different job titles at all?"
+    },
+    {
+        "id":  "turn-30",
+        "chapterId":  "chap-3",
+        "chapterTitle":  "Chapter III • Societal Hierarchies \u0026 Undervalued Work (10:30)",
+        "speaker":  "Worachon",
+        "time":  "10:30",
+        "html":  "Yeah, very actually very different. When someone says they are like a general practitioner. Yeah, it\u0027s very normal in Thailand. We don\u0027t overreact with it, but when you say you are a neurosurgeon, you are a neurologist, you are a cardiothoracic surgeon, something like that. People press those specialties, those specialists, a lot more than other specialists. Yeah, and I guess there are some hierarchies in the doctor of specialty as well."
+    },
+    {
+        "id":  "turn-31",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "11:14",
+        "html":  "Who\u0027s at the bottom?"
+    },
+    {
+        "id":  "turn-32",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "11:18",
+        "html":  "In Thailand, I would say maybe like a general practitioner."
+    },
+    {
+        "id":  "turn-33",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "11:24",
+        "html":  "Not dentist..."
+    },
+    {
+        "id":  "turn-34",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "11:26",
+        "html":  "No dentist is II guess I think Dents is quite, you know, on the not the top one, but, yeah, higher middle. Yeah."
+    },
+    {
+        "id":  "turn-35",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "11:39",
+        "html":  "Obviously, being a dentist, they\u0027re all great jobs, but being a dentist is a very good job. But in England, there\u0027s a joke that dentists say they\u0027re doctors, right? Which they are. They have a doctorate. They are doctors. Right. But it\u0027s a joke in England that dentists are not doctors. So in our society, they put dentists separately right and below doctors, which is crazy, right? The dentists can make loads of money because everyone needs to go to a dentist. They\u0027re part of the community, so... But it\u0027s a joke, okay? It\u0027s a joke. Do you have any professions that are not... How can I say? That they are viewed wrongly? So you think that profession should be viewed higher. For example, the dentist in England."
+    },
+    {
+        "id":  "turn-36",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "12:44",
+        "html":  "Maybe I would say it\u0027s a bit extreme thought for me, I guess, but, it\u0027s. I\u0027m not sure if there\u0027s one in the UK. It\u0027s like the, waste collector, the garbage man that works for the government. Like, actually, they are very. They are very \u003cspan class=\"vocab-mark\" data-vkey=\"crucial\" onclick=\"inspectVocab(\u0027crucial\u0027)\"\u003ecrucial\u003c/span\u003e part of the community where like some people in Thailand even look down on them. But they are really important because, you know, our city can look good. And they are one of the biggest reason. And some parts of Thailand, of Bangkok especially, don\u0027t even like, look that good. Yeah. Because I think they should get more money. And like, that\u0027s. That should be a courage for them to work on."
+    },
+    {
+        "id":  "turn-37",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "13:35",
+        "html":  "I think in England a garbage man can make more than a doctor. I think... Let me just check. I don\u0027t want to tell you the wrong thing. Garbage men, how much do they take home in Oxfordshire? No, not that much, it\u0027s not average pay, it\u0027s average pay, but what about London? London... In America they make quite a lot, I think. Yeah, about the same. In the US, bus drivers... Yeah, in the US they make quite a bit. Bus drivers make a lot. In England, bus drivers... They\u0027re in short supply. No one wants to be a bus driver, so the wage is ridiculously high, and they have freedom in the market. They have the choice. So, how can I say they make a lot of money? There is another sector of workers that I think are \u003cspan class=\"vocab-mark\" data-vkey=\"underrepresented\" onclick=\"inspectVocab(\u0027underrepresented\u0027)\"\u003eunderrepresented\u003c/span\u003e, and that is merchants. Merchants, right? So for example, merchants do a service, right? Plus they make quite a lot of money, but they\u0027re not... I understand why. Because their job is not intensive, however, in society, they\u0027re not held up as high. However, they make way more money generally, right? Because it\u0027s a different kind of business model, a salary and obviously a doctor can run a business. It\u0027s not quite... It\u0027s not crazy, anything like that. But what I\u0027m trying to say is that I think that merchants have famously been looked down on in history more. I\u0027m not saying a doctor, the \u003cspan class=\"vocab-mark\" data-vkey=\"hierarchy\" onclick=\"inspectVocab(\u0027hierarchy\u0027)\"\u003ehierarchy\u003c/span\u003e should be more for a \u003cspan class=\"vocab-mark\" data-vkey=\"merchant\" onclick=\"inspectVocab(\u0027merchant\u0027)\"\u003emerchant\u003c/span\u003e. But in history, the \u003cspan class=\"vocab-mark\" data-vkey=\"merchant\" onclick=\"inspectVocab(\u0027merchant\u0027)\"\u003emerchant\u003c/span\u003e we call it the \u003cspan class=\"vocab-mark\" data-vkey=\"merchant\" onclick=\"inspectVocab(\u0027merchant\u0027)\"\u003emerchant\u003c/span\u003e class has been pushed down. So, for example, in Japan. In Japan, they regarded people that sell things as very low class. But it was those people that lifted Japan out of poverty, right? So farmer, funeral person and \u003cspan class=\"vocab-mark\" data-vkey=\"merchant\" onclick=\"inspectVocab(\u0027merchant\u0027)\"\u003emerchant\u003c/span\u003e was very low class. But they\u0027re the most important parts of that society, right? The samurais were a leech upon society, but they were held at the highest regard as such. Yeah, if you weren\u0027t in medicine, what job would you do? What profession?"
+    },
+    {
+        "id":  "turn-38",
+        "chapterId":  "chap-4",
+        "chapterTitle":  "Chapter IV • STEM, Public Policy \u0026 Law School (16:34)",
+        "speaker":  "Worachon",
+        "time":  "16:34",
+        "html":  "If I\u0027m not in medicine, I think I would take engineering or if it\u0027s not STEM science, mathematics, something like this. I would take on public policy."
+    },
+    {
+        "id":  "turn-39",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "16:49",
+        "html":  "H very nice."
+    },
+    {
+        "id":  "turn-40",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "16:52",
+        "html":  "Yeah. Yeah, I..."
+    },
+    {
+        "id":  "turn-41",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "16:52",
+        "html":  "Yeah, that\u0027s pretty cool."
+    },
+    {
+        "id":  "turn-42",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "16:55",
+        "html":  "Actually I think engineering, medicine and public policy have something in common is that, I want to do something that can actually impact and have a huge impact on this society and can completely change the society."
+    },
+    {
+        "id":  "turn-43",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "17:18",
+        "html":  "Just, you know, obviously I hi, I hold the medical industry and doctors in the highest regard. This is just a talking point, right? I actually... Think doctors are completely worthy of everything they get right. This is just a talking point. What about lawyers? What about lawyers...?"
+    },
+    {
+        "id":  "turn-44",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "17:38",
+        "html":  "Well, yeah, a actually, it\u0027s quite a bit funny. I have to tell you, there is actually an open university in Thailand where, no matter how what\u0027s called, how old you are or what education you have taken on previously, you can \u003cspan class=\"vocab-mark\" data-vkey=\"enroll\" onclick=\"inspectVocab(\u0027enroll\u0027)\"\u003eenroll\u003c/span\u003e in this university. And I actually \u003cspan class=\"vocab-mark\" data-vkey=\"enroll\" onclick=\"inspectVocab(\u0027enroll\u0027)\"\u003eenroll\u003c/span\u003e in law once I get into the medical school because I thought I could do it as like a side quest \u003cspan class=\"asr-fix-pill\" title=\"ASR misheard \u0027a side quest\u0027 (studying law alongside med school) as \u0027the psy quest\u0027.\"\u003e✨ Fixed: \"a side quest\" (note-taker: \"the psy quest\")\u003c/span\u003e. But after, like, learning it for a semester, it was way harder than my like, medical lessons there were a lot to remember. And yeah, II couldn\u0027t do it. So I guess I would. I would do it later after I have graduated."
+    },
+    {
+        "id":  "turn-45",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "18:30",
+        "html":  "I would love to say something to you now. I\u0027m not saying this is true, okay? I\u0027m not saying this is true all the time, but I would love for you to try to remember it for decades later now. Law seems hard, the law seems difficult, but as you have way more experiences in the world, it seems easy. So I\u0027m not saying this is true, but maybe in ten, twenty years, when one day you might think about it, you might think, \"Do I feel like I could have been a lawyer quite easily because now, because of the way a lawyer works, it\u0027s about life, right? It\u0027s about what happens in life and the rules about it.\" Now I have more life. Do I now feel like I could have been a lawyer? Obviously, it\u0027s not true because I could have done it as well. But it\u0027s not true because it seemed easier then. But at the time, it seemed super difficult because you do not have your life experience to put on top of it, right? If that makes sense. Obviously, this is something to think about in the future. I think when we look back, I think most people think they could have been a lawyer. I\u0027m not saying you couldn\u0027t have been. I\u0027m not saying that. I\u0027m saying that it looks difficult while you\u0027re doing your medical degree. Right? But as you go through life, you learn things, you hear things, and everything starts to make sense. You get used to the system. Things do not surprise you. I think my prediction is that most people think they can be a lawyer when they get older, right? It\u0027s easier than it seemed. Yeah, I should say. Okay, so what..."
+    },
+    {
+        "id":  "turn-46",
+        "chapterId":  "chap-5",
+        "chapterTitle":  "Chapter V • University Visit \u0026 Class President Duties (20:19)",
+        "speaker":  "Worachon",
+        "time":  "20:19",
+        "html":  "I see."
+    },
+    {
+        "id":  "turn-47",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "20:19",
+        "html":  "Do you know what you\u0027re going to do this evening? So it\u0027s Saturday. Are you going out tonight? Are you socializing? Are you staying in? Are you resting?"
+    },
+    {
+        "id":  "turn-48",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "20:28",
+        "html":  "No, I\u0027m just staying in tomorrow. I\u0027ll have like, some. I have to travel back to, like, my university, so. But the schedu the bus schedule is not like, finalized yet. I have to receive the information this night. So yeah, there is a lot more to plan about tomorrow because that will be a huge event in my med school \u003cspan class=\"asr-fix-pill\" title=\"ASR misheard \u0027med school\u0027 as \u0027mess school\u0027.\"\u003e✨ Fixed: \"med school\" (note-taker: \"mess school\")\u003c/span\u003e. Like some like big person is coming in for like a visit, something like that. So we have to get our things in positions. Something like that."
+    },
+    {
+        "id":  "turn-49",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "21:03",
+        "html":  "Who\u0027s coming? Do you know who\u0027s coming?"
+    },
+    {
+        "id":  "turn-50",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "21:06",
+        "html":  "Maybe. I don\u0027t know, the word in English is the Is, like, kind of the president of the university just come for there."
+    },
+    {
+        "id":  "turn-51",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "21:26",
+        "html":  "So he looks after many sites, so he has many sites."
+    },
+    {
+        "id":  "turn-52",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "21:29",
+        "html":  "Yeah..."
+    },
+    {
+        "id":  "turn-53",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "21:30",
+        "html":  "Okay. And what do you have to get ready?"
+    },
+    {
+        "id":  "turn-54",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "21:35",
+        "html":  "Actually, I just have to get my cozy things, like in the lab or in the dormitory, in shape. Yeah..."
+    },
+    {
+        "id":  "turn-55",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "21:47",
+        "html":  "Wow, they come to inspect your dormitory."
+    },
+    {
+        "id":  "turn-56",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "21:50",
+        "html":  "No, just like we have to do everything in positions it\u0027s very normal in Thailand that yeah, when some like..."
+    },
+    {
+        "id":  "turn-57",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "22:00",
+        "html":  "A thought..."
+    },
+    {
+        "id":  "turn-58",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "22:01",
+        "html":  "Helpful people..."
+    },
+    {
+        "id":  "turn-59",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "22:02",
+        "html":  "Yeah..."
+    },
+    {
+        "id":  "turn-60",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "22:02",
+        "html":  "Author, yeah, we have to get things the most clear and organized."
+    },
+    {
+        "id":  "turn-61",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "22:09",
+        "html":  "Organized, clean, put away, yeah, so you have to make sure everything around you is tidy... And organized. Okay, that\u0027s very nice. In England, that would never happen. That would... Yeah, students are very messy in England. Super messy because they\u0027re running from one thing to the next. Okay, and so do you have any...? Even though they\u0027re coming tomorrow, do you have any special things to do? Is there any actual thing to do?"
+    },
+    {
+        "id":  "turn-62",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "22:46",
+        "html":  "No, not actual... They are coming on Monday, so..."
+    },
+    {
+        "id":  "turn-63",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "22:50",
+        "html":  "Okay..."
+    },
+    {
+        "id":  "turn-64",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "22:50",
+        "html":  "Tomorrow I have to get back there to get things done. Yeah..."
+    },
+    {
+        "id":  "turn-65",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "22:54",
+        "html":  "What I mean is sorry is that, say, you have all you all your friends are going back as well because of this and this thing."
+    },
+    {
+        "id":  "turn-66",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "23:03",
+        "html":  "No, not actually, because I\u0027m the class president for this year. Yeah. So thank you. Yeah, so I have to..."
+    },
+    {
+        "id":  "turn-67",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "23:13",
+        "html":  "Congratulations. Yeah..."
+    },
+    {
+        "id":  "turn-68",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "23:17",
+        "html":  "Organize something there."
+    },
+    {
+        "id":  "turn-69",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "23:20",
+        "html":  "Okay, well, I\u0027ll let you go and rest then, thank you very much for today. I\u0027ll let you rest and, yeah, let me know how it goes, let me know if you meet the president, maybe you meet the..."
+    },
+    {
+        "id":  "turn-70",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "23:31",
+        "html":  "Okay..."
+    },
+    {
+        "id":  "turn-71",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "23:31",
+        "html":  "President, have you met him before?"
+    },
+    {
+        "id":  "turn-72",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "23:33",
+        "html":  "Yeah, I\u0027ve met him before. He used to be the dean of my faculty, so he got upgraded into the president."
+    },
+    {
+        "id":  "turn-73",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "23:42",
+        "html":  "Wow, that\u0027s pretty good. That\u0027s very... It\u0027s great because when you\u0027re older, you can get referrals or networking and stuff like that, so that\u0027s actually fantastic. Yeah, okay, well, I\u0027ll let you rest because it\u0027s half past eleven where you are."
+    },
+    {
+        "id":  "turn-74",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "23:59",
+        "html":  "Okay..."
+    },
+    {
+        "id":  "turn-75",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "24:00",
+        "html":  "Yeah, you\u0027re the only... I always say you\u0027re the only person on my time zone."
+    },
+    {
+        "id":  "turn-76",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "24:05",
+        "html":  "Yeah..."
+    },
+    {
+        "id":  "turn-77",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "24:05",
+        "html":  "That is it. Everyone else is all over the place. Okay, but have a lovely evening and a nice Sunday, okay?"
+    },
+    {
+        "id":  "turn-78",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "24:14",
+        "html":  "Okay, you too."
+    },
+    {
+        "id":  "turn-79",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "24:15",
+        "html":  "I see it tomorrow, I see tomorrow, right? I..."
+    },
+    {
+        "id":  "turn-80",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "24:19",
+        "html":  "Y yeah..."
+    },
+    {
+        "id":  "turn-81",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "24:19",
+        "html":  "See tomorrow."
+    },
+    {
+        "id":  "turn-82",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "24:19",
+        "html":  "But I think I have to recheck tonight with, like, the bus if it, like, overlap."
+    },
+    {
+        "id":  "turn-83",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "24:25",
+        "html":  "Yeah, if you want me to move it, I\u0027ll gladly move it. It doesn\u0027t matter, just message me because obviously, it\u0027s within 24 hours, so message me when you want me to change it, and I\u0027ll change it. Okay? No problem."
+    },
+    {
+        "id":  "turn-84",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "24:39",
+        "html":  "Okay."
+    },
+    {
+        "id":  "turn-85",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "24:39",
+        "html":  "At all."
+    },
+    {
+        "id":  "turn-86",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "24:40",
+        "html":  "Thank you very much."
+    },
+    {
+        "id":  "turn-87",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "24:40",
+        "html":  "You\u0027re welcome, and I understand that. Obviously you\u0027ve got to you\u0027ve got things to organize tomorrow as well, so just send me what when you want me to move it for and I\u0027ll move it or what I can do is you want me to move it now so you can move it..."
+    },
+    {
+        "id":  "turn-88",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "24:56",
+        "html":  "EI can actually \u003cspan class=\"vocab-mark\" data-vkey=\"reschedule\" onclick=\"inspectVocab(\u0027reschedule\u0027)\"\u003ereschedule\u003c/span\u003e it. Actually..."
+    },
+    {
+        "id":  "turn-89",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "24:59",
+        "html":  "You can sorry, I thought you couldn\u0027t. Okay, yeah, perfect, yeah, so do it at you. Yeah, it\u0027s just it\u0027s 12h, not 24. I always think it\u0027s 24. Yeah, do that your own convenience whenever you\u0027d like. No problem at all. Okay..."
+    },
+    {
+        "id":  "turn-90",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "25:15",
+        "html":  "Thank you very much. Yeah."
+    },
+    {
+        "id":  "turn-91",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Louie",
+        "time":  "25:17",
+        "html":  "You\u0027re welcome. You\u0027re welcome. Okay, well, have a good evening."
+    },
+    {
+        "id":  "turn-92",
+        "chapterId":  "",
+        "chapterTitle":  "",
+        "speaker":  "Worachon",
+        "time":  "25:20",
+        "html":  "See you."
+    }
+];
+    const STUDENT_STRENGTHS = [
+    {
+        "time":  "🕒 04:59",
+        "phrase":  "Reflective Contrast",
+        "desc":  "Clearly contrasted past and present clothing habits using natural time markers.",
+        "quote":  "Worachon: \"...when I grew up, I focused more on the functionality rather than the good-looking way of dressing. I changed to what fits me better.\""
+    },
+    {
+        "time":  "🕒 07:00",
+        "phrase":  "Nuanced Medical Comparison",
+        "desc":  "Drew a sharp, realistic distinction between patient-facing aesthetic specialties and trauma surgery.",
+        "quote":  "Worachon: \"When it comes to general surgeons or orthopedic surgeons, the cases are always like trauma... so the patients don\u0027t have to choose based on appearance.\""
+    },
+    {
+        "time":  "🕒 12:44",
+        "phrase":  "Social Empathy \u0026 Civic Awareness",
+        "desc":  "Highlighted the essential role of sanitation workers with strong conviction and clear reasoning.",
+        "quote":  "Worachon: \"They are a very crucial part of the community... our city can look good, and they are one of the biggest reasons.\""
+    },
+    {
+        "time":  "🕒 16:55",
+        "phrase":  "Connecting Disciplines",
+        "desc":  "Linked engineering, medicine, and public policy around a unified personal mission.",
+        "quote":  "Worachon: \"I want to do something that can actually have a huge impact on society.\""
+    }
+];
+    const GENTLE_POLISHES = [
+    {
+        "topic":  "Casual Clothing Terms",
+        "said":  "I normally wear, like, the spot fit...",
+        "natural":  "I normally wear sporty outfits / athletic wear (or breathable casual clothes).",
+        "why":  "ASR heard \u0027spot fit\u0027 for \u0027sporty fit\u0027. In natural English, \u0027athletic wear\u0027 or \u0027sporty clothes\u0027 sounds most natural."
+    },
+    {
+        "topic":  "Medical Specialist Nouns",
+        "said":  "...the ophthalmologies, the dermatologies...",
+        "natural":  "...ophthalmologists and dermatologists...",
+        "why":  "Use \u0027-ogy\u0027 for the field of study (dermatology) and \u0027-ogist\u0027 for the doctor (dermatologist)."
+    },
+    {
+        "topic":  "Color \u0026 Fabric Descriptions",
+        "said":  "...the Dark Tone shirt... there is no spotable point...",
+        "natural":  "...a dark-toned shirt... rain spots don\u0027t show up on it.",
+        "why":  "\u0027Dark-toned\u0027 is the compound adjective; \u0027don\u0027t show up\u0027 or \u0027aren\u0027t noticeable\u0027 is much more idiomatic than \u0027no spottable point\u0027."
+    },
+    {
+        "topic":  "Expressing Encouragement / Support",
+        "said":  "...that should be a courage for them to work on.",
+        "natural":  "...that should be an incentive / encouragement for them.",
+        "why":  "\u0027Courage\u0027 means bravery; \u0027encouragement\u0027 or \u0027an incentive\u0027 expresses motivation to keep working."
+    }
+];
+    const ASR_FIXES = [
+    {
+        "time":  "02:08",
+        "speaker":  "Worachon",
+        "wrong":  "spot fit",
+        "right":  "sporty fit / athletic wear",
+        "note":  "Krisp ASR misheard \u0027sporty fit\u0027 as \u0027spot fit\u0027."
+    },
+    {
+        "time":  "03:14",
+        "speaker":  "Worachon",
+        "wrong":  "Doors writer one",
+        "right":  "lighter ones",
+        "note":  "ASR misheard \u0027those lighter ones\u0027 as \u0027Doors writer one\u0027."
+    },
+    {
+        "time":  "17:38",
+        "speaker":  "Worachon",
+        "wrong":  "the psy quest",
+        "right":  "a side quest",
+        "note":  "ASR misheard \u0027a side quest\u0027 (studying law alongside med school) as \u0027the psy quest\u0027."
+    },
+    {
+        "time":  "20:28",
+        "speaker":  "Worachon",
+        "wrong":  "mess school",
+        "right":  "med school",
+        "note":  "ASR misheard \u0027med school\u0027 as \u0027mess school\u0027."
+    }
+];
+    const CULTURAL_PLACES = [
+    {
+        "meta":  "11-14-2026",
+        "badge":  "Lesson 04",
+        "title":  "Dressing for Purpose: Functionality vs. Image",
+        "desc":  "Explored how climate, practicality, and professional expectations shape what we wear—from Thailand\u0027s rainy weather to hospital dress codes.",
+        "quote":  "\"I changed to what fits me better.\"",
+        "tags":  [
+                     "clothing",
+                     "functionality",
+                     "lifestyle"
+                 ]
+    },
+    {
+        "meta":  "11-14-2026",
+        "badge":  "Sociology \u0026 Medicine",
+        "title":  "Medical Hierarchies \u0026 Undervalued Professions",
+        "desc":  "Compared how society perceives neurosurgeons, GPs, dentists, waste collectors, and historical merchant classes.",
+        "quote":  "\"They are a very crucial part of the community.\"",
+        "tags":  [
+                     "medicine",
+                     "society",
+                     "hierarchy"
+                 ]
+    },
+    {
+        "meta":  "11-14-2026",
+        "badge":  "Career \u0026 Academia",
+        "title":  "Medicine, Law as a \u0027Side Quest\u0027 \u0026 Public Policy",
+        "desc":  "Discussed enrolling in open-university law alongside medical school and how life experience makes legal reasoning clearer over time.",
+        "quote":  "\"I want to do something that can actually have a huge impact on society.\"",
+        "tags":  [
+                     "law",
+                     "public-policy",
+                     "career"
+                 ]
+    }
+];
+    const QUIZ_QUESTIONS = [
+    {
+        "q":  "1. Which word from today\u0027s lesson means \u0027suited to serve a practical purpose well\u0027?",
+        "options":  [
+                        "functionality",
+                        "hierarchy",
+                        "textile"
+                    ],
+        "correct":  0,
+        "explain":  "\u0027functionality\u0027 (B2) — Focusing on practical use and comfort rather than pure appearance."
+    },
+    {
+        "q":  "2. Which noun refers to a doctor who specializes in skin?",
+        "options":  [
+                        "dermatologist",
+                        "dermatology",
+                        "ophthalmology"
+                    ],
+        "correct":  0,
+        "explain":  "Use \u0027-ologist\u0027 for the specialist (dermatologist / ophthalmologist) and \u0027-ology\u0027 for the field."
+    },
+    {
+        "q":  "3. Which adjective describes a group that does not receive fair recognition or representation?",
+        "options":  [
+                        "underrepresented",
+                        "crucial",
+                        "rescheduled"
+                    ],
+        "correct":  0,
+        "explain":  "\u0027underrepresented\u0027 (C1) — Given less recognition or representation than deserved."
+    },
+    {
+        "q":  "4. Which verb means \u0027to officially register for a university course or program\u0027?",
+        "options":  [
+                        "enroll",
+                        "reschedule",
+                        "react"
+                    ],
+        "correct":  0,
+        "explain":  "\u0027enroll\u0027 (B2) — e.g., \u0027I enrolled in law at an open university.\u0027"
+    }
+];
+    const FLASHCARD_KEYS = Object.keys(VOCAB_DB).slice(0, 12);
+
+    // CORE APPLICATION ENGINE
+    let currentCardIndex = 0;
+    let isCardFlipped = false;
+    let quizAnswered = new Set();
+    let speechRate = 1.0;
+
+    function initHeaderAndHero() {
+      document.getElementById('page-title').textContent = `${LESSON_CONFIG.studentName}'s Peaceful English Sanctuary | ${LESSON_CONFIG.lessonNumber}`;
+      document.getElementById('brand-initial').textContent = LESSON_CONFIG.studentName.charAt(0).toUpperCase();
+      document.getElementById('brand-title').textContent = `${LESSON_CONFIG.studentName}'s Peaceful English Sanctuary`;
+      document.getElementById('brand-badge').textContent = `${LESSON_CONFIG.lessonNumber} • ${LESSON_CONFIG.lessonSubtitle}`;
+      document.getElementById('hero-meta-pill').textContent = `${LESSON_CONFIG.lessonDate} • ${LESSON_CONFIG.lessonSubtitle}`;
+      document.getElementById('hero-heading').innerHTML = LESSON_CONFIG.heroHeadingHtml;
+      document.getElementById('hero-intro').textContent = LESSON_CONFIG.heroIntroText;
+      document.getElementById('opt-student-speaker').value = LESSON_CONFIG.studentName;
+      document.getElementById('opt-student-speaker').textContent = `${LESSON_CONFIG.studentName}'s Turns Only`;
+      document.getElementById('stat-vocab-count').textContent = `${Object.keys(VOCAB_DB).length} Items`;
+      document.getElementById('stat-fixes-count').textContent = `${ASR_FIXES.length} Fixes`;
+
+      const chapters = TRANSCRIPT_TURNS.filter(t => t.chapterId && t.chapterTitle);
+      document.getElementById('chapter-pills-bar').innerHTML = chapters.map(c => `
+        <button onclick="scrollToChapter('${c.chapterId}')" class="px-2.5 py-1 rounded-lg bg-parchment-100 hover:bg-autumn-100 text-stone-700 text-xs font-medium transition border border-parchment-200">
+          ${c.time} • ${c.chapterTitle.split('•')[1] || c.chapterTitle}
+        </button>
+      `).join('');
+    }
+
+    function renderTranscript() {
+      const container = document.getElementById('transcript-stream-container');
+      const searchVal = (document.getElementById('transcript-search')?.value || '').toLowerCase().trim();
+      const speakerFilter = document.getElementById('speaker-filter')?.value || 'all';
+
+      let html = '';
+      TRANSCRIPT_TURNS.forEach(turn => {
+        if (turn.chapterTitle && speakerFilter === 'all' && !searchVal) {
+          html += `
+            <div id="${turn.chapterId}" class="pt-3 pb-1">
+              <div class="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-sage-100/90 via-parchment-100 to-autumn-50 border border-sage-200 flex items-center gap-2 text-xs sm:text-sm font-serif font-bold text-sage-800 shadow-sm">
+                <span>${turn.chapterTitle}</span>
+              </div>
+            </div>
+          `;
+        }
+        if (speakerFilter !== 'all' && turn.speaker !== speakerFilter) return;
+        const plainText = turn.html.replace(/<[^>]+>/g, '').toLowerCase();
+        if (searchVal && !plainText.includes(searchVal) && !turn.time.includes(searchVal)) return;
+
+        const isStudent = turn.speaker !== 'Louie';
+        const cardStyle = isStudent
+          ? 'bg-[#fffdf9] border-l-4 border-l-autumn-500 border border-[#e6decb]'
+          : 'bg-[#f8faf8] border-l-4 border-l-sage-600 border border-[#d8e4dc]';
+        const badgeStyle = isStudent
+          ? 'bg-autumn-100 text-autumn-800 border-autumn-200'
+          : 'bg-sage-100 text-sage-800 border-sage-200';
+
+        html += `
+          <article id="${turn.id}" class="rounded-2xl p-4 sm:p-5 ${cardStyle} shadow-sm transition-all duration-300 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold border ${badgeStyle}">
+                  ${isStudent ? '🎙️ ' + turn.speaker : '🍂 Louie'}
+                </span>
+                <span class="font-mono text-xs text-stone-500">🕒 ${turn.time}</span>
+              </div>
+              <button onclick="speakPlainTurn('${turn.id}')" class="text-stone-400 hover:text-sage-700 transition p-1 rounded-lg">
+                <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <div class="text-sm sm:text-[15px] text-slatewarm-800 leading-relaxed">${turn.html}</div>
+          </article>
+        `;
+      });
+
+      container.innerHTML = html;
+      lucide.createIcons();
+      initVocabTooltips();
+    }
+
+    function initVocabTooltips() {
+      document.querySelectorAll('.vocab-mark').forEach(el => {
+        const key = el.getAttribute('data-vkey');
+        const item = VOCAB_DB[key];
+        if (!item) return;
+        if (el._tippy) el._tippy.destroy();
+        tippy(el, {
+          theme: 'autumn-sanctuary',
+          allowHTML: true,
+          interactive: true,
+          animation: 'shift-away',
+          maxWidth: 320,
+          content: `
+            <div class="p-2.5 space-y-2 text-left">
+              <div class="flex items-center justify-between gap-2 border-b border-parchment-200 pb-1.5">
+                <div>
+                  <span class="font-serif font-bold text-base text-slatewarm-900">${item.word}</span>
+                  <span class="block font-mono text-[10px] text-stone-500">${item.ipa} • ${item.pos}</span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <span class="px-1.5 py-0.5 rounded bg-autumn-100 text-autumn-800 font-mono text-[10px] font-bold">${item.level}</span>
+                  <span class="px-1.5 py-0.5 rounded bg-sage-100 text-sage-800 font-mono text-[10px]">🕒 ${item.time}</span>
+                </div>
+              </div>
+              <p class="text-xs text-stone-700 leading-snug">${item.def}</p>
+              <div class="flex items-center justify-between pt-1 text-[11px] border-t border-parchment-200">
+                <span class="text-sage-800 font-semibold">${item.l1 || ''}</span>
+                <button onclick="speakWord('${item.word.replace(/'/g, "\\'")}')" class="px-2 py-0.5 rounded bg-sage-700 text-white text-[10px] font-semibold">🔊 Listen</button>
+              </div>
+            </div>
+          `
+        });
+      });
+    }
+
+    function inspectVocab(key) {
+      const item = VOCAB_DB[key];
+      if (!item) return;
+      document.getElementById('insp-time').textContent = `🕒 ${item.time}`;
+      document.getElementById('insp-word').textContent = item.word;
+      document.getElementById('insp-ipa').textContent = item.ipa;
+      document.getElementById('insp-pos').textContent = item.pos;
+      document.getElementById('insp-level').textContent = item.level;
+      document.getElementById('insp-def').textContent = item.def;
+      document.getElementById('insp-quote').textContent = item.quote;
+      document.getElementById('insp-l1-label').textContent = LESSON_CONFIG.l1FlagAndLabel;
+      document.getElementById('insp-l1').textContent = item.l1 || '';
+      document.getElementById('insp-audio-btn').setAttribute('onclick', `speakWord('${item.word.replace(/\s*\(.*?\)/g, '').replace(/'/g, "\\'")}')`);
+    }
+
+    function renderVocabGrid() {
+      const grid = document.getElementById('vocab-cards-grid');
+      const search = (document.getElementById('vocab-search')?.value || '').toLowerCase().trim();
+      const levelFilter = document.getElementById('vocab-level-filter')?.value || 'all';
+
+      const entries = Object.entries(VOCAB_DB).filter(([key, item]) => {
+        if (levelFilter !== 'all' && item.level !== levelFilter) return false;
+        if (search) {
+          const hay = `${item.word} ${item.def} ${item.l1 || ''} ${item.time}`.toLowerCase();
+          if (!hay.includes(search)) return false;
+        }
+        return true;
+      });
+
+      grid.innerHTML = entries.map(([key, item]) => `
+        <div class="sanctuary-subcard rounded-2xl p-5 flex flex-col justify-between space-y-3 hover:border-autumn-400">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-1.5">
+                <span class="px-2 py-0.5 rounded-md bg-autumn-100 text-autumn-800 font-mono text-[11px] font-bold">${item.level}</span>
+                <span class="px-2 py-0.5 rounded-md bg-parchment-100 text-stone-600 text-[11px]">${item.pos}</span>
+              </div>
+              <button onclick="jumpToTranscriptTurn('${item.turnId}', '${key}')" class="px-2.5 py-0.5 rounded-full bg-sage-100 hover:bg-sage-200 text-sage-800 font-mono text-[11px] font-semibold">
+                🕒 ${item.time} ↗
+              </button>
+            </div>
+            <div class="flex items-center justify-between gap-2 pt-1">
+              <div>
+                <h3 class="font-serif text-xl font-bold text-slatewarm-900">${item.word}</h3>
+                <span class="text-xs font-mono text-stone-500">${item.ipa}</span>
+              </div>
+              <button onclick="speakWord('${item.word.replace(/\s*\(.*?\)/g, '').replace(/'/g, "\\'")}')" class="p-2 rounded-xl bg-parchment-100 hover:bg-sage-100 text-sage-800">
+                <i data-lucide="volume-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">${item.def}</p>
+            <p class="text-xs italic text-stone-500 bg-parchment-50 p-2.5 rounded-xl border border-parchment-200">${item.quote}</p>
+          </div>
+          <div class="pt-2 border-t border-parchment-200 flex items-center justify-between text-xs">
+            <span class="text-sage-800 font-medium">${item.l1 || ''}</span>
+            <button onclick="jumpToTranscriptTurn('${item.turnId}', '${key}')" class="text-autumn-700 hover:underline font-semibold text-[11px]">See in Transcript →</button>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function jumpToTranscriptTurn(turnId, vocabKey) {
+      switchTab('transcript');
+      setTimeout(() => {
+        if (vocabKey) inspectVocab(vocabKey);
+        const el = document.getElementById(turnId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.remove('turn-highlight-flash');
+          void el.offsetWidth;
+          el.classList.add('turn-highlight-flash');
+        }
+      }, 100);
+    }
+
+    function renderFixesAndPlaces() {
+      // 1. Natural Strengths
+      const strengthsContainer = document.getElementById('student-strengths-grid');
+      if (strengthsContainer && Array.isArray(STUDENT_STRENGTHS)) {
+        strengthsContainer.innerHTML = STUDENT_STRENGTHS.map(s => {
+          const time = s.time || '⭐ Observed Today';
+          const phrase = s.phrase || s.title || '';
+          const note = s.note || s.desc || s.quote || '';
+          return `
+            <div class="p-4 rounded-2xl bg-white/95 border border-sage-200/90 shadow-sm space-y-1.5 transition hover:border-sage-400">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[11px] text-sage-700 font-semibold">${time}</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-sage-100 text-sage-800 font-medium">Natural Reflex</span>
+              </div>
+              <div class="font-bold text-slatewarm-900 text-sm leading-snug">${phrase}</div>
+              <p class="text-stone-600 text-xs leading-relaxed">${note}</p>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // 2. Gentle Phrasing Polishes
+      const polishesContainer = document.getElementById('gentle-polishes-grid');
+      if (polishesContainer && Array.isArray(GENTLE_POLISHES)) {
+        polishesContainer.innerHTML = GENTLE_POLISHES.map(p => {
+          const topic = p.topic || 'Phrasing Polish';
+          const time = p.time || '';
+          const said = p.said || p.spoken || '';
+          const natural = p.natural || p.polished || '';
+          const why = p.why || p.note || '';
+          const safeAudio = (natural || '').replace(/'/g, "\\'");
+          return `
+            <div class="sanctuary-subcard rounded-2xl p-5 space-y-3 border-l-4 border-l-sage-500 shadow-sm">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold text-sage-800 font-serif text-sm">${topic}</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-parchment-100 font-mono text-[11px] text-stone-600 border border-parchment-200">🕒 ${time}</span>
+              </div>
+              <div class="p-3 rounded-xl bg-autumn-50/70 border border-autumn-200/80 text-xs text-stone-600 space-y-1">
+                <div class="font-semibold text-autumn-800 uppercase text-[10px] tracking-wider">In the moment:</div>
+                <div class="italic text-stone-700 font-medium">"${said}"</div>
+              </div>
+              <div class="p-3 rounded-xl bg-sage-50 border border-sage-200 text-xs text-slatewarm-900 flex items-center justify-between gap-2">
+                <div>
+                  <div class="font-semibold text-sage-800 uppercase text-[10px] tracking-wider">Natural Polish:</div>
+                  <strong class="text-slatewarm-900 text-sm font-serif">"${natural}"</strong>
+                </div>
+                ${natural ? `<button onclick="speakWord('${safeAudio}')" class="p-2 rounded-xl bg-white text-sage-700 hover:bg-sage-100 border border-sage-200 transition shadow-xs" title="Listen">🔊</button>` : ''}
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed pt-0.5">${why}</p>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // 3. ASR Speech-to-Text Corrections
+      const fixesContainer = document.getElementById('asr-fixes-grid');
+      if (fixesContainer && Array.isArray(ASR_FIXES)) {
+        fixesContainer.innerHTML = ASR_FIXES.map(f => `
+          <div class="sanctuary-subcard rounded-2xl p-4 sm:p-5 space-y-2.5 border-t-4 border-t-autumn-400 shadow-sm hover:border-autumn-500 transition">
+            <div class="flex items-center justify-between text-[11px] font-mono">
+              <span class="font-semibold text-autumn-700 px-2 py-0.5 rounded-md bg-autumn-50 border border-autumn-200">${f.speaker}</span>
+              <span class="text-stone-500">🕒 ${f.time}</span>
+            </div>
+            <div class="p-2 rounded-lg bg-parchment-50 border border-parchment-200 text-xs text-stone-500 line-through">
+              Note-taker wrote: "${f.wrong}"
+            </div>
+            <div class="text-sm font-serif font-bold text-sage-800 flex items-center gap-1.5">
+              <span>✨ Said: "${f.right}"</span>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">${f.note}</p>
+          </div>
+        `).join('');
+      }
+
+      // 4. Masterclass Topics & Strategy
+      const placesContainer = document.getElementById('cultural-places-grid');
+      if (placesContainer && Array.isArray(CULTURAL_PLACES)) {
+        placesContainer.innerHTML = CULTURAL_PLACES.map(c => `
+          <div class="sanctuary-subcard rounded-2xl p-6 sm:p-7 space-y-4 border-l-4 border-l-autumn-500 shadow-sm hover:border-autumn-600 transition">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-mono text-autumn-700 font-semibold px-2.5 py-0.5 rounded-full bg-autumn-50 border border-autumn-200">${c.meta}</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-autumn-100 text-autumn-800 text-[11px] font-medium border border-autumn-200">${c.badge}</span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-[1.65rem] font-bold text-slatewarm-900 leading-snug">${c.title}</h3>
+            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">${c.desc}</p>
+            <div class="p-4 rounded-xl bg-parchment-50 border border-parchment-200 text-xs sm:text-sm italic text-stone-700 leading-relaxed border-l-2 border-l-autumn-400">
+              ${c.quote}
+            </div>
+            ${c.tags && c.tags.length ? `
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${c.tags.map(t => `<span class="px-2 py-0.5 rounded-md bg-sage-50 text-sage-700 text-[10px] font-mono border border-sage-200">#${t}</span>`).join('')}
+              </div>
+            ` : ''}
+          </div>
+        `).join('');
+      }
+    }
+
+    function renderFlashcard() {
+      const key = FLASHCARD_KEYS[currentCardIndex];
+      const item = VOCAB_DB[key];
+      if (!item) return;
+      document.getElementById('fc-counter').textContent = `Card ${currentCardIndex + 1} of ${FLASHCARD_KEYS.length}`;
+      document.getElementById('fc-badge').textContent = `${item.time} • ${item.pos} (${item.level})`;
+      document.getElementById('fc-front-title').textContent = item.word;
+      const subEl = document.getElementById('fc-sub');
+      const backEl = document.getElementById('fc-back-details');
+      if (!isCardFlipped) {
+        subEl.textContent = `${item.ipa} — Click card to reveal meaning & lesson context`;
+        backEl.classList.add('hidden');
+      } else {
+        subEl.textContent = item.def;
+        document.getElementById('fc-quote').textContent = item.quote;
+        document.getElementById('fc-l1').textContent = item.l1 || '';
+        backEl.classList.remove('hidden');
+      }
+    }
+    function flipFlashcard() { isCardFlipped = !isCardFlipped; renderFlashcard(); }
+    function nextFlashcard() { isCardFlipped = false; currentCardIndex = (currentCardIndex + 1) % FLASHCARD_KEYS.length; renderFlashcard(); }
+    function prevFlashcard() { isCardFlipped = false; currentCardIndex = (currentCardIndex - 1 + FLASHCARD_KEYS.length) % FLASHCARD_KEYS.length; renderFlashcard(); }
+    function speakCurrentFlashcard() { const item = VOCAB_DB[FLASHCARD_KEYS[currentCardIndex]]; if (item) speakWord(item.word); }
+
+    function renderQuiz() {
+      document.getElementById('quiz-container').innerHTML = QUIZ_QUESTIONS.map((q, qIdx) => `
+        <div class="sanctuary-subcard rounded-2xl p-4 space-y-2.5">
+          <p class="text-xs sm:text-sm font-medium text-slatewarm-900">${q.q}</p>
+          <div class="flex flex-wrap gap-2">
+            ${q.options.map((opt, oIdx) => `
+              <button id="qbtn-${qIdx}-${oIdx}" onclick="answerQuiz(${qIdx}, ${oIdx})" class="px-3 py-1.5 rounded-xl border border-[#dfd0b5] bg-parchment-50 hover:bg-autumn-100 text-xs font-medium text-stone-700 transition">${opt}</button>
+            `).join('')}
+          </div>
+          <p id="qexp-${qIdx}" class="hidden text-xs text-sage-800 bg-sage-50 p-2.5 rounded-xl border border-sage-200"></p>
+        </div>
+      `).join('');
+    }
+
+    function answerQuiz(qIdx, oIdx) {
+      const q = QUIZ_QUESTIONS[qIdx];
+      const expEl = document.getElementById(`qexp-${qIdx}`);
+      q.options.forEach((_, idx) => {
+        const btn = document.getElementById(`qbtn-${qIdx}-${idx}`);
+        if (idx === q.correct) btn.className = 'px-3 py-1.5 rounded-xl border border-sage-500 bg-sage-600 text-white text-xs font-semibold';
+        else if (idx === oIdx) btn.className = 'px-3 py-1.5 rounded-xl border border-autumn-300 bg-autumn-100 text-autumn-900 text-xs';
+      });
+      expEl.textContent = `✨ ${q.explain || q.exp || ''}`;
+      expEl.classList.remove('hidden');
+      if (oIdx === q.correct && !quizAnswered.has(qIdx)) {
+        quizAnswered.add(qIdx);
+        document.getElementById('quiz-score-badge').textContent = `${quizAnswered.size} / ${QUIZ_QUESTIONS.length} Completed`;
+        if (quizAnswered.size === QUIZ_QUESTIONS.length && typeof confetti === 'function') {
+          confetti({ particleCount: 55, spread: 60, origin: { y: 0.7 } });
+        }
+      }
+    }
+
+    function switchTab(tabName) {
+      ['transcript', 'vocab', 'fixes', 'places', 'practice'].forEach(t => {
+        const panel = document.getElementById(`tab-panel-${t}`);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (t === tabName) {
+          panel.classList.remove('hidden');
+          btn.className = 'tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 bg-sage-700 text-white shadow-sm';
+        } else {
+          panel.classList.add('hidden');
+          btn.className = 'tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100';
+        }
+      });
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function filterTranscript() { renderTranscript(); }
+    function scrollToChapter(chapId) {
+      document.getElementById('speaker-filter').value = 'all';
+      document.getElementById('transcript-search').value = '';
+      renderTranscript();
+      const el = document.getElementById(chapId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    let highlightsOn = true;
+    function toggleVocabHighlights() {
+      highlightsOn = !highlightsOn;
+      document.body.classList.toggle('hide-vocab-highlights', !highlightsOn);
+      document.getElementById('btn-toggle-highlights').querySelector('span').textContent = `Vocab Highlights: ${highlightsOn ? 'On' : 'Off'}`;
+    }
+
+    let asrBadgesOn = true;
+    function toggleAsrBadges() {
+      asrBadgesOn = !asrBadgesOn;
+      document.body.classList.toggle('hide-asr-fixes', !asrBadgesOn);
+      document.getElementById('btn-toggle-asr').querySelector('span').textContent = `Note-Taker Fixes: ${asrBadgesOn ? 'Visible' : 'Hidden'}`;
+    }
+
+    function setThemeMood(mood) { document.body.setAttribute('data-theme', mood); }
+    function setVoiceRate(rate) { speechRate = rate; }
+
+    function speakWord(text) {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'en-GB';
+      utter.rate = speechRate;
+      window.speechSynthesis.speak(utter);
+    }
+
+    function speakPlainTurn(turnId) {
+      const turn = TRANSCRIPT_TURNS.find(t => t.id === turnId);
+      if (!turn) return;
+      const temp = document.createElement('div');
+      temp.innerHTML = turn.html;
+      temp.querySelectorAll('.asr-fix-pill').forEach(el => el.remove());
+      speakWord(temp.textContent || '');
+    }
+
+    // Web Audio API Soundscape Engine
+    let audioCtx = null, soundscapePlaying = false, masterGain = null, lfoTimer = null, currentFilter = null;
+    function buildNoiseBuffer(ctx) {
+      const bufferSize = ctx.sampleRate * 4;
+      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const output = buffer.getChannelData(0);
+      let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+      for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        b0 = 0.99886 * b0 + white * 0.0555179;
+        b1 = 0.99332 * b1 + white * 0.0750759;
+        b2 = 0.96900 * b2 + white * 0.1538520;
+        b3 = 0.86650 * b3 + white * 0.3104856;
+        b4 = 0.55000 * b4 + white * 0.5329522;
+        b5 = -0.7616 * b5 - white * 0.0168980;
+        output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.04;
+        b6 = white * 0.115926;
+      }
+      return buffer;
+    }
+
+    function toggleSoundscape() {
+      const label = document.getElementById('soundscape-label');
+      if (!soundscapePlaying) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!audioCtx) audioCtx = new AudioContext();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const noiseSource = audioCtx.createBufferSource();
+        noiseSource.buffer = buildNoiseBuffer(audioCtx);
+        noiseSource.loop = true;
+        currentFilter = audioCtx.createBiquadFilter();
+        masterGain = audioCtx.createGain();
+        masterGain.gain.value = parseFloat(document.getElementById('soundscape-volume').value || '0.22');
+        noiseSource.connect(currentFilter);
+        currentFilter.connect(masterGain);
+        masterGain.connect(audioCtx.destination);
+        noiseSource.start();
+        audioCtx._activeSource = noiseSource;
+        soundscapePlaying = true;
+        changeSoundscapePreset(document.getElementById('soundscape-preset').value);
+        label.textContent = 'London Breeze: Playing';
+      } else {
+        if (lfoTimer) clearInterval(lfoTimer);
+        if (audioCtx && audioCtx._activeSource) { try { audioCtx._activeSource.stop(); } catch (e) {} }
+        soundscapePlaying = false;
+        label.textContent = 'London Breeze Audio: Off';
+      }
+    }
+
+    function changeSoundscapePreset(preset) {
+      if (!currentFilter || !audioCtx) return;
+      if (lfoTimer) clearInterval(lfoTimer);
+      if (preset === 'breeze') {
+        currentFilter.type = 'bandpass';
+        currentFilter.frequency.value = 340;
+      } else if (preset === 'rain') {
+        currentFilter.type = 'lowpass';
+        currentFilter.frequency.value = 880;
+      } else {
+        currentFilter.type = 'lowpass';
+        currentFilter.frequency.value = 240;
+      }
+    }
+    function updateSoundscapeVolume(val) { if (masterGain && audioCtx) masterGain.gain.value = parseFloat(val); }
+
+    // Canvas Autumn Leaves Engine
+    const canvas = document.getElementById('autumn-breeze-canvas');
+    const ctx = canvas.getContext('2d');
+    let leaves = [], leafMode = 1, breezeTime = 0;
+    const LEAF_COLORS = ['rgba(190,111,56,0.42)', 'rgba(211,140,87,0.40)', 'rgba(165,191,177,0.42)', 'rgba(203,179,142,0.45)'];
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    function rebuildLeaves() {
+      const count = leafMode === 1 ? 15 : leafMode === 2 ? 30 : 0;
+      leaves = Array.from({ length: count }, () => ({
+        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+        size: 6 + Math.random() * 8, speedY: 0.35 + Math.random() * 0.55, speedX: 0.25 + Math.random() * 0.45,
+        angle: Math.random() * Math.PI * 2, spin: (Math.random() - 0.5) * 0.014, swayOffset: Math.random() * 100,
+        color: LEAF_COLORS[Math.floor(Math.random() * LEAF_COLORS.length)]
+      }));
+    }
+    function cycleLeafBreeze() {
+      leafMode = (leafMode + 1) % 3;
+      document.getElementById('leaves-label').textContent = leafMode === 1 ? 'Leaves: Gentle' : leafMode === 2 ? 'Leaves: Breeze' : 'Leaves: Still';
+      rebuildLeaves();
+    }
+    function animateLeaves() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (leafMode !== 0) {
+        breezeTime += 0.01;
+        leaves.forEach(l => {
+          l.y += l.speedY; l.x += l.speedX + Math.sin(breezeTime + l.swayOffset) * 0.45; l.angle += l.spin;
+          if (l.y > canvas.height + 20) { l.y = -20; l.x = Math.random() * canvas.width; }
+          if (l.x > canvas.width + 20) l.x = -20;
+          ctx.save(); ctx.translate(l.x, l.y); ctx.rotate(l.angle); ctx.fillStyle = l.color;
+          ctx.beginPath(); ctx.ellipse(0, 0, l.size, l.size * 0.52, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+        });
+      }
+      requestAnimationFrame(animateLeaves);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initHeaderAndHero();
+      renderTranscript();
+      renderVocabGrid();
+      renderFixesAndPlaces();
+      renderFlashcard();
+      renderQuiz();
+      if (LESSON_CONFIG.defaultSpotlightKey) inspectVocab(LESSON_CONFIG.defaultSpotlightKey);
+      rebuildLeaves();
+      animateLeaves();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

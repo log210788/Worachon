@@ -540,515 +540,527 @@
     const LESSON_CONFIG = {
       studentName: "Worachon",
       lessonNumber: "Latest Lesson",
-      lessonDate: "November 9, 2026",
-      lessonSubtitle: "Krisp AI Synced Transcript • 94 Turns • 7 Key Vocabulary Items",
+      lessonDate: "November 14, 2026",
+      lessonSubtitle: "Clothing, Medical Hierarchies, Law \u0026 Campus Leadership • Krisp AI Synced",
       l1FlagAndLabel: "🇹🇭 ภาษาไทย:",
       heroHeadingHtml: `Welcome, Worachon — Your <span class="text-autumn-700 italic font-semibold">Peaceful Sanctuary</span> for English Reflection`,
-      heroIntroText: "Here is your tidy transcript from November 9, 2026 with exact timestamps and 7 flagged B2–C2 vocabulary items ready for review.",
-      defaultSpotlightKey: "obviously"
+      heroIntroText: "Here is your interactive lesson sanctuary from November 14, 2026 — covering functional vs. formal dress, medical specialty hierarchies, underrepresented professions, law vs. medicine, and your role as class president.",
+      defaultSpotlightKey: "functionality"
     };
 
     const VOCAB_DB = {
-    "obviously":  {
-                      "word":  "obviously",
-                      "ipa":  "/ˈɒb.vi.əs.li/",
-                      "pos":  "adverb",
-                      "level":  "B2",
+    "functionality":  {
+                          "word":  "functionality",
+                          "ipa":  "/ˌfʌŋk.ʃənˈæl.ə.ti/",
+                          "pos":  "noun",
+                          "level":  "B2",
+                          "cat":  "abstract",
+                          "def":  "The quality of being suited to serve a practical purpose well.",
+                          "quote":  "Worachon (05:34): \"...when I grew up, I focused more on the functionality rather than the good-looking way of dressing.\"",
+                          "es":  "ประโยชน์ใช้สอย / ความคล่องตัว",
+                          "turnId":  "turn-3",
+                          "time":  "03:02"
+                      },
+    "textile":  {
+                    "word":  "textile",
+                    "ipa":  "/ˈtek.staɪl/",
+                    "pos":  "noun",
+                    "level":  "B2",
+                    "cat":  "lifestyle",
+                    "def":  "A type of cloth or woven fabric.",
+                    "quote":  "Louie (00:00): \"I go to textile shops, and I make them.\"",
+                    "es":  "สิ่งทอ / เนื้อผ้า",
+                    "turnId":  "turn-1",
+                    "time":  "00:00"
+                },
+    "hierarchy":  {
+                      "word":  "hierarchy",
+                      "ipa":  "/ˈhaɪə.rɑː.ki/",
+                      "pos":  "noun",
+                      "level":  "C1",
                       "cat":  "abstract",
-                      "def":  "In a way that is easy to see or understand.",
-                      "quote":  "Louie (04:24): \"Yeah, she was overdosed. Yeah, I it\u0027s, it used to be a little bit common in England. People would drug people\u0027s drinks to have sex with them...\"",
-                      "es":  "obviously",
-                      "turnId":  "turn-39",
-                      "time":  "04:24"
+                      "def":  "A system in which people or groups are ranked one above the other according to status or authority.",
+                      "quote":  "Worachon (10:30): \"I guess there are some hierarchies in the doctor specialty as well.\"",
+                      "es":  "ลำดับชั้น / โครงสร้างอำนาจ",
+                      "turnId":  "turn-37",
+                      "time":  "13:35"
                   },
-    "absolutely":  {
-                       "word":  "absolutely",
-                       "ipa":  "/ˌæb.səˈluːt.li/",
-                       "pos":  "adverb",
-                       "level":  "B2",
-                       "cat":  "emotions",
-                       "def":  "Completely and without any doubt.",
-                       "quote":  "Louie (13:38): \"No. But he brought the... What happened was I after I finished talking to the gentlemen on my right, I noticed they were gone, and I said to...\"",
-                       "es":  "absolutely",
-                       "turnId":  "turn-75",
-                       "time":  "13:38"
-                   },
-    "completely":  {
-                       "word":  "completely",
-                       "ipa":  "/kəmˈpliːt.li/",
-                       "pos":  "adverb",
-                       "level":  "B2",
-                       "cat":  "abstract",
-                       "def":  "Totally; in every way.",
-                       "quote":  "Louie (13:38): \"No. But he brought the... What happened was I after I finished talking to the gentlemen on my right, I noticed they were gone, and I said to...\"",
-                       "es":  "completely",
-                       "turnId":  "turn-75",
-                       "time":  "13:38"
-                   },
-    "especially":  {
-                       "word":  "especially",
-                       "ipa":  "/ɪˈspeʃ.əl.i/",
-                       "pos":  "adverb",
-                       "level":  "B2",
-                       "cat":  "abstract",
-                       "def":  "Particularly; above all others.",
-                       "quote":  "Louie (18:32): \"I\u0027m so sorry. That\u0027s horrible having your bike stolen, that that\u0027s horrible. Yeah, sorry about that. That is, especially when you\u0027re a kid, ...\"",
-                       "es":  "especially",
-                       "turnId":  "turn-79",
-                       "time":  "18:32"
-                   },
-    "actually":  {
-                     "word":  "actually",
-                     "ipa":  "/ˈæk.tʃu.ə.li/",
-                     "pos":  "adverb",
+    "crucial":  {
+                    "word":  "crucial",
+                    "ipa":  "/ˈkruː.ʃəl/",
+                    "pos":  "adjective",
+                    "level":  "B2",
+                    "cat":  "abstract",
+                    "def":  "Extremely important or necessary for the success of something.",
+                    "quote":  "Worachon (12:44): \"Actually, they are a very crucial part of the community...\"",
+                    "es":  "สำคัญอย่างยิ่ง",
+                    "turnId":  "turn-36",
+                    "time":  "12:44"
+                },
+    "underrepresented":  {
+                             "word":  "underrepresented",
+                             "ipa":  "/ˌʌn.də.rep.rɪˈzen.tɪd/",
+                             "pos":  "adjective",
+                             "level":  "C1",
+                             "cat":  "abstract",
+                             "def":  "Given insufficient representation or recognition compared to their actual importance or numbers.",
+                             "quote":  "Louie (13:35): \"There is another sector of workers that I think are underrepresented, and that is merchants.\"",
+                             "es":  "ที่ได้รับความสำคัญ/การยอมรับน้อยกว่าที่ควร",
+                             "turnId":  "turn-37",
+                             "time":  "13:35"
+                         },
+    "merchant":  {
+                     "word":  "merchant",
+                     "ipa":  "/ˈmɜː.tʃənt/",
+                     "pos":  "noun",
                      "level":  "B2",
-                     "cat":  "abstract",
-                     "def":  "In fact or really—often used to clarify or gently correct.",
-                     "quote":  "Worachon (05:53): \"Th is yeah, that there is actually something like this in Thailand but I think it\u0027s yeah, is it illegal in the UK.\"",
-                     "es":  "actually",
-                     "turnId":  "turn-40",
-                     "time":  "05:53"
+                     "cat":  "lifestyle",
+                     "def":  "A person or business that buys and sells goods for profit.",
+                     "quote":  "Louie (13:35): \"In history, the merchant class has been pushed down.\"",
+                     "es":  "พ่อค้า / ผู้ประกอบการค้าขาย",
+                     "turnId":  "turn-37",
+                     "time":  "13:35"
                  },
-    "understand":  {
-                       "word":  "understand",
-                       "ipa":  "/ˌʌn.dəˈstænd/",
+    "enroll":  {
+                   "word":  "enroll",
+                   "ipa":  "/ɪnˈrəʊl/",
+                   "pos":  "verb",
+                   "level":  "B2",
+                   "cat":  "abstract",
+                   "def":  "To officially register as a member of an institution or a student on a course.",
+                   "quote":  "Worachon (17:38): \"I actually enrolled in law once I got into medical school...\"",
+                   "es":  "ลงทะเบียนเรียน / สมัครเข้าเรียน",
+                   "turnId":  "turn-44",
+                   "time":  "17:38"
+               },
+    "reschedule":  {
+                       "word":  "reschedule",
+                       "ipa":  "/ˌriːˈʃed.juːl/",
                        "pos":  "verb",
                        "level":  "B2",
                        "cat":  "abstract",
-                       "def":  "To grasp the meaning, reason, or feeling of something.",
-                       "quote":  "Louie (13:38): \"No. But he brought the... What happened was I after I finished talking to the gentlemen on my right, I noticed they were gone, and I said to...\"",
-                       "es":  "understand",
-                       "turnId":  "turn-75",
-                       "time":  "13:38"
-                   },
-    "incredible":  {
-                       "word":  "incredible",
-                       "ipa":  "/ɪnˈkred.ə.bəl/",
-                       "pos":  "adjective",
-                       "level":  "B2",
-                       "cat":  "emotions",
-                       "def":  "Extremely good, impressive, or hard to believe.",
-                       "quote":  "Louie (13:38): \"No. But he brought the... What happened was I after I finished talking to the gentlemen on my right, I noticed they were gone, and I said to...\"",
-                       "es":  "incredible",
-                       "turnId":  "turn-75",
-                       "time":  "13:38"
+                       "def":  "To change the time or date of a planned event.",
+                       "quote":  "Worachon (24:56): \"I can actually reschedule it.\"",
+                       "es":  "เลื่อนตารางเวลา / นัดใหม่",
+                       "turnId":  "turn-88",
+                       "time":  "24:56"
                    }
 };
     const TRANSCRIPT_TURNS = [
     {
         "id":  "turn-1",
-        "chapterId":  "chap-2",
-        "chapterTitle":  "Chapter II • Core Discussion (01:35)",
+        "chapterId":  "chap-1",
+        "chapterTitle":  "Chapter I • Dressing for Weather \u0026 Functionality (00:00)",
         "speaker":  "Louie",
-        "time":  "02:38",
-        "html":  "Hello. Hey, how are you doing to me?"
+        "time":  "00:00",
+        "html":  "I don\u0027t feel sick or tired, but my ear is not open yet. This ear is not completely open, but I feel fine. Everything\u0027s fine, but the ear is not open. Which is okay, and it\u0027s Saturday, so yeah, it\u0027s all great. Now I have a question for you. Okay, so let me preface this for you first. Everybody dresses in a way. You choose how you want to dress. Okay? So I choose my way. You choose your way, and I\u0027ll tell you why I dress this way just to get you ready for your answer, okay? So you can understand which way I\u0027m going. Now, I look like a clown, okay? I look like a clown, right? I have this weird shirt. It\u0027s got lots of detail on it. I wear lots of shirts like this, but the reason I dress like this is because I\u0027m in Vietnam, and people are very skeptical. They\u0027re very scared of foreigners, okay? So what I do is I actually make this shirt myself. Okay? So I make my own clothes. I go to \u003cspan class=\"vocab-mark\" data-vkey=\"textile\" onclick=\"inspectVocab(\u0027textile\u0027)\"\u003etextile\u003c/span\u003e shops, and I make them. So the reason I choose this style and textiles is because these are the textiles women wear in their dress in Vietnam. Okay? So I take the textiles they use in their dresses and make shirts out of them because the Vietnamese men do not do it. They do not do it. So my idea is this: I\u0027m showing strangers in Vietnam that I understand their culture, right? I understand how they dress and stuff like that. Before they talk to me because I know they could be scared, I\u0027m trying to make them show that I\u0027m interested in Vietnam. Maybe I know some of the language, and my goal is... Okay, so what I\u0027m trying to say is we put on clothes to try and send a message sometimes. And how do you dress? So when you\u0027re outside in the world, how do you dress?"
     },
     {
         "id":  "turn-2",
         "chapterId":  "",
         "chapterTitle":  "",
-        "speaker":  "Speaker 3",
-        "time":  "02:50",
-        "html":  "But a little bit..."
+        "speaker":  "Worachon",
+        "time":  "02:08",
+        "html":  "I normally wear, like, the sporty fit / athletic wear \u003cspan class=\"asr-fix-pill\" title=\"Krisp ASR misheard \u0027sporty fit\u0027 as \u0027spot fit\u0027.\"\u003e✨ Fixed: \"sporty fit / athletic wear\" (note-taker: \"spot fit\")\u003c/span\u003e. You know, the. And the reason behind this is, I used to live in the southern part of Thailand, where it\u0027s near the like it\u0027s near Malaysia very hot. So. What I what? What to say? What I, frequently do is that frequently this is that when I wear some, like, thick clothes or something like that, it would be very hot. So I have to change it like fre frequently. So I chose to wear, like, this easy going type of shirt or clothes, just to fit into the ho. What\u0027s called the season, the weather. Yeah..."
     },
     {
         "id":  "turn-3",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "02:50",
-        "html":  "I can\u0027t hear you. Screak..."
+        "time":  "03:02",
+        "html":  "So you are looking for more \u003cspan class=\"vocab-mark\" data-vkey=\"functionality\" onclick=\"inspectVocab(\u0027functionality\u0027)\"\u003efunctionality\u003c/span\u003e?"
     },
     {
         "id":  "turn-4",
         "chapterId":  "",
         "chapterTitle":  "",
-        "speaker":  "Speaker 3",
-        "time":  "02:52",
-        "html":  "Sick. Okay."
+        "speaker":  "Worachon",
+        "time":  "03:05",
+        "html":  "Their functionality..."
     },
     {
         "id":  "turn-5",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "02:52",
-        "html":  "One second do."
+        "time":  "03:06",
+        "html":  "Good. So now within your functionality, do you have a style?"
     },
     {
         "id":  "turn-6",
         "chapterId":  "",
         "chapterTitle":  "",
-        "speaker":  "Speaker 4",
-        "time":  "02:57",
-        "html":  "Can you hear me?"
+        "speaker":  "Worachon",
+        "time":  "03:14",
+        "html":  "Stylization. I love wearing, like, the Dark Tone dark Tone shirt, because it looked. I personally, I think it looked better on me, like, compared to the lighter ones \u003cspan class=\"asr-fix-pill\" title=\"ASR misheard \u0027those lighter ones\u0027 as \u0027Doors writer one\u0027.\"\u003e✨ Fixed: \"lighter ones\" (note-taker: \"Doors writer one\")\u003c/span\u003e. Yeah."
     },
     {
         "id":  "turn-7",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "02:57",
-        "html":  "Yes..."
+        "time":  "03:36",
+        "html":  "And why do you think darker ones look better? Why?"
     },
     {
         "id":  "turn-8",
         "chapterId":  "",
         "chapterTitle":  "",
-        "speaker":  "Speaker 4",
-        "time":  "02:58",
-        "html":  "Clearly now?"
+        "speaker":  "Worachon",
+        "time":  "03:42",
+        "html":  "Actually, I think, I\u0027m not sure about the color theory, but I think it would make me like. It would seem to be like in the good shape maybe compared to the. To the. Lighter one. And because of another reason is that, we it rains a lot here in... Thailand. And if I wear the lighters, like color, it would be some spot of the range showing on the shirt. And but when it is like the darker one that there is no, like the spotable point. Something like that."
     },
     {
         "id":  "turn-9",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "02:58",
-        "html":  "I could hear it out, yes. How was your weekend?"
+        "time":  "04:19",
+        "html":  "Do you dress the same in the city as you do outside of the city?"
     },
     {
         "id":  "turn-10",
         "chapterId":  "",
         "chapterTitle":  "",
-        "speaker":  "Speaker 4",
-        "time":  "02:01",
-        "html":  "Yeah, good."
+        "speaker":  "Worachon",
+        "time":  "04:26",
+        "html":  "Yes. Exactly the same. But. When I\u0027m in the city, the difference is maybe, only the shorts. III changed the shorts to the what is called trouser, like the long. The long? Yeah..."
     },
     {
         "id":  "turn-11",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "02:02",
-        "html":  "Yeah..."
+        "time":  "04:45",
+        "html":  "So now I have to ask, before, in your past, how did you use to dress before? Before, did you always dress this way, or did you make a conscious decision to change?"
     },
     {
         "id":  "turn-12",
         "chapterId":  "",
         "chapterTitle":  "",
-        "speaker":  "Speaker 4",
-        "time":  "02:04",
-        "html":  "It was good. I had a training, like football training, but I got tele a little bit hard, so, yeah, I got in TED. Yeah, but I\u0027m getting better now. What about..."
+        "speaker":  "Worachon",
+        "time":  "04:59",
+        "html":  "Before I actually didn\u0027t dress like this. I used to do some shirts with a white shirt with long sleeves and long trousers because I thought it was cool at the time, but when I grew up, I focused more on the functionality rather than the good-looking way of dressing, something like that. I changed to what fits me better."
     },
     {
         "id":  "turn-13",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "02:16",
-        "html":  "I had an ear infection."
+        "time":  "05:34",
+        "html":  "And how do you want to dress in the future? So do you ever think, when I when? When I\u0027m in a hospital or when I\u0027m a doctor? Do you? Are you already thinking about how you want to dress?"
     },
     {
         "id":  "turn-14",
         "chapterId":  "",
         "chapterTitle":  "",
-        "speaker":  "Speaker 3",
-        "time":  "02:20",
-        "html":  "Yeah. Infection?"
+        "speaker":  "Worachon",
+        "time":  "05:49",
+        "html":  "Yeah, I\u0027ve. I\u0027ve been thinking of it because, you know, when. When I\u0027m a full time doctor, like as my career. I know that I can address like this chill because it\u0027s some of like the professionalism. So I guess I\u0027m gonna wear something like that shirt one, but I will choose. I\u0027m okay with any, like, style, but I would choose the what\u0027s called the text. No, is it called the text tile? Like the material used for clothes? Yeah, I we choose the texts based on, again, the functionality. The weather and, like, my. My own preferences. Yeah..."
     },
     {
         "id":  "turn-15",
-        "chapterId":  "",
-        "chapterTitle":  "",
+        "chapterId":  "chap-2",
+        "chapterTitle":  "Chapter II • Medical Specialties \u0026 Dress Codes (06:34)",
         "speaker":  "Louie",
-        "time":  "02:20",
-        "html":  "Yeah, I had a shower and I just couldn\u0027t get some water out of my ear, and, I started straightway. I started taking antibiotics, and it started swelling, but it\u0027s coming down now very quickly. Very."
+        "time":  "06:34",
+        "html":  "Now? Do you notice any? Thank you for your answer, by the way. Do you notice any differences between the different types of doctors and how they dress, for example? I\u0027m not saying this is true. This is just a joke, really. But pediatricians, they can really dress how they want. Obviously, it\u0027s not true because they have to deal with parents, right? But I can imagine. Maybe some doctors dress differently. Have you noticed at all?"
     },
     {
         "id":  "turn-16",
         "chapterId":  "",
         "chapterTitle":  "",
-        "speaker":  "Speaker 4",
-        "time":  "03:49",
-        "html":  "I cannot hear you now."
+        "speaker":  "Worachon",
+        "time":  "07:00",
+        "html":  "I\u0027ve. I\u0027ve noticed some from my lecturer, like when you when you\u0027re comparing like the ophthalmologies, the dermathologies comparing to some like lecturer in the very, hands on like for example. So general surgery or like, orthopedic surgery that they dressed are completely different. You know, but when it is like the ophthalmologies, the dermatologies, it will look more like, expensive. Well, dress. But when it comes to general surgery, I think it\u0027s because of like, their free time that they don\u0027t have a lot of free time. So they dress mainly based on functionality."
     },
     {
         "id":  "turn-17",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "00:00",
-        "html":  "Testing. Right, can you hear me now?"
+        "time":  "07:48",
+        "html":  "Yes. Why do you think that dermatologists dress? Like they have. Like they spent money on their clothes. You said they. It looks expensive."
     },
     {
         "id":  "turn-18",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "00:12",
-        "html":  "Yes, I..."
+        "time":  "07:59",
+        "html":  "Yeah, it look it looks expensive. I guess, one of the reasons is that, they need these good looking, what\u0027s called good looking v or like, on self appearance. Yeah..."
     },
     {
         "id":  "turn-19",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "00:13",
-        "html":  "Yes..."
+        "time":  "08:16",
+        "html":  "Yeah..."
     },
     {
         "id":  "turn-20",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "00:13",
-        "html":  "Can you hear me?"
+        "time":  "08:17",
+        "html":  "Thank you."
     },
     {
         "id":  "turn-21",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "00:14",
-        "html":  "I just went like this with the microphone. [Laughter] Okay, so what did you damage getting tackled? Your legs, your arms."
+        "time":  "08:17",
+        "html":  "That\u0027s right."
     },
     {
         "id":  "turn-22",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "00:29",
-        "html":  "Okay, inside of my ankle. Yeah..."
+        "time":  "08:18",
+        "html":  "They need this good-looking appearance for their work as well. Patients want to come to the doctor. That looks good. When it comes to their methodology, something to work on their skin, their face. Something like this. The ophthalmologist... Even though the eyes are on your face, it\u0027s one of the organs on the face. But dressing wheels can influence the patient selection. Something like this. But when it comes to general surgeons or orthopedic surgeons, the cases are always like trauma or something like this. So the patients don\u0027t have to choose based on the appearance."
     },
     {
         "id":  "turn-23",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "01:32",
-        "html":  "Can you walk?"
+        "time":  "09:05",
+        "html":  "Yeah, very true. And how what about your friends? Do your friends dress the same as you?"
     },
     {
         "id":  "turn-24",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "01:35",
-        "html":  "Yesterday not. But today, yeah, I\u0027m getting better. I think it\u0027s just like, some yeah, something it doesn\u0027t, bro, I it doesn\u0027t break, but maybe some the liquament cut in chill."
+        "time":  "09:16",
+        "html":  "Yeah, actually, because, my campus, my faculty is it is in a very far away from the city, so people actually don\u0027t care much about, like, that way of dressing, but when. But again, when they go to the city in to get into the city, they dress differently. Like. Like more formal, something like that."
     },
     {
         "id":  "turn-25",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "01:49",
-        "html":  "So it didn\u0027t break, but just the ligaments, like, strained. What\u0027s the worst injury you\u0027ve had?"
+        "time":  "09:43",
+        "html":  "Yes, okay, very good. So what are your thoughts on the different...? How can I say how different doctors are received? So not about their appearance, but have you noticed there\u0027s a difference between how different doctors are received by the public or by people...?"
     },
     {
         "id":  "turn-26",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "01:59",
-        "html":  "The worst injury I\u0027ve had. Maybe, it\u0027s about. It\u0027s about the ankle I have, like. Yeah, I it fit ma many times when it was in high school. So I don\u0027t think it\u0027s as strong as before."
+        "time":  "10:08",
+        "html":  "Asist. What do you mean by arcist..."
     },
     {
         "id":  "turn-27",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "01:21",
-        "html":  "Okay, what\u0027s the worst injury that you\u0027ve seen?"
+        "time":  "10:11",
+        "html":  "So, react so for..."
     },
     {
         "id":  "turn-28",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "01:26",
-        "html":  "It was in July. I\u0027ve seen my friend that he played as a goalkeeper, and then he jumped for the ball, but then he got contact with the post of the goal. Yeah. And then... It just went down."
+        "time":  "10:14",
+        "html":  "Or react?"
     },
     {
         "id":  "turn-29",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "02:50",
-        "html":  "My god, that\u0027s horrible. I once, in physical education... We\u0027re having a football match, and some guys called Stewart, he got really angry at a guy called Daniel Hill. Daniel Hill was a very nice guy, very smart guy, but very good at football. Very good. Stewart got so angry he walked off the pitch. He went back into the school, he came back with a cricket bat, and he knocked him out [Laughter] with a cricket bat. Crazy. But the two things are pretty bad. Okay. Was the worst injury you\u0027ve ever seen. Say, not just football, but in general, what\u0027s the worst injury you\u0027ve ever seen?"
+        "time":  "10:15",
+        "html":  "Example, yeah, so, I\u0027m a surgeon. I\u0027m a doctor. I\u0027m. I\u0027m a this. Have you noticed any. Any difference in the way people react to the different job titles at all?"
     },
     {
         "id":  "turn-30",
-        "chapterId":  "",
-        "chapterTitle":  "",
+        "chapterId":  "chap-3",
+        "chapterTitle":  "Chapter III • Societal Hierarchies \u0026 Undervalued Work (10:30)",
         "speaker":  "Worachon",
-        "time":  "03:40",
-        "html":  "I think I\u0027ve seen death, but it\u0027s not injuries that... The motorcycle crashed with the truck, and then I saw a body flipping from the motorcycle onto the road."
+        "time":  "10:30",
+        "html":  "Yeah, very actually very different. When someone says they are like a general practitioner. Yeah, it\u0027s very normal in Thailand. We don\u0027t overreact with it, but when you say you are a neurosurgeon, you are a neurologist, you are a cardiothoracic surgeon, something like that. People press those specialties, those specialists, a lot more than other specialists. Yeah, and I guess there are some hierarchies in the doctor of specialty as well."
     },
     {
         "id":  "turn-31",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "03:01",
-        "html":  "Jeez, I wow, how old were you?"
+        "time":  "11:14",
+        "html":  "Who\u0027s at the bottom?"
     },
     {
         "id":  "turn-32",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "03:08",
-        "html":  "I was 17."
+        "time":  "11:18",
+        "html":  "In Thailand, I would say maybe like a general practitioner."
     },
     {
         "id":  "turn-33",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "03:10",
-        "html":  "No, okay..."
+        "time":  "11:24",
+        "html":  "Not dentist..."
     },
     {
         "id":  "turn-34",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "03:10",
-        "html":  "Only 17."
+        "time":  "11:26",
+        "html":  "No dentist is II guess I think Dents is quite, you know, on the not the top one, but, yeah, higher middle. Yeah."
     },
     {
         "id":  "turn-35",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "03:10",
-        "html":  "It\u0027s quite recent, we\u0027re still young. Wow, very young. I\u0027ve seen a few dead people in Vietnam, but I\u0027ve never seen the crash. I saw a lady die once of an overdose. Yeah, in Manchester, we had a business, a building, and the police were knocking on the door to... You have to let us in, you have to let us in. We\u0027re like, \"Okay.\" They came in with the girl and they put her on and they... TED to give her CPR. Yeah, and we talked to the police afterwards and they said that there are so many drunk people that they couldn\u0027t get an ambulance and they didn\u0027t have a car to get her to the hospital. Yeah, and she died just there. Crazy. She was like nineteen, very sad. She got her drink spiked..."
+        "time":  "11:39",
+        "html":  "Obviously, being a dentist, they\u0027re all great jobs, but being a dentist is a very good job. But in England, there\u0027s a joke that dentists say they\u0027re doctors, right? Which they are. They have a doctorate. They are doctors. Right. But it\u0027s a joke in England that dentists are not doctors. So in our society, they put dentists separately right and below doctors, which is crazy, right? The dentists can make loads of money because everyone needs to go to a dentist. They\u0027re part of the community, so... But it\u0027s a joke, okay? It\u0027s a joke. Do you have any professions that are not... How can I say? That they are viewed wrongly? So you think that profession should be viewed higher. For example, the dentist in England."
     },
     {
         "id":  "turn-36",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "04:12",
-        "html":  "Sorry. What\u0027s that?"
+        "time":  "12:44",
+        "html":  "Maybe I would say it\u0027s a bit extreme thought for me, I guess, but, it\u0027s. I\u0027m not sure if there\u0027s one in the UK. It\u0027s like the, waste collector, the garbage man that works for the government. Like, actually, they are very. They are very \u003cspan class=\"vocab-mark\" data-vkey=\"crucial\" onclick=\"inspectVocab(\u0027crucial\u0027)\"\u003ecrucial\u003c/span\u003e part of the community where like some people in Thailand even look down on them. But they are really important because, you know, our city can look good. And they are one of the biggest reason. And some parts of Thailand, of Bangkok especially, don\u0027t even like, look that good. Yeah. Because I think they should get more money. And like, that\u0027s. That should be a courage for them to work on."
     },
     {
         "id":  "turn-37",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "04:14",
-        "html":  "She got her drink spiked. It\u0027s when someone puts drugs in a girl\u0027s drink in someone\u0027s drink, it could be a guy or a girl."
+        "time":  "13:35",
+        "html":  "I think in England a garbage man can make more than a doctor. I think... Let me just check. I don\u0027t want to tell you the wrong thing. Garbage men, how much do they take home in Oxfordshire? No, not that much, it\u0027s not average pay, it\u0027s average pay, but what about London? London... In America they make quite a lot, I think. Yeah, about the same. In the US, bus drivers... Yeah, in the US they make quite a bit. Bus drivers make a lot. In England, bus drivers... They\u0027re in short supply. No one wants to be a bus driver, so the wage is ridiculously high, and they have freedom in the market. They have the choice. So, how can I say they make a lot of money? There is another sector of workers that I think are \u003cspan class=\"vocab-mark\" data-vkey=\"underrepresented\" onclick=\"inspectVocab(\u0027underrepresented\u0027)\"\u003eunderrepresented\u003c/span\u003e, and that is merchants. Merchants, right? So for example, merchants do a service, right? Plus they make quite a lot of money, but they\u0027re not... I understand why. Because their job is not intensive, however, in society, they\u0027re not held up as high. However, they make way more money generally, right? Because it\u0027s a different kind of business model, a salary and obviously a doctor can run a business. It\u0027s not quite... It\u0027s not crazy, anything like that. But what I\u0027m trying to say is that I think that merchants have famously been looked down on in history more. I\u0027m not saying a doctor, the \u003cspan class=\"vocab-mark\" data-vkey=\"hierarchy\" onclick=\"inspectVocab(\u0027hierarchy\u0027)\"\u003ehierarchy\u003c/span\u003e should be more for a \u003cspan class=\"vocab-mark\" data-vkey=\"merchant\" onclick=\"inspectVocab(\u0027merchant\u0027)\"\u003emerchant\u003c/span\u003e. But in history, the \u003cspan class=\"vocab-mark\" data-vkey=\"merchant\" onclick=\"inspectVocab(\u0027merchant\u0027)\"\u003emerchant\u003c/span\u003e we call it the \u003cspan class=\"vocab-mark\" data-vkey=\"merchant\" onclick=\"inspectVocab(\u0027merchant\u0027)\"\u003emerchant\u003c/span\u003e class has been pushed down. So, for example, in Japan. In Japan, they regarded people that sell things as very low class. But it was those people that lifted Japan out of poverty, right? So farmer, funeral person and \u003cspan class=\"vocab-mark\" data-vkey=\"merchant\" onclick=\"inspectVocab(\u0027merchant\u0027)\"\u003emerchant\u003c/span\u003e was very low class. But they\u0027re the most important parts of that society, right? The samurais were a leech upon society, but they were held at the highest regard as such. Yeah, if you weren\u0027t in medicine, what job would you do? What profession?"
     },
     {
         "id":  "turn-38",
-        "chapterId":  "",
-        "chapterTitle":  "",
+        "chapterId":  "chap-4",
+        "chapterTitle":  "Chapter IV • STEM, Public Policy \u0026 Law School (16:34)",
         "speaker":  "Worachon",
-        "time":  "04:23",
-        "html":  "So she was overdosed?"
+        "time":  "16:34",
+        "html":  "If I\u0027m not in medicine, I think I would take engineering or if it\u0027s not STEM science, mathematics, something like this. I would take on public policy."
     },
     {
         "id":  "turn-39",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "04:24",
-        "html":  "Yeah, she was overdosed. Yeah, I it\u0027s, it used to be a little bit common in England. People would drug people\u0027s drinks to have sex with them. But \u003cspan class=\"vocab-mark\" data-vkey=\"obviously\" onclick=\"inspectVocab(\u0027obviously\u0027)\"\u003eobviously\u003c/span\u003e they\u0027re not pharmacists, right? They... Miscalculate the dose or whatever, but men do it to women do it to men, and men do it to men. It\u0027s a weird thing, a very strange thing. It\u0027s not so common anymore."
+        "time":  "16:49",
+        "html":  "H very nice."
     },
     {
         "id":  "turn-40",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "05:53",
-        "html":  "Th is yeah, that there is \u003cspan class=\"vocab-mark\" data-vkey=\"actually\" onclick=\"inspectVocab(\u0027actually\u0027)\"\u003eactually\u003c/span\u003e something like this in Thailand but I think it\u0027s yeah, is it illegal in the UK."
+        "time":  "16:52",
+        "html":  "Yeah. Yeah, I..."
     },
     {
         "id":  "turn-41",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "05:03",
-        "html":  "It\u0027s super legal, yeah, super legalgal yeah, hu they get if... They get caught, they huge trouble. But. Yeah. When I was about 2223. It was quite popular. Look more popular. It was quite prevalent, a very prevalent thing. Is it still prevalent? In Thailand? The..."
+        "time":  "16:52",
+        "html":  "Yeah, that\u0027s pretty cool."
     },
     {
         "id":  "turn-42",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "05:26",
-        "html":  "Yeah, but it actually happens it is not it\u0027s prevalent, but it, that is thearget it\u0027s not actually happens among, Thai students or like, general pupil. It actually happens in, like, a club where we have. I\u0027m not sure. I\u0027m not sure how to call it. The woman who, like who whose job is to entertain, like the customers."
+        "time":  "16:55",
+        "html":  "Actually I think engineering, medicine and public policy have something in common is that, I want to do something that can actually impact and have a huge impact on this society and can completely change the society."
     },
     {
         "id":  "turn-43",
-        "chapterId":  "chap-3",
-        "chapterTitle":  "Chapter III • Deep Dive \u0026 Vocabulary (06:25)",
+        "chapterId":  "",
+        "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "06:55",
-        "html":  "AA ho hosts spar or..."
+        "time":  "17:18",
+        "html":  "Just, you know, obviously I hi, I hold the medical industry and doctors in the highest regard. This is just a talking point, right? I actually... Think doctors are completely worthy of everything they get right. This is just a talking point. What about lawyers? What about lawyers...?"
     },
     {
         "id":  "turn-44",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "06:59",
-        "html":  "Yeah..."
+        "time":  "17:38",
+        "html":  "Well, yeah, a actually, it\u0027s quite a bit funny. I have to tell you, there is actually an open university in Thailand where, no matter how what\u0027s called, how old you are or what education you have taken on previously, you can \u003cspan class=\"vocab-mark\" data-vkey=\"enroll\" onclick=\"inspectVocab(\u0027enroll\u0027)\"\u003eenroll\u003c/span\u003e in this university. And I actually \u003cspan class=\"vocab-mark\" data-vkey=\"enroll\" onclick=\"inspectVocab(\u0027enroll\u0027)\"\u003eenroll\u003c/span\u003e in law once I get into the medical school because I thought I could do it as like a side quest \u003cspan class=\"asr-fix-pill\" title=\"ASR misheard \u0027a side quest\u0027 (studying law alongside med school) as \u0027the psy quest\u0027.\"\u003e✨ Fixed: \"a side quest\" (note-taker: \"the psy quest\")\u003c/span\u003e. But after, like, learning it for a semester, it was way harder than my like, medical lessons there were a lot to remember. And yeah, II couldn\u0027t do it. So I guess I would. I would do it later after I have graduated."
     },
     {
         "id":  "turn-45",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "06:59",
-        "html":  "Yeah, so the hostesses do it, they drug the men."
+        "time":  "18:30",
+        "html":  "I would love to say something to you now. I\u0027m not saying this is true, okay? I\u0027m not saying this is true all the time, but I would love for you to try to remember it for decades later now. Law seems hard, the law seems difficult, but as you have way more experiences in the world, it seems easy. So I\u0027m not saying this is true, but maybe in ten, twenty years, when one day you might think about it, you might think, \"Do I feel like I could have been a lawyer quite easily because now, because of the way a lawyer works, it\u0027s about life, right? It\u0027s about what happens in life and the rules about it.\" Now I have more life. Do I now feel like I could have been a lawyer? Obviously, it\u0027s not true because I could have done it as well. But it\u0027s not true because it seemed easier then. But at the time, it seemed super difficult because you do not have your life experience to put on top of it, right? If that makes sense. Obviously, this is something to think about in the future. I think when we look back, I think most people think they could have been a lawyer. I\u0027m not saying you couldn\u0027t have been. I\u0027m not saying that. I\u0027m saying that it looks difficult while you\u0027re doing your medical degree. Right? But as you go through life, you learn things, you hear things, and everything starts to make sense. You get used to the system. Things do not surprise you. I think my prediction is that most people think they can be a lawyer when they get older, right? It\u0027s easier than it seemed. Yeah, I should say. Okay, so what..."
     },
     {
         "id":  "turn-46",
-        "chapterId":  "",
-        "chapterTitle":  "",
+        "chapterId":  "chap-5",
+        "chapterTitle":  "Chapter V • University Visit \u0026 Class President Duties (20:19)",
         "speaker":  "Worachon",
-        "time":  "06:04",
-        "html":  "Now the men drug the hostesses and then pick her into the room or something like that."
+        "time":  "20:19",
+        "html":  "I see."
     },
     {
         "id":  "turn-47",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "06:13",
-        "html":  "Jeez, yeah, Thailand\u0027s nightlife is pretty crazy. Probably the most famous nightlife in the world is in Thailand, right? I think so."
+        "time":  "20:19",
+        "html":  "Do you know what you\u0027re going to do this evening? So it\u0027s Saturday. Are you going out tonight? Are you socializing? Are you staying in? Are you resting?"
     },
     {
         "id":  "turn-48",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "06:25",
-        "html":  "I see that there is a huge variation among pubs and bars in Thailand. We can go from a very normal one to a very extreme one."
+        "time":  "20:28",
+        "html":  "No, I\u0027m just staying in tomorrow. I\u0027ll have like, some. I have to travel back to, like, my university, so. But the schedu the bus schedule is not like, finalized yet. I have to receive the information this night. So yeah, there is a lot more to plan about tomorrow because that will be a huge event in my med school \u003cspan class=\"asr-fix-pill\" title=\"ASR misheard \u0027med school\u0027 as \u0027mess school\u0027.\"\u003e✨ Fixed: \"med school\" (note-taker: \"mess school\")\u003c/span\u003e. Like some like big person is coming in for like a visit, something like that. So we have to get our things in positions. Something like that."
     },
     {
         "id":  "turn-49",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "07:34",
-        "html":  "Y yeah. Yeah. For example, when I\u0027m in Lampoon, it\u0027s normal, it\u0027s not like, some areas of Bangkok, but that. Yeah, like you said, it\u0027s an extreme, in Lampoon, it\u0027s mostly like cabaret. Do you know cabaret what cabaret is like? It\u0027s..."
+        "time":  "21:03",
+        "html":  "Who\u0027s coming? Do you know who\u0027s coming?"
     },
     {
         "id":  "turn-50",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "07:54",
-        "html":  "No, I don\u0027t know."
+        "time":  "21:06",
+        "html":  "Maybe. I don\u0027t know, the word in English is the Is, like, kind of the president of the university just come for there."
     },
     {
         "id":  "turn-51",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "07:56",
-        "html":  "It\u0027s a French show to you. It\u0027s a French show, and, normally, it would have can dancers or such cabaret images. Okay, right, maybe not this provocative, but more like this is quite provocative, but it\u0027s more of a show, and in Lampoon, there are many places like this. They\u0027re not really... This is very Caribbean, but maybe... Well, why don\u0027t I show you? So I still remember the name of the bar. Rudo Ban Lampoon. The images on Thailand. But I think what I\u0027m trying to say is, they have... I don\u0027t think that we ought to find it. Yes, they will have singers, right, singers, and the crowd, it\u0027s very tame, very nice, very normal, but the singers will really entertain the crowd, they\u0027ll drink with the crowd, they will really interact, like a cabaret interacts, and I think this is normal in Thailand. Acoustic music, I think the entertainers are very... They interact with the crowd in England. It\u0027s not like this in England, it\u0027s a little bit separate. It\u0027s a separate... Maybe they talk to the crowd, but it\u0027s not normal, but it\u0027s really not normal here. The crowd are giving money to the singers..."
+        "time":  "21:26",
+        "html":  "So he looks after many sites, so he has many sites."
     },
     {
         "id":  "turn-52",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "09:03",
+        "time":  "21:29",
         "html":  "Yeah..."
     },
     {
@@ -1056,437 +1068,482 @@
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "09:03",
-        "html":  "In Thailand, which is quite interesting."
+        "time":  "21:30",
+        "html":  "Okay. And what do you have to get ready?"
     },
     {
         "id":  "turn-54",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "09:05",
-        "html":  "We can actually give the singer money to drink more. Yeah."
+        "time":  "21:35",
+        "html":  "Actually, I just have to get my cozy things, like in the lab or in the dormitory, in shape. Yeah..."
     },
     {
         "id":  "turn-55",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "09:10",
-        "html":  "Yeah, exactly. I have a... Yeah, which is quite... We would never do that in England. It\u0027s just not even a thing. When there\u0027s a show, there\u0027s a big separation, a huge separation between artists and the crowd. But I..."
+        "time":  "21:47",
+        "html":  "Wow, they come to inspect your dormitory."
     },
     {
         "id":  "turn-56",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "10:37",
-        "html":  "Your voice went again? It came up, but gone now? No. I can hear you a little bit."
+        "time":  "21:50",
+        "html":  "No, just like we have to do everything in positions it\u0027s very normal in Thailand that yeah, when some like..."
     },
     {
         "id":  "turn-57",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "10:24",
-        "html":  "Can you hear me now? Hello, so what..."
+        "time":  "22:00",
+        "html":  "A thought..."
     },
     {
         "id":  "turn-58",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "10:29",
-        "html":  "Can you hear me now?"
+        "time":  "22:01",
+        "html":  "Helpful people..."
     },
     {
         "id":  "turn-59",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "11:31",
-        "html":  "Okay, you can hear me now, right?"
+        "time":  "22:02",
+        "html":  "Yeah..."
     },
     {
         "id":  "turn-60",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "11:33",
-        "html":  "Yes."
+        "time":  "22:02",
+        "html":  "Author, yeah, we have to get things the most clear and organized."
     },
     {
         "id":  "turn-61",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "11:33",
-        "html":  "So what happened? Was. I normally use these headphones, okay? I normally use these headphones, but they got stolen."
+        "time":  "22:09",
+        "html":  "Organized, clean, put away, yeah, so you have to make sure everything around you is tidy... And organized. Okay, that\u0027s very nice. In England, that would never happen. That would... Yeah, students are very messy in England. Super messy because they\u0027re running from one thing to the next. Okay, and so do you have any...? Even though they\u0027re coming tomorrow, do you have any special things to do? Is there any actual thing to do?"
     },
     {
         "id":  "turn-62",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "11:45",
-        "html":  "The got what?"
+        "time":  "22:46",
+        "html":  "No, not actual... They are coming on Monday, so..."
     },
     {
         "id":  "turn-63",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "11:46",
-        "html":  "They got stop them. Yeah, I just got them back. So I was using some really bad microphone, as you can see, so I haven\u0027t had a chance to set them up correctly, but yet. Paper got stolen, which is crazy and I can\u0027t. I got the f."
+        "time":  "22:50",
+        "html":  "Okay..."
     },
     {
         "id":  "turn-64",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "11:11",
-        "html":  "Was it stolen?"
+        "time":  "22:50",
+        "html":  "Tomorrow I have to get back there to get things done. Yeah..."
     },
     {
         "id":  "turn-65",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "11:12",
-        "html":  "So about two weeks ago..."
+        "time":  "22:54",
+        "html":  "What I mean is sorry is that, say, you have all you all your friends are going back as well because of this and this thing."
     },
     {
         "id":  "turn-66",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "11:19",
-        "html":  "But keep your eyes gone again."
+        "time":  "23:03",
+        "html":  "No, not actually, because I\u0027m the class president for this year. Yeah. So thank you. Yeah, so I have to..."
     },
     {
         "id":  "turn-67",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "12:45",
-        "html":  "How does this sound now?"
+        "time":  "23:13",
+        "html":  "Congratulations. Yeah..."
     },
     {
         "id":  "turn-68",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "12:48",
-        "html":  "It\u0027s okay."
+        "time":  "23:17",
+        "html":  "Organize something there."
     },
     {
         "id":  "turn-69",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "12:49",
-        "html":  "Okay, I\u0027ll get a very close, so you. So I figure. So you can hear me fine now."
+        "time":  "23:20",
+        "html":  "Okay, well, I\u0027ll let you go and rest then, thank you very much for today. I\u0027ll let you rest and, yeah, let me know how it goes, let me know if you meet the president, maybe you meet the..."
     },
     {
         "id":  "turn-70",
-        "chapterId":  "chap-4",
-        "chapterTitle":  "Chapter IV • Wrap-Up \u0026 Next Steps (12:56)",
+        "chapterId":  "",
+        "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "12:56",
-        "html":  "Yeah. I..."
+        "time":  "23:31",
+        "html":  "Okay..."
     },
     {
         "id":  "turn-71",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "12:56",
-        "html":  "Sorry..."
+        "time":  "23:31",
+        "html":  "President, have you met him before?"
     },
     {
         "id":  "turn-72",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "12:56",
-        "html":  "Can. He."
+        "time":  "23:33",
+        "html":  "Yeah, I\u0027ve met him before. He used to be the dean of my faculty, so he got upgraded into the president."
     },
     {
         "id":  "turn-73",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "12:57",
-        "html":  "About that. And so, I stayed in a hotel two weeks ago, and, it was about 11:00 at night, and I went next door just to have a beer because, you know, I\u0027m in another part of Hanoi just staying in a hotel for the night. And I put my headphones ied them off for someone wanted to talk to me, so I put them on the bar. And as I was talking to someone, they were over here. And I was talking like this. And a guy picked them up. And took them away. Yeah..."
+        "time":  "23:42",
+        "html":  "Wow, that\u0027s pretty good. That\u0027s very... It\u0027s great because when you\u0027re older, you can get referrals or networking and stuff like that, so that\u0027s actually fantastic. Yeah, okay, well, I\u0027ll let you rest because it\u0027s half past eleven where you are."
     },
     {
         "id":  "turn-74",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "13:37",
-        "html":  "So you called the police or not?"
+        "time":  "23:59",
+        "html":  "Okay..."
     },
     {
         "id":  "turn-75",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "13:38",
-        "html":  "No. But he brought the... What happened was I after I finished talking to the gentlemen on my right, I noticed they were gone, and I said to the owner, \"I\u0027m very sorry. I believe my headphones have been stolen. I suppose you have CCTV, don\u0027t you?\" Yes, it was obvious they were stolen. It was obvious. We could \u003cspan class=\"vocab-mark\" data-vkey=\"completely\" onclick=\"inspectVocab(\u0027completely\u0027)\"\u003ecompletely\u003c/span\u003e identify the guy. I thought he was English. He\u0027s not... But there was another person in the bar that he was with, and I went over to the gentleman. He was English. I have to explain why I did what I did next because I own cocktail bars. I \u003cspan class=\"vocab-mark\" data-vkey=\"understand\" onclick=\"inspectVocab(\u0027understand\u0027)\"\u003eunderstand\u003c/span\u003e the mind of the regular person, right? The person who drinks and buys all the different kinds of people. I \u003cspan class=\"vocab-mark\" data-vkey=\"understand\" onclick=\"inspectVocab(\u0027understand\u0027)\"\u003eunderstand\u003c/span\u003e how they think, right? Because I deal with them for years, very closely. I could tell immediately that this guy... Not the guy that stole... But his friend was the kind of guy who loves to be in the bar. He loves the bar, and his reputation is that he has to have a good reputation in the bar. Okay, we call it a barfly, right? Yeah, and so I said to him, \"Very sorry, is this your friend?\" The tall guy, he\u0027s Swedish. The guy was Swedish too. He said, \"Yes.\" I said, \"I\u0027m very sorry. Your friend stole my headphones, and they\u0027re quite expensive.\" I think you need to motivate him to get them to bring them back. He\u0027s like, \"No.\" I was like, \"Well, I think I have to motivate you. I\u0027m not going to do anything to this guy, but he doesn\u0027t know me, right?\" So the bar staff are like, \"What\u0027s going on?\" I was like, \"I\u0027m going to make your life hell.\" Not at all, right? I started to embarrass him a little bit. He started to get a bit stressed. I was like, \"All you have to do is bring your friend back here at a time to come back with the headphones, and everything\u0027s okay.\" Well, don\u0027t tell me what to do. I was like, \"No, you have to do it because I\u0027m making life hell. That\u0027s all I was saying to him. I think I ruffled his feathers. He told his friend, and his friend brought the headphones back. So I remember, at the time, making a conscious decision like, \"This is how that guy thinks, surely.\" The best way is to make it is to embarrass him in front of the staff, right? Because I know that he values... I just can tell he values his reputation in the bar. I got them back, and I met the guy as well. Both of them. So I went and shook the Englishman\u0027s hand and said, \"Thank you very much.\" Then the bar staff had a word with me and the guy and was like, \"He brought them back. There\u0027s not going to be any problems.\" I was like, \"Of course, no, put my head back, it\u0027s \u003cspan class=\"vocab-mark\" data-vkey=\"absolutely\" onclick=\"inspectVocab(\u0027absolutely\u0027)\"\u003eabsolutely\u003c/span\u003e fine.\" But yeah, I made the right decision. I got them back two weeks later because I don\u0027t live near that. I took a friend there because she was visiting from Thailand. That was it. Yeah, crazy, very crazy. I can\u0027t believe I got them back. That is \u003cspan class=\"vocab-mark\" data-vkey=\"absolutely\" onclick=\"inspectVocab(\u0027absolutely\u0027)\"\u003eabsolutely\u003c/span\u003e insane. I thought he would sell them or throw them off a bridge or something. Yeah, \u003cspan class=\"vocab-mark\" data-vkey=\"incredible\" onclick=\"inspectVocab(\u0027incredible\u0027)\"\u003eincredible\u003c/span\u003e. Have you ever had anything stolen?"
+        "time":  "24:00",
+        "html":  "Yeah, you\u0027re the only... I always say you\u0027re the only person on my time zone."
     },
     {
         "id":  "turn-76",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "17:34",
-        "html":  "I have... My bicycle was stolen once, but I didn\u0027t get it back."
+        "time":  "24:05",
+        "html":  "Yeah..."
     },
     {
         "id":  "turn-77",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "17:38",
-        "html":  "You got it back."
+        "time":  "24:05",
+        "html":  "That is it. Everyone else is all over the place. Okay, but have a lovely evening and a nice Sunday, okay?"
     },
     {
         "id":  "turn-78",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "17:40",
-        "html":  "I\u0027m not sure. No, I didn\u0027t get it. I\u0027m not sure why it is now. Yeah, it was when I was 10. I did like exercise. I love to do exercise with my dad in the morning for some bike. We went to the 07:11. I\u0027m not sure if there\u0027s one in... Yeah. Then I just parked there. Didn\u0027t lock it because it\u0027s very near the crowd, but after I got back to my bike, my dad was still there, but mine wasn\u0027t, so I\u0027m not sure why that dude chose to steal the smaller one, the kids\u0027 one."
+        "time":  "24:14",
+        "html":  "Okay, you too."
     },
     {
         "id":  "turn-79",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "18:32",
-        "html":  "I\u0027m so sorry. That\u0027s horrible having your bike stolen, that that\u0027s horrible. Yeah, sorry about that. That is, \u003cspan class=\"vocab-mark\" data-vkey=\"especially\" onclick=\"inspectVocab(\u0027especially\u0027)\"\u003eespecially\u003c/span\u003e when you\u0027re a kid, like when you\u0027re a young kid, it\u0027s like the worst thing ever. Yeah, I\u0027m sorry, head bones. Do you know what? I thought I\u0027d never see them again. I was. I was over it. I was over it completely. But the next day, I was like, they\u0027re gone. I was like, yeah, whatever. But a bike, \u003cspan class=\"vocab-mark\" data-vkey=\"especially\" onclick=\"inspectVocab(\u0027especially\u0027)\"\u003eespecially\u003c/span\u003e when you\u0027re young and that\u0027s horrible, \u003cspan class=\"vocab-mark\" data-vkey=\"especially\" onclick=\"inspectVocab(\u0027especially\u0027)\"\u003eespecially\u003c/span\u003e if you go exercising and do that, that\u0027s pretty bad. But, I have my bi a bike stop as well, so."
+        "time":  "24:15",
+        "html":  "I see it tomorrow, I see tomorrow, right? I..."
     },
     {
         "id":  "turn-80",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "18:09",
-        "html":  "Would you want Thailand in England?"
+        "time":  "24:19",
+        "html":  "Y yeah..."
     },
     {
         "id":  "turn-81",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "18:11",
-        "html":  "Yes, in England. So I was living in Germany, and in Germany, I never locked my bike up. I always put my bike outside, and if it was missing, it\u0027s because someone borrowed it and they put it back. In Germany, people borrowed bikes. It was great. Three years I never locked my bike up. I lived in the city center. I moved back to London, and I work in a very busy area, Chelsea. It\u0027s near where the Buckingham Palaces and stuff like that. I was cycling to and from work, and I had locked up my bike quite well, but they had used tools to take it off. Yeah. I went buy a bike again. Now."
+        "time":  "24:19",
+        "html":  "See tomorrow."
     },
     {
         "id":  "turn-82",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "19:06",
-        "html":  "So is it is like the C actually normal in London?"
+        "time":  "24:19",
+        "html":  "But I think I have to recheck tonight with, like, the bus if it, like, overlap."
     },
     {
         "id":  "turn-83",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "19:13",
-        "html":  "Yeah. Crime is getting a little bit... Crime is strange. So murder, assault, the big serious crimes, rape, everything is going down, always going down, getting less and less. It\u0027s really good, but petty... You call it petty theft. Petty theft is out of control. So you can\u0027t have a bike. They will have an electrical source because the police will do nothing. In fact, I\u0027ll send you a link. But there is a. A documentary about having their bike stolen in London. Basically, these guys that do the documentary, they... How can I say? I\u0027ll find it and send it to you. But basically, they put a GPS on the bikes so they know exactly where it is and they chain up their bike. Their bike is stolen immediately. Okay, then they go... They say to the police, \"Look, our bike is stolen, but we have GPS on there. Can you go and get it?\" No, we don\u0027t do that. So the police will not solve this crime. This petty theft is really bad because the police do nothing. Because the police just do not... But they can\u0027t keep up with it. They can\u0027t keep up with that and everything else. However, murder, rape, and assault are weighed down, which is really good. But the problem is now I will never buy a bike in England this day. You can\u0027t wear a nice watch in London that someone would like, just take it off you and your phone. I said... I\u0027ll be very quick. Sorry. I said to a lady once, \"Be careful, we\u0027re outside next to a bus stop.\" I said, \"Be careful. This phone snatches here because she\u0027s just on her phone.\" She said to me, \"Don\u0027t tell me what to do.\" Literally ten seconds later, a moped came up, and the person on the back snatched the phone out of her hand. I was like..."
+        "time":  "24:25",
+        "html":  "Yeah, if you want me to move it, I\u0027ll gladly move it. It doesn\u0027t matter, just message me because obviously, it\u0027s within 24 hours, so message me when you want me to change it, and I\u0027ll change it. Okay? No problem."
     },
     {
         "id":  "turn-84",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "22:42",
-        "html":  "It\u0027s crazy."
+        "time":  "24:39",
+        "html":  "Okay."
     },
     {
         "id":  "turn-85",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "22:42",
-        "html":  "Yeah. I it is crazy. My friends were like, she didn\u0027t want to listen. She didn\u0027t want to. It\u0027s a thing in England about not listening to men. It\u0027s a whole thing. Yeah, but yeah, so what are you gonna do for the rest of the day?"
+        "time":  "24:39",
+        "html":  "At all."
     },
     {
         "id":  "turn-86",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "22:02",
-        "html":  "I will take a nap because I don\u0027t have class in the evening, so... Yeah, but I guess, at night, I would be doing some work submissions."
+        "time":  "24:40",
+        "html":  "Thank you very much."
     },
     {
         "id":  "turn-87",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "22:14",
-        "html":  "Yeah, same as well."
+        "time":  "24:40",
+        "html":  "You\u0027re welcome, and I understand that. Obviously you\u0027ve got to you\u0027ve got things to organize tomorrow as well, so just send me what when you want me to move it for and I\u0027ll move it or what I can do is you want me to move it now so you can move it..."
     },
     {
         "id":  "turn-88",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "22:15",
-        "html":  "Yeah..."
+        "time":  "24:56",
+        "html":  "EI can actually \u003cspan class=\"vocab-mark\" data-vkey=\"reschedule\" onclick=\"inspectVocab(\u0027reschedule\u0027)\"\u003ereschedule\u003c/span\u003e it. Actually..."
     },
     {
         "id":  "turn-89",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "22:15",
-        "html":  "Well, make sure you rest..."
+        "time":  "24:59",
+        "html":  "You can sorry, I thought you couldn\u0027t. Okay, yeah, perfect, yeah, so do it at you. Yeah, it\u0027s just it\u0027s 12h, not 24. I always think it\u0027s 24. Yeah, do that your own convenience whenever you\u0027d like. No problem at all. Okay..."
     },
     {
         "id":  "turn-90",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "22:17",
-        "html":  "Okay."
+        "time":  "25:15",
+        "html":  "Thank you very much. Yeah."
     },
     {
         "id":  "turn-91",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Louie",
-        "time":  "22:17",
-        "html":  "Your leg. I know you\u0027re gonna have rest now anyway. Yeah, I hope against me, I... Hope against her. Yeah. I hope you\u0027re not out that long for football. Yeah. Okay, if youy the rest your Sunday, the only other person on the same time zone lets me the only other person. [Laughter] That\u0027s it."
+        "time":  "25:17",
+        "html":  "You\u0027re welcome. You\u0027re welcome. Okay, well, have a good evening."
     },
     {
         "id":  "turn-92",
         "chapterId":  "",
         "chapterTitle":  "",
         "speaker":  "Worachon",
-        "time":  "23:36",
-        "html":  "Yeah..."
-    },
-    {
-        "id":  "turn-93",
-        "chapterId":  "",
-        "chapterTitle":  "",
-        "speaker":  "Louie",
-        "time":  "23:37",
-        "html":  "Okay, well, take it easy."
-    },
-    {
-        "id":  "turn-94",
-        "chapterId":  "",
-        "chapterTitle":  "",
-        "speaker":  "Worachon",
-        "time":  "23:38",
-        "html":  "I okay, see ya."
+        "time":  "25:20",
+        "html":  "See you."
     }
 ];
     const STUDENT_STRENGTHS = [
     {
-        "time":  "🕒 01:35",
-        "phrase":  "Natural Spoken Fluency",
-        "desc":  "Expressed ideas clearly in real-time conversation at 01:35.",
-        "quote":  "Worachon: \"Yesterday not. But today, yeah, I\u0027m getting better. I think it\u0027s just like, some yeah, something it doesn\u0027t, bro, I it doesn\u0027t bre...\""
+        "time":  "🕒 04:59",
+        "phrase":  "Reflective Contrast",
+        "desc":  "Clearly contrasted past and present clothing habits using natural time markers.",
+        "quote":  "Worachon: \"...when I grew up, I focused more on the functionality rather than the good-looking way of dressing. I changed to what fits me better.\""
     },
     {
-        "time":  "🕒 05:26",
-        "phrase":  "Natural Spoken Fluency",
-        "desc":  "Expressed ideas clearly in real-time conversation at 05:26.",
-        "quote":  "Worachon: \"Yeah, but it actually happens it is not it\u0027s prevalent, but it, that is thearget it\u0027s not actually happens among, Thai students or...\""
+        "time":  "🕒 07:00",
+        "phrase":  "Nuanced Medical Comparison",
+        "desc":  "Drew a sharp, realistic distinction between patient-facing aesthetic specialties and trauma surgery.",
+        "quote":  "Worachon: \"When it comes to general surgeons or orthopedic surgeons, the cases are always like trauma... so the patients don\u0027t have to choose based on appearance.\""
     },
     {
-        "time":  "🕒 17:34",
-        "phrase":  "Natural Spoken Fluency",
-        "desc":  "Expressed ideas clearly in real-time conversation at 17:34.",
-        "quote":  "Worachon: \"I have... My bicycle was stolen once, but I didn\u0027t get it back.\""
+        "time":  "🕒 12:44",
+        "phrase":  "Social Empathy \u0026 Civic Awareness",
+        "desc":  "Highlighted the essential role of sanitation workers with strong conviction and clear reasoning.",
+        "quote":  "Worachon: \"They are a very crucial part of the community... our city can look good, and they are one of the biggest reasons.\""
     },
     {
-        "time":  "🕒 22:02",
-        "phrase":  "Natural Spoken Fluency",
-        "desc":  "Expressed ideas clearly in real-time conversation at 22:02.",
-        "quote":  "Worachon: \"I will take a nap because I don\u0027t have class in the evening, so... Yeah, but I guess, at night, I would be doing some work submiss...\""
+        "time":  "🕒 16:55",
+        "phrase":  "Connecting Disciplines",
+        "desc":  "Linked engineering, medicine, and public policy around a unified personal mission.",
+        "quote":  "Worachon: \"I want to do something that can actually have a huge impact on society.\""
     }
 ];
     const GENTLE_POLISHES = [
     {
-        "topic":  "Natural Connectors",
-        "said":  "Linking ideas quickly in conversation",
-        "natural":  "Use \u0027actually\u0027, \u0027honestly\u0027, and \u0027fair enough\u0027 to buy thinking time.",
-        "why":  "Natural discourse markers keep speech smooth without rushing."
+        "topic":  "Casual Clothing Terms",
+        "said":  "I normally wear, like, the spot fit...",
+        "natural":  "I normally wear sporty outfits / athletic wear (or breathable casual clothes).",
+        "why":  "ASR heard \u0027spot fit\u0027 for \u0027sporty fit\u0027. In natural English, \u0027athletic wear\u0027 or \u0027sporty clothes\u0027 sounds most natural."
     },
     {
-        "topic":  "Phrasal Verbs in Speech",
-        "said":  "Formal single-word verbs",
-        "natural":  "Mix in \u0027figure out\u0027, \u0027sort out\u0027, and \u0027catch up\u0027.",
-        "why":  "Native speakers rely heavily on phrasal verbs in everyday conversation."
+        "topic":  "Medical Specialist Nouns",
+        "said":  "...the ophthalmologies, the dermatologies...",
+        "natural":  "...ophthalmologists and dermatologists...",
+        "why":  "Use \u0027-ogy\u0027 for the field of study (dermatology) and \u0027-ogist\u0027 for the doctor (dermatologist)."
+    },
+    {
+        "topic":  "Color \u0026 Fabric Descriptions",
+        "said":  "...the Dark Tone shirt... there is no spotable point...",
+        "natural":  "...a dark-toned shirt... rain spots don\u0027t show up on it.",
+        "why":  "\u0027Dark-toned\u0027 is the compound adjective; \u0027don\u0027t show up\u0027 or \u0027aren\u0027t noticeable\u0027 is much more idiomatic than \u0027no spottable point\u0027."
+    },
+    {
+        "topic":  "Expressing Encouragement / Support",
+        "said":  "...that should be a courage for them to work on.",
+        "natural":  "...that should be an incentive / encouragement for them.",
+        "why":  "\u0027Courage\u0027 means bravery; \u0027encouragement\u0027 or \u0027an incentive\u0027 expresses motivation to keep working."
     }
 ];
-    const ASR_FIXES = {
-    "time":  "00:00",
-    "speaker":  "Note-taker",
-    "wrong":  "Preply",
-    "right":  "Preply",
-    "note":  "Automated speech-to-text transcript synced from Krisp AI."
-};
-    const CULTURAL_PLACES = {
-    "meta":  "11-09-2026",
-    "badge":  "Lesson Overview",
-    "title":  "Full Session Transcript \u0026 Vocabulary",
-    "desc":  "Complete speaker-labeled transcript synced from Krisp AI with 94 speaking turns and 7 highlighted B2–C2 vocabulary items.",
-    "quote":  "\"Practice reviewing 5 highlighted words from today\u0027s conversation before our next class.\"",
-    "tags":  [
-                 "transcript",
-                 "vocabulary",
-                 "fluency"
-             ]
-};
+    const ASR_FIXES = [
+    {
+        "time":  "02:08",
+        "speaker":  "Worachon",
+        "wrong":  "spot fit",
+        "right":  "sporty fit / athletic wear",
+        "note":  "Krisp ASR misheard \u0027sporty fit\u0027 as \u0027spot fit\u0027."
+    },
+    {
+        "time":  "03:14",
+        "speaker":  "Worachon",
+        "wrong":  "Doors writer one",
+        "right":  "lighter ones",
+        "note":  "ASR misheard \u0027those lighter ones\u0027 as \u0027Doors writer one\u0027."
+    },
+    {
+        "time":  "17:38",
+        "speaker":  "Worachon",
+        "wrong":  "the psy quest",
+        "right":  "a side quest",
+        "note":  "ASR misheard \u0027a side quest\u0027 (studying law alongside med school) as \u0027the psy quest\u0027."
+    },
+    {
+        "time":  "20:28",
+        "speaker":  "Worachon",
+        "wrong":  "mess school",
+        "right":  "med school",
+        "note":  "ASR misheard \u0027med school\u0027 as \u0027mess school\u0027."
+    }
+];
+    const CULTURAL_PLACES = [
+    {
+        "meta":  "11-14-2026",
+        "badge":  "Lesson 04",
+        "title":  "Dressing for Purpose: Functionality vs. Image",
+        "desc":  "Explored how climate, practicality, and professional expectations shape what we wear—from Thailand\u0027s rainy weather to hospital dress codes.",
+        "quote":  "\"I changed to what fits me better.\"",
+        "tags":  [
+                     "clothing",
+                     "functionality",
+                     "lifestyle"
+                 ]
+    },
+    {
+        "meta":  "11-14-2026",
+        "badge":  "Sociology \u0026 Medicine",
+        "title":  "Medical Hierarchies \u0026 Undervalued Professions",
+        "desc":  "Compared how society perceives neurosurgeons, GPs, dentists, waste collectors, and historical merchant classes.",
+        "quote":  "\"They are a very crucial part of the community.\"",
+        "tags":  [
+                     "medicine",
+                     "society",
+                     "hierarchy"
+                 ]
+    },
+    {
+        "meta":  "11-14-2026",
+        "badge":  "Career \u0026 Academia",
+        "title":  "Medicine, Law as a \u0027Side Quest\u0027 \u0026 Public Policy",
+        "desc":  "Discussed enrolling in open-university law alongside medical school and how life experience makes legal reasoning clearer over time.",
+        "quote":  "\"I want to do something that can actually have a huge impact on society.\"",
+        "tags":  [
+                     "law",
+                     "public-policy",
+                     "career"
+                 ]
+    }
+];
     const QUIZ_QUESTIONS = [
     {
-        "q":  "1. Which word or phrase from today\u0027s lesson means: \"In a way that is easy to see or understand.\"?",
+        "q":  "1. Which word from today\u0027s lesson means \u0027suited to serve a practical purpose well\u0027?",
         "options":  [
-                        "obviously",
-                        "absolutely",
-                        "completely"
+                        "functionality",
+                        "hierarchy",
+                        "textile"
                     ],
         "correct":  0,
-        "explain":  "\u0027obviously\u0027 (B2) — In a way that is easy to see or understand."
+        "explain":  "\u0027functionality\u0027 (B2) — Focusing on practical use and comfort rather than pure appearance."
     },
     {
-        "q":  "2. Which word or phrase from today\u0027s lesson means: \"Completely and without any doubt.\"?",
+        "q":  "2. Which noun refers to a doctor who specializes in skin?",
         "options":  [
-                        "absolutely",
-                        "completely",
-                        "especially"
+                        "dermatologist",
+                        "dermatology",
+                        "ophthalmology"
                     ],
         "correct":  0,
-        "explain":  "\u0027absolutely\u0027 (B2) — Completely and without any doubt."
+        "explain":  "Use \u0027-ologist\u0027 for the specialist (dermatologist / ophthalmologist) and \u0027-ology\u0027 for the field."
     },
     {
-        "q":  "3. Which word or phrase from today\u0027s lesson means: \"Totally; in every way.\"?",
+        "q":  "3. Which adjective describes a group that does not receive fair recognition or representation?",
         "options":  [
-                        "completely",
-                        "especially",
-                        "actually"
+                        "underrepresented",
+                        "crucial",
+                        "rescheduled"
                     ],
         "correct":  0,
-        "explain":  "\u0027completely\u0027 (B2) — Totally; in every way."
+        "explain":  "\u0027underrepresented\u0027 (C1) — Given less recognition or representation than deserved."
     },
     {
-        "q":  "4. Which word or phrase from today\u0027s lesson means: \"Particularly; above all others.\"?",
+        "q":  "4. Which verb means \u0027to officially register for a university course or program\u0027?",
         "options":  [
-                        "especially",
-                        "actually",
-                        "understand"
+                        "enroll",
+                        "reschedule",
+                        "react"
                     ],
         "correct":  0,
-        "explain":  "\u0027especially\u0027 (B2) — Particularly; above all others."
+        "explain":  "\u0027enroll\u0027 (B2) — e.g., \u0027I enrolled in law at an open university.\u0027"
     }
 ];
     const FLASHCARD_KEYS = Object.keys(VOCAB_DB).slice(0, 12);
